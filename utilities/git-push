@@ -1,0 +1,53 @@
+#!/bin/bash
+
+RC='\033[0m'
+YELLOW='\033[33m'
+
+# Usage: git-push "Your commit message"
+push() {
+  git add .
+  git commit -m "$1"
+  git push -u origin main # Change 'main' to your branch name if needed
+  printf "%b\n" "${YELLOW}✅ Changes pushed to GitHub.${RC}"
+  #echo "✅ Changes pushed to GitHub."
+}
+
+# Exit if no commit message is provided
+if [ -z "$1" ]; then
+  {
+    printf "%b\n" "${YELLOW}❌ Commit message required.${RC}"
+    #echo "❌ Commit message required."
+    printf "%b\n" "${YELLOW}Usage: $0 \"Your commit message\"${RC}"
+    #echo "Usage: $0 \"Your commit message\""
+    exit 1
+  }
+fi
+
+# Check if current directory is a git repository
+if git rev-parse --is-inside-work-tree >/dev/null 2>&1; then
+  {
+    #"This is a Git repository.
+    # Check if there are unstaged changes or untracked files
+    if [[ -n $(git status --porcelain) ]]; then
+      {
+        git status
+        printf "%b\n" "${YELLOW}Do you want to continue? (y/n)${RC}"
+        #echo "Do you want to continue? (y/n)"
+        read user_input
+        if [[ "$user_input" == "y" ]]; then
+          push "$1"
+        else
+          printf "%b\n" "${YELLOW}Exiting.${RC}"
+          #echo "Exiting."
+          exit 0
+        fi
+      }
+    else
+      printf "%b\n" "${YELLOW}✅ No changes to add.${RC}"
+      #echo "No changes to add."
+    fi
+  }
+else
+  printf "%b\n" "${YELLOW}❌ NOT a Git repository.${RC}"
+  #echo "This is NOT a Git repository."
+fi

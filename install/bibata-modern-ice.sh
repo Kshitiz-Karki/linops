@@ -1,0 +1,7 @@
+cd ~/Downloads
+git clone https://github.com/JaKooLit/GTK-themes-icons.git --depth 1
+mkdir -p ~/.icons
+unzip -o -q "GTK-themes-icons/icon/Bibata-Modern-Ice.zip" -d ~/.icons/
+gsettings set org.gnome.desktop.interface cursor-theme Bibata-Modern-Ice
+rm -rf GTK-themes-icons
+cd -

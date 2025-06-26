@@ -1,0 +1,20 @@
+#!/bin/bash
+
+set -e
+
+RC='\033[0m'
+YELLOW='\033[33m'
+
+source ./0.validate-parameter.sh
+validateInputParameter "$1"
+
+if [ "$1" == "--install" ]; then
+  flatpak install -y flathub com.mattjakeman.ExtensionManager
+elif [ "$1" == "--uninstall" ]; then
+  flatpak uninstall -y --delete-data flathub com.mattjakeman.ExtensionManager
+  flatpak uninstall --unused
+else
+  printf "%b\n" "${YELLOW}❌ Invalid parameter.${RC}"
+  printf "%b\n" "${YELLOW}Usage: $0 --install / --uninstall${RC}"
+  exit 1
+fi

@@ -1,0 +1,36 @@
+
+#!/bin/bash
+
+RC='\033[0m'
+YELLOW='\033[33m'
+GREEN='\033[32m'
+
+repolist=(
+  "/home/${USER}/dotfiles"
+  "/home/${USER}/Pictures"
+  "/home/${USER}/Documents/books-and-pdfs"
+  "/home/${USER}/Documents/obsidian"
+  "/home/${USER}/Documents/code/bookmarks-manager"
+  "/home/${USER}/Documents/code/check-and-remove"
+  "/home/${USER}/Documents/code/cs61a"
+  "/home/${USER}/Documents/code/DSA"
+  "/home/${USER}/Documents/code/exercism"
+  "/home/${USER}/Documents/code/fedorator"
+  "/home/${USER}/Documents/code/freecodecamp"
+  "/home/${USER}/Documents/code/scrimba"
+)
+
+clear
+
+printf "%b\n" "${YELLOW}************************ configured repos ************************${RC}"
+for repo in "${repolist[@]}"; do
+  printf "%b\n" "${GREEN}$repo${RC}"
+done
+
+printf "%b\n" "${YELLOW}******************** git status for each repo ********************${RC}"
+for repo in "${repolist[@]}"; do
+  printf "%b\n" "${GREEN}for '$repo':${RC}"
+  cd $repo
+  git status
+  printf "%b\n" "${YELLOW}****************************************************************${RC}"
+done
