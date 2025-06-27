@@ -61,7 +61,7 @@ else
 fi
 
 printf "%b\n" "${YELLOW}Change battery charging start and stop thresholds ...${RC}"
-source ~/Downloads/configurator/configure/charging-thresholds.sh
+# source ~/Downloads/configurator/configure/charging-thresholds.sh
 
 if [ $XDG_CURRENT_DESKTOP == "GNOME" ]; then
   printf "%b\n" "${YELLOW}Configuring keybindings ...${RC}"
