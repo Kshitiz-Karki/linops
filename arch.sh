@@ -12,6 +12,7 @@ sudo pacman -Sy --needed aria2 stow bat zoxide tldr trash-cli fzf ripgrep fd kit
 printf "%b\n" "${YELLOW}Installing yay ...${RC}"
 sudo pacman -Sy --needed base-devel git
 cd ~/Downloads
+rm -rf yay
 git clone https://aur.archlinux.org/yay.git
 cd yay/
 makepkg -si --noconfirm
