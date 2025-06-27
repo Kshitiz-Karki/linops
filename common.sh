@@ -67,5 +67,12 @@ if [ $XDG_CURRENT_DESKTOP == "GNOME" ]; then
   printf "%b\n" "${YELLOW}Configuring keybindings ...${RC}"
   source ~/Downloads/configurator/configure/gnome-keybindings.sh
   printf "%b\n" "${YELLOW}Remove unrequired gnome apps ...${RC}"
-  source ~/Downloads/configurator/uninstall/default-gnome-apps.sh
+  # source ~/Downloads/configurator/uninstall/default-gnome-apps.sh
+fi
+
+printf "%b\n" "${YELLOW}Setup complete! Reboot? (y)${RC}"
+
+read user_input
+if [[ "$user_input" == "y" ]]; then
+  shutdown -r now
 fi
