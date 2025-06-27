@@ -17,6 +17,4 @@ brew install starship
 
 sudo dnf install -y stow bat zoxide tldr trash-cli fzf ripgrep fd kitty zsh btop htop
 # install neovim
-sudo dnf install -y neovim
-# Install luarocks and tree-sitter-cli to resolve lazyvim :checkhealth warnings
-sudo dnf install -y luarocks tree-sitter-cli
+sudo dnf install -y neovim luarocks tree-sitter-cli

@@ -1,0 +1,20 @@
+#!/bin/bash
+
+set -e
+
+cd ~/Downloads
+VERSION="3.5.5"
+wget https://github.com/exercism/cli/releases/download/v${VERSION}/exercism-${VERSION}-linux-x86_64.tar.gz
+tar -xf exercism-${VERSION}-linux-x86_64.tar.gz
+[ ! -d ~/bin ] && mkdir ~/bin
+mv exercism ~/bin
+cd -
+if [[ ":$PATH:" == *":$HOME/bin:"* || ":$PATH:" == *":~/bin:"* ]]; then
+  echo "~/bin is in PATH"
+else
+  echo 'export PATH=~/bin:$PATH' >>~/.zshrc
+  echo 'export PATH=~/bin:$PATH' >>~/.bashrc
+  source ~/.bashrc
+  source ~/.zshrc
+fi
+exercism configure --token=8121c352-aae9-425d-a342-de13f94bbd67
