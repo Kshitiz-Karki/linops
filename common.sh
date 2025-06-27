@@ -1,13 +1,13 @@
 set -e
 
 printf "%b\n" "${YELLOW}Installing brave browser ...${RC}"
-# source ~/Downloads/configurator/install/brave-browser.sh
+source ~/Downloads/configurator/install/brave-browser.sh
 
 printf "%b\n" "${YELLOW}Installing mega app ...${RC}"
-# source ~/Downloads/configurator/install/mega.sh
+source ~/Downloads/configurator/install/mega.sh
 
 printf "%b\n" "${YELLOW}Installing bibata modern ice cursor theme ...${RC}"
-# source ~/Downloads/configurator/install/bibata-cursor-theme.sh
+source ~/Downloads/configurator/install/bibata-cursor-theme.sh
 
 printf "%b\n" "${YELLOW}Installing Papirus icon theme ...${RC}"
 source ~/Downloads/configurator/install/papirus-icon-theme.sh
@@ -16,15 +16,7 @@ printf "%b\n" "${YELLOW}Installing cascadia mono nerd font ...${RC}"
 source ~/Downloads/configurator/install/cascadia-mono-nerd-font.sh
 
 printf "%b\n" "${YELLOW}Installing betterbird (flatpak) ...${RC}"
-# flatpak install -y flathub eu.betterbird.Betterbird
-
-# printf "%b\n" "${YELLOW}Installing gum ...${RC}"
-# source ~/Downloads/configurator/install/gum.sh
-
-# printf "%b\n" "${YELLOW}Setting up git ...${RC}"
-# source ~/Downloads/configurator/configure/setup-git.sh
-#
-# gum input --prompt "Added SSH key to github?" --value " yes"
+flatpak install -y flathub eu.betterbird.Betterbird
 
 printf "%b\n" "${YELLOW}Configuring and setting dotfiles ...${RC}"
 rm -rf ~/dotfiles
@@ -61,18 +53,13 @@ else
 fi
 
 printf "%b\n" "${YELLOW}Change battery charging start and stop thresholds ...${RC}"
-# source ~/Downloads/configurator/configure/charging-thresholds.sh
+source ~/Downloads/configurator/configure/charging-thresholds.sh
 
 if [ $XDG_CURRENT_DESKTOP == "GNOME" ]; then
   printf "%b\n" "${YELLOW}Configuring keybindings ...${RC}"
   source ~/Downloads/configurator/configure/gnome-keybindings.sh
   printf "%b\n" "${YELLOW}Remove unrequired gnome apps ...${RC}"
-  # source ~/Downloads/configurator/uninstall/default-gnome-apps.sh
+  source ~/Downloads/configurator/uninstall/default-gnome-apps.sh
 fi
 
-printf "%b\n" "${YELLOW}Setup complete! Reboot? (y)${RC}"
-
-read user_input
-if [[ "$user_input" == "y" ]]; then
-  shutdown -r now
-fi
+printf "%b\n" "${YELLOW}Setup complete!${RC}"
