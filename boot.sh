@@ -16,11 +16,13 @@ EOF
 RC='\033[0m'
 YELLOW='\033[33m'
 
+. /etc/os-release
+
+source ~/Downloads/configurator/pre-install.sh
+
 printf "%b\n" "${YELLOW}Cloning setup...${RC}"
 rm -rf ~/Downloads/configurator
 git clone --depth 1 https://github.com/Kshitiz-Karki/configurator.git ~/Downloads/configurator >/dev/null
-
-. /etc/os-release
 
 if [ "$ID" == "arch" ]; then
   source ~/Downloads/configurator/arch.sh
