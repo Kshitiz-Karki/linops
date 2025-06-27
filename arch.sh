@@ -14,7 +14,7 @@ sudo pacman -Sy --needed base-devel git
 cd ~/Downloads
 git clone https://aur.archlinux.org/yay.git
 cd yay/
-makepkg -si
+makepkg -si --noconfirm
 cd -
 
 printf "%b\n" "${YELLOW}Installing and configuring fwupd ...${RC}"
