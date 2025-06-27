@@ -1,5 +1,5 @@
 if [ "$ID" == "arch" ]; then
-  sudo pacman -Sy --needed papirus-icon-theme
+  sudo pacman -Sy --needed --noconfirm papirus-icon-theme
   gsettings set org.gnome.desktop.interface icon-theme 'Papirus-Dark'
 elif [ "$ID" == "fedora" ]; then
   sudo dnf install -y papirus-icon-theme

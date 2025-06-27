@@ -1,5 +1,5 @@
 if [ "$ID" == "arch" ]; then
-  sudo pacman -Sy --needed ttf-cascadia-mono-nerd
+  sudo pacman -Sy --needed --noconfirm ttf-cascadia-mono-nerd
 elif [ "$ID" == "fedora" ]; then
   mkdir -p ~/.fonts
   cd ~/Downloads

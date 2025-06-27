@@ -33,4 +33,9 @@ fi
 
 source ~/Downloads/configurator/common.sh
 
-printf "%b\n" "${YELLOW}Setup complete!${RC}"
+printf "%b\n" "${YELLOW}Setup complete! Reboot? (y)${RC}"
+
+read user_input
+if [[ "$user_input" == "y" ]]; then
+  shutdown -r now
+fi
