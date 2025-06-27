@@ -1,6 +1,8 @@
-# RC='\033[0m'
-# YELLOW='\033[33m'
-# GREEN='\033[32m'
+#!/bin/bash
+
+RC='\033[0m'
+YELLOW='\033[33m'
+GREEN='\033[32m'
 
 git config --global user.name "kshitiz"
 git config --global user.email "karki.kshitiz.23@gmail.com"

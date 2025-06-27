@@ -2,9 +2,6 @@
 
 set -e
 
-RC='\033[0m'
-YELLOW='\033[33m'
-
 source ./0.validate-parameter.sh
 validateInputParameter "$1"
 

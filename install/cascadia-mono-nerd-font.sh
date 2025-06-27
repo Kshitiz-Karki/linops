@@ -10,6 +10,6 @@ elif [ "$ID" == "fedora" ]; then
   fc-cache -v
   cd -
 else
-  printf "%b\n" "${YELLOW}No scipts present for ${ID}, exiting ...${RC}"
+  printf "%b\n" "${YELLOW}No scripts present for ${ID}, exiting ...${RC}"
   exit 1
 fi

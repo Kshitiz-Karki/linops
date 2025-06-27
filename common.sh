@@ -7,7 +7,7 @@ printf "%b\n" "${YELLOW}Installing mega app ...${RC}"
 source ~/Downloads/configurator/install/mega.sh
 
 printf "%b\n" "${YELLOW}Installing bibata modern ice cursor theme ...${RC}"
-source ~/Downloads/configurator/install/bibata-modern-ice.sh
+source ~/Downloads/configurator/install/bibata-cursor-theme.sh
 
 printf "%b\n" "${YELLOW}Installing Papirus icon theme ...${RC}"
 source ~/Downloads/configurator/install/papirus-icon-theme.sh
@@ -18,13 +18,13 @@ source ~/Downloads/configurator/install/cascadia-mono-nerd-font.sh
 printf "%b\n" "${YELLOW}Installing betterbird (flatpak) ...${RC}"
 flatpak install -y flathub eu.betterbird.Betterbird
 
-printf "%b\n" "${YELLOW}Installing gum ...${RC}"
-source ~/Downloads/configurator/install/gum.sh
+# printf "%b\n" "${YELLOW}Installing gum ...${RC}"
+# source ~/Downloads/configurator/install/gum.sh
 
-printf "%b\n" "${YELLOW}Setting up git ...${RC}"
-source ~/Downloads/configurator/configure/setup-git.sh
-
-gum input --prompt "Added SSH key to github?" --value " yes"
+# printf "%b\n" "${YELLOW}Setting up git ...${RC}"
+# source ~/Downloads/configurator/configure/setup-git.sh
+#
+# gum input --prompt "Added SSH key to github?" --value " yes"
 
 printf "%b\n" "${YELLOW}Configuring and setting dotfiles ...${RC}"
 rm -rf ~/dotfiles

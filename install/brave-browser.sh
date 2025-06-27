@@ -11,6 +11,6 @@ elif [ "$ID" == "fedora" ]; then
   sudo dnf install -y brave-browser
 
 else
-  printf "%b\n" "${YELLOW}No scipts present for ${ID}, exiting ...${RC}"
+  printf "%b\n" "${YELLOW}No scripts present for ${ID}, exiting ...${RC}"
   exit 1
 fi

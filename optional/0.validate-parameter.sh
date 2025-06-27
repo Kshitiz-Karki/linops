@@ -1,4 +1,5 @@
-#!/bin/bash
+RC='\033[0m'
+YELLOW='\033[33m'
 
 validateInputParameter() {
   if [ -z "$1" ]; then
