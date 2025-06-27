@@ -1,7 +1,7 @@
 set -e
 
 if [ "$ID" == "arch" ]; then
-  yay -Sy brave-bin
+  yay -S --noconfirm --needed brave-bin
 elif [ "$ID" == "fedora" ]; then
   # add debloat scripts for brave, https://github.com/MulesGaming/brave-debloatinator
   sudo mkdir /etc/brave/policies/managed -p
