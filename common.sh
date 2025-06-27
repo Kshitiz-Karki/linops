@@ -28,7 +28,7 @@ printf "%b\n" "${YELLOW}Installing betterbird (flatpak) ...${RC}"
 
 printf "%b\n" "${YELLOW}Configuring and setting dotfiles ...${RC}"
 rm -rf ~/dotfiles
-git clone --depth 1 https://github.com/Kshitiz-Karki/dotfiles.git ~/dotfiles
+git clone --depth 1 https://github.com/Kshitiz-Karki/dotfiles.git ~/dotfiles >/dev/null
 
 [ -f "$HOME/.bashrc" ] && mv ~/.bashrc ~/.bashrc.bak
 
