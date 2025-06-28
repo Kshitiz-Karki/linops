@@ -2,6 +2,7 @@
 systemctl list-units --type=service --state=running
 
 #copy and paste in and out of a Gnome Boxes
+#install this in guest os
 sudo pacman -Sy --needed spice-vdagent
 
 # connect to internet via terminal
