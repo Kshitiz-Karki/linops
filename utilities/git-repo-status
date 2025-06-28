@@ -1,9 +1,9 @@
-
 #!/bin/bash
 
 RC='\033[0m'
 YELLOW='\033[33m'
 GREEN='\033[32m'
+RED='\033[0;31m'
 
 repolist=(
   "/home/${USER}/dotfiles"
@@ -11,13 +11,12 @@ repolist=(
   "/home/${USER}/Documents/books-and-pdfs"
   "/home/${USER}/Documents/obsidian"
   "/home/${USER}/Documents/code/bookmarks-manager"
+  "/home/${USER}/Documents/code/configurator"
+  "/home/${USER}/Documents/code/fedorator"
   "/home/${USER}/Documents/code/check-and-remove"
-  "/home/${USER}/Documents/code/cs61a"
   "/home/${USER}/Documents/code/DSA"
   "/home/${USER}/Documents/code/exercism"
-  "/home/${USER}/Documents/code/fedorator"
-  "/home/${USER}/Documents/code/freecodecamp"
-  "/home/${USER}/Documents/code/scrimba"
+  "/home/${USER}/Documents/code/intro-cs"
 )
 
 clear
@@ -30,7 +29,11 @@ done
 printf "%b\n" "${YELLOW}******************** git status for each repo ********************${RC}"
 for repo in "${repolist[@]}"; do
   printf "%b\n" "${GREEN}for '$repo':${RC}"
-  cd $repo
-  git status
+  if [ ! -d "$repo" ]; then
+    printf "%b\n" "${RED}Directory '$repo' does not exist.${RC}"
+  else
+    cd $repo
+    git status
+  fi
   printf "%b\n" "${YELLOW}****************************************************************${RC}"
 done
