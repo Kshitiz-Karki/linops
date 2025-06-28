@@ -1,4 +1,5 @@
 cd ~/Downloads
+rm -rf GTK-themes-icons
 git clone https://github.com/JaKooLit/GTK-themes-icons.git --depth 1
 mkdir -p ~/.icons
 unzip -o -q "GTK-themes-icons/icon/Bibata-Modern-Ice.zip" -d ~/.icons/

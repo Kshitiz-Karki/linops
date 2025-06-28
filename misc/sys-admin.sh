@@ -1,6 +1,11 @@
 #check running service daemons: (https://www.baeldung.com/linux/list-running-daemons)
 systemctl list-units --type=service --state=running
 
+#disable gnome online accounts background service, since i am not using it currently
+sudo systemctl mask accounts-daemon.service
+#to enable
+sudo systemctl unmask accounts-daemon.service
+
 #copy and paste in and out of a Gnome Boxes
 #install this in guest os
 sudo pacman -Sy --needed spice-vdagent

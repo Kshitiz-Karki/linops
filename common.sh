@@ -16,7 +16,7 @@ printf "%b\n" "${YELLOW}Installing cascadia mono nerd font ...${RC}"
 source ~/Downloads/configurator/install/cascadia-mono-nerd-font.sh
 
 printf "%b\n" "${YELLOW}Installing betterbird (flatpak) ...${RC}"
-flatpak install -y flathub eu.betterbird.Betterbird
+source ~/Downloads/configurator/install/betterbird.sh
 
 printf "%b\n" "${YELLOW}Configuring and setting dotfiles ...${RC}"
 rm -rf ~/dotfiles
