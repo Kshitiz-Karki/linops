@@ -13,14 +13,15 @@
 #   printf "%b\n" "${YELLOW}No scripts present for ${ID}, exiting ...${RC}"
 #   exit 1
 # fi
-mkdir -p ~/.fonts
-cd ~/Downloads
+
+mkdir -p ~/.local/share/fonts
+cd /tmp
 wget https://github.com/ryanoasis/nerd-fonts/releases/latest/download/CascadiaMono.zip
 unzip CascadiaMono.zip -d CascadiaFont
-cp CascadiaFont/CaskaydiaMonoNerdFont-Regular.ttf ~/.fonts
-cp CascadiaFont/CaskaydiaMonoNerdFont-Bold.ttf ~/.fonts
-cp CascadiaFont/CaskaydiaMonoNerdFont-Italic.ttf ~/.fonts
-cp CascadiaFont/CaskaydiaMonoNerdFont-BoldItalic.ttf ~/.fonts
+cp CascadiaFont/CaskaydiaMonoNerdFont-Regular.ttf ~/.local/share/fonts
+cp CascadiaFont/CaskaydiaMonoNerdFont-Bold.ttf ~/.local/share/fonts
+cp CascadiaFont/CaskaydiaMonoNerdFont-Italic.ttf ~/.local/share/fonts
+cp CascadiaFont/CaskaydiaMonoNerdFont-BoldItalic.ttf ~/.local/share/fonts
 rm -rf CascadiaMono.zip CascadiaFont
 fc-cache
 cd -
