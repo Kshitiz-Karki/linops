@@ -11,10 +11,13 @@ sudo pacman -Sy --needed aria2 stow bat zoxide tldr trash-cli \
   man less
 
 printf "%b\n" "${YELLOW}Installing yay ...${RC}"
-sudo pacman -Sy --needed base-devel git
-cd ~/Downloads
-rm -rf yay
-git clone https://aur.archlinux.org/yay.git
-cd yay/
-makepkg -si --noconfirm
-cd -
+sudo pacman -S --needed --noconfirm base-devel git
+if ! command -v yay &>/dev/null; then
+  cd ~/Downloads
+  rm -rf yay-bin
+  git clone https://aur.archlinux.org/yay-bin.git
+  cd yay-bin
+  makepkg -si --noconfirm
+  rm -rf ../yay-bin
+  cd -
+fi
