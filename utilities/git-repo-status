@@ -17,6 +17,7 @@ repolist=(
   "/home/${USER}/Documents/code/DSA"
   "/home/${USER}/Documents/code/exercism"
   "/home/${USER}/Documents/code/intro-cs"
+  "/home/${USER}/Documents/code/omarchy"
 )
 
 clear
