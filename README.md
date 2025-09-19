@@ -1,6 +1,6 @@
-# Configurator
+# linops
 
-My personal linux setup/configuration scripts.
+Consolidated setup/configuration scripts for linux (mainly for Fedora + Gnome + Omarchy).
 
 ##  Installation
 
@@ -12,6 +12,3 @@ My personal linux setup/configuration scripts.
   - [omarchy](https://omarchy.org/)
   - [linutil](https://github.com/ChrisTitusTech/linutil)
   - [crucible](https://github.com/typecraft-dev/crucible)
-
-##  Add execute permission:
-  - `chmod +x ./*`

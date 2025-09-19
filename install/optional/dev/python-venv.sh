@@ -1,3 +1,4 @@
+#!/bin/bash
 #https://developer.fedoraproject.org/tech/languages/python/multiple-pythons.html
 sudo dnf install python3.11
 python3.11 --version

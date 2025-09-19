@@ -1,7 +1,5 @@
 #!/bin/bash
 
-set -e
-
 cd ~/Downloads
 VERSION="3.5.5"
 wget https://github.com/exercism/cli/releases/download/v${VERSION}/exercism-${VERSION}-linux-x86_64.tar.gz

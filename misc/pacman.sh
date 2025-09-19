@@ -18,3 +18,7 @@ yay <package-name>
 # search for a package in aur with a partial name of 'spotify'
 yay -Ss spotify
 
+#remove aur package
+yay -Rc brave-bin
+
+

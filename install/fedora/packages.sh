@@ -34,17 +34,6 @@ gsettings set org.gnome.desktop.interface icon-theme 'Papirus-Dark'
 #neovim
 sudo dnf install -y fzf ripgrep fd neovim luarocks tree-sitter-cli
 
-#lazyvim, https://www.lazyvim.org/#%EF%B8%8F-requirements, https://www.lazyvim.org/installation
-# required
-mv ~/.config/nvim{,.bak}
-# optional but recommended
-mv ~/.local/share/nvim{,.bak}
-mv ~/.local/state/nvim{,.bak}
-mv ~/.cache/nvim{,.bak}
-
-git clone https://github.com/LazyVim/starter ~/.config/nvim --depth 1
-rm -rf ~/.config/nvim/.git
-
 #cli tools
 sudo dnf copr enable alternateved/eza
 sudo dnf install eza
