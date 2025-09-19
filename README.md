@@ -1,10 +1,11 @@
 # linops
 
-Consolidated setup/configuration scripts for linux (mainly for Fedora + Gnome + Omarchy).
+Consolidated setup/configuration scripts for "Fedora + Gnome + Omarchy".
 
 ##  Installation
 
-      wget -qO- https://raw.githubusercontent.com/Kshitiz-Karki/configurator/refs/heads/main/boot.sh | bash
+      - packages: wget -qO- https://raw.githubusercontent.com/Kshitiz-Karki/linops/refs/heads/main/boot.sh | bash
+      - hyprland: wget 
 
 ##  Inspired by
 

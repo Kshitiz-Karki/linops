@@ -1,36 +1,17 @@
-set -e
+#!/bin/bash
 
-clear #clear screen
-
-cat <<"EOF"
- _____              __ _                       _             
-/  __ \            / _(_)                     | |            
-| /  \/ ___  _ __ | |_ _  __ _ _   _ _ __ __ _| |_ ___  _ __ 
-| |    / _ \| '_ \|  _| |/ _` | | | | '__/ _` | __/ _ \| '__|
-| \__/\ (_) | | | | | | | (_| | |_| | | | (_| | || (_) | |   
- \____/\___/|_| |_|_| |_|\__, |\__,_|_|  \__,_|\__\___/|_|   
-                          __/ |                              
-                         |___/                               
-EOF
-
-RC='\033[0m'
-YELLOW='\033[33m'
+clear
 
 . /etc/os-release
 
-printf "%b\n" "${YELLOW}Cloning setup...${RC}"
-rm -rf ~/Downloads/configurator
-git clone --depth 1 https://github.com/Kshitiz-Karki/configurator.git ~/Downloads/configurator >/dev/null
-
-source ~/Downloads/configurator/pre-install.sh
+echo "\nCloning linops"
+rm -rf ~/Downloads/linops
+git clone --depth 1 "https://github.com/Kshitiz-Karki/linops.git" ~/Downloads/linops >/dev/null
 
 if [ "$ID" == "arch" ]; then
-  source ~/Downloads/configurator/arch.sh
+  source ~/Downloads/linops/install/arch/packages.sh
 elif [ "$ID" == "fedora" ]; then
-  source ~/Downloads/configurator/fedora.sh
-else
-  printf "%b\n" "${YELLOW}No scipts present for ${ID}, exiting ...${RC}"
-  exit 1
+  source ~/Downloads/linops/install/fedora/packages.sh
 fi
 
-source ~/Downloads/configurator/common.sh
+echo 'Done !!!!!!!'
