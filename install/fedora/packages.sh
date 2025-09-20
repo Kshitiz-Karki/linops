@@ -36,8 +36,11 @@ sudo dnf install -y fzf ripgrep fd neovim luarocks tree-sitter-cli
 
 #cli tools
 sudo dnf copr enable alternateved/eza
-sudo dnf install eza
+sudo dnf install -y eza
 sudo dnf copr enable atim/starship
-sudo dnf install starship
+sudo dnf install -y starship
 
 sudo dnf install -y stow bat zoxide tldr trash-cli kitty zsh btop
+
+#gui apps
+sudo dnf install -y mpv

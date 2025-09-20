@@ -1,29 +1,27 @@
 #!/bin/bash
 
-if [[ ":$PATH:" == *":$HOME/bin/omarchy:"* || ":$PATH:" == *":~/bin/omarchy:"* ]]; then
-  echo '~/bin/omarchy is in PATH'
-else
-  export OMARCHY_PATH="$HOME/bin/omarchy"
-  export PATH="$OMARCHY_PATH:$PATH"
-fi
+# if [[ ":$PATH:" == *":$HOME/.local/share/omarchy:"* || ":$PATH:" == *":~/.local/share/omarchy:"* ]]; then
+#   echo '~/.local/share/omarchy is in PATH'
+# else
+export OMARCHY_PATH="$HOME/.local/share/omarchy"
+export PATH="$OMARCHY_PATH:$PATH"
+# echo 'export PATH=~/.local/share/omarchy:$PATH' >>~/.zshrc
+# echo 'export PATH=~/.local/share/omarchy:$PATH' >>~/.bashrc
+# fi
 
-for file in ~/Documents/code/linops/install/hyprland/bin/*; do sudo cp $file ~/bin/omarchy/; done
+mkdir -p ~/.local/share/omarchy/
+cp -r ~/Documents/code/linops/install/omarchy/* ~/.local/share/omarchy/
 
 source ~/Documents/code/linops/install/hyprland/packages.sh
 
-# omarchy-webapp-install "WhatsApp" https://web.whatsapp.com/ WhatsApp.png
-# omarchy-webapp-install "ChatGPT" https://chatgpt.com/ ChatGPT.png
-# omarchy-webapp-install "YouTube" https://youtube.com/ YouTube.png
-# omarchy-webapp-install "GitHub" https://github.com/ GitHub.png
-
 # Copy over Omarchy configs
-mkdir -p ~/.config
-cp -R ~/Documents/code/linops/install/hyprland/configs/* ~/.config/
+cp -r ~/Documents/code/linops/install/omarchy/config/* ~/.config/
 # Use default bashrc from Omarchy
 [ -f "$HOME/.bashrc" ] && mv ~/.bashrc ~/.bashrc-default.bak
 cp ~/.local/share/omarchy/default/bashrc ~/.bashrc
 
 #configure theme
+# gsettings set org.gnome.desktop.interface gtk-theme "Adwaita-dark"
 source ~/Documents/code/linops/install/hyprland/theme.sh
 
 # Open video files with mpv
