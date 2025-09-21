@@ -17,17 +17,13 @@ configuration{
     display-window: "󱂬 window:";
     display-combi:  "󰕘 combi:";
     display-filebrowser: "󰉋 filebrowser:";
-
-    font: "CaskaydiaMono Nerd Font 12";
-    
+    font: "CaskaydiaMono Nerd Font 14";
     //adding vim keybindings
     kb-row-up: "Up,Control+k";
     kb-row-left: "Left,Control+h";
     kb-row-right: "Right,Control+l";
     kb-row-down: "Down,Control+j";
-
     kb-accept-entry: "Control+z,Control+y,Return,KP_Enter";
-
     //fixing up
     kb-remove-to-eol: "";
     kb-move-char-back: "Control+b";
