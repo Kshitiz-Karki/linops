@@ -1,1 +1,2 @@
 - make use of dotfiles using stow for configs
+- change waybar's look and feel
