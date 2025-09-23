@@ -15,7 +15,7 @@ sudo dnf install -y \
   kvantum-qt5 \
   mako \
   pamixer \
-  rofi-wayland \
+  rofi \
   slurp \
   swaybg \
   waybar \

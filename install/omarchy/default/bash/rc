@@ -1,7 +1,7 @@
-source ~/.local/share/omarchy/default/bash/shell
-source ~/.local/share/omarchy/default/bash/aliases
-source ~/.local/share/omarchy/default/bash/functions
-source ~/.local/share/omarchy/default/bash/prompt
-source ~/.local/share/omarchy/default/bash/init
-source ~/.local/share/omarchy/default/bash/envs
-[[ $- == *i* ]] && bind -f ~/.local/share/omarchy/default/bash/inputrc
+source ~/Documents/code/linops/install/omarchy/default/bash/shell
+source ~/Documents/code/linops/install/omarchy/default/bash/aliases
+source ~/Documents/code/linops/install/omarchy/default/bash/functions
+source ~/Documents/code/linops/install/omarchy/default/bash/prompt
+source ~/Documents/code/linops/install/omarchy/default/bash/init
+source ~/Documents/code/linops/install/omarchy/default/bash/envs
+[[ $- == *i* ]] && bind -f ~/Documents/code/linops/install/omarchy/default/bash/inputrc
