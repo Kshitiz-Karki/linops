@@ -10,7 +10,7 @@ export PATH="$OMARCHY_PATH:$PATH"
 # fi
 
 mkdir -p ~/.local/share/omarchy/
-cp -r ~/Documents/code/linops/install/omarchy/* ~/.local/share/omarchy/
+cp -r ~/Documents/code/linops/install/omarchy/bin ~/.local/share/omarchy/
 
 source ~/Documents/code/linops/install/hyprland/packages.sh
 
@@ -18,7 +18,7 @@ source ~/Documents/code/linops/install/hyprland/packages.sh
 cp -r ~/Documents/code/linops/install/omarchy/config/* ~/.config/
 # Use default bashrc from Omarchy
 [ -f "$HOME/.bashrc" ] && mv ~/.bashrc ~/.bashrc-default.bak
-cp ~/.local/share/omarchy/default/bashrc ~/.bashrc
+cp ~/Documents/code/linops/install/omarchy/default/bashrc ~/.bashrc
 
 #configure theme
 # gsettings set org.gnome.desktop.interface gtk-theme "Adwaita-dark"

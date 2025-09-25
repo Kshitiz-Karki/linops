@@ -9,10 +9,8 @@
 // Configuration - modules-left
 
     "modules-left": [
-        "custom/launcher",
-        "sway/workspaces",
-        "sway/mode",
-        "sway/window"
+        "hyprland/workspaces",
+        "hyprland/window"
     ],
 
     "custom/launcher": {
@@ -21,7 +19,7 @@
         "tooltip": false
     },
 
-    "sway/workspaces": {
+    "hyprland/workspaces": {
         "disable-scroll": true,
         "all-outputs": true,
         "format": "{icon}",
@@ -37,12 +35,7 @@
         }
     },
 
-    "sway/mode": {
-        "format": "<span style=\"italic\">{}</span>",
-        "tooltip": false
-    },
-
-    "sway/window": {
+    "hyprland/window": {
         "format": "{}",
         //"all-outputs": true, // Active window shows only on active display when commented
         "max-length": 120
@@ -72,7 +65,7 @@
         "idle_inhibitor",
         "cpu",
         "memory",
-        "backlight",
+        // "backlight",
         "pulseaudio",
         "battery",
         "clock",

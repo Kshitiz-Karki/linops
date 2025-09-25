@@ -1,6 +1,6 @@
 # Setup theme links
 mkdir -p ~/.config/omarchy/themes
-for f in ~/.local/share/omarchy/themes/*; do ln -nfs "$f" ~/.config/omarchy/themes/; done
+for f in ~/Documents/code/linops/install/omarchy/themes/*; do ln -nfs "$f" ~/.config/omarchy/themes/; done
 
 # Set initial theme
 mkdir -p ~/.config/omarchy/current

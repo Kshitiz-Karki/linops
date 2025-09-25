@@ -60,17 +60,17 @@ show_screenshot_menu() {
   esac
 }
 
-show_toggle_menu() {
-  # case $(menu "Toggle" "󱄄  Screensaver\n󰔎  Nightlight\n󱫖  Idle Lock\n󰍜  Top Bar") in
-  case $(menu "Toggle" "󰔎  Nightlight\n󰍜  Top Bar") in
-  # *Screensaver*) omarchy-toggle-screensaver ;;
-  *Nightlight*) omarchy-toggle-nightlight ;;
-  # *Idle*) omarchy-toggle-idle ;;
-  *Bar*) omarchy-toggle-waybar ;;
-  # *) show_trigger_menu ;;
-  *) show_main_menu ;;
-  esac
-}
+#show_toggle_menu() {
+# case $(menu "Toggle" "󱄄  Screensaver\n󰔎  Nightlight\n󱫖  Idle Lock\n󰍜  Top Bar") in
+#case $(menu "Toggle" "󰔎  Nightlight\n󰍜  Top Bar") in
+# *Screensaver*) omarchy-toggle-screensaver ;;
+#*Nightlight*) omarchy-toggle-nightlight ;;
+# *Idle*) omarchy-toggle-idle ;;
+#*Bar*) omarchy-toggle-waybar ;;
+# *) show_trigger_menu ;;
+#*) show_main_menu ;;
+#esac
+#}
 
 show_system_menu() {
   # case $(menu "System" "  Lock\n󱄄  Screensaver\n󰤄  Suspend\n  Relaunch\n󰜉  Restart\n󰐥  Shutdown") in
@@ -89,14 +89,15 @@ show_system_menu() {
 
 show_main_menu() {
   # go_to_menu "$(menu "Go" "󰀻  Apps\n󰧑  Learn\n󱓞  Trigger\n  Style\n  Setup\n󰉉  Install\n󰭌  Remove\n  Update\n  About\n  System")"
-  go_to_menu "$(menu "Go" "󰧑  Learn\n󰔎  Toggle\n  Audio\n  Wifi\n󰂯  Bluetooth\n  Screenshot\n  System")"
+  go_to_menu "$(menu "Go" "󰧑  Learn\n󰍜  Toggle Waybar\n  Audio\n  Wifi\n󰂯  Bluetooth\n  Screenshot\n  System")"
 }
 
 go_to_menu() {
   case "${1,,}" in
   # *apps*) walker -p "Launch…" ;;
   *learn*) show_learn_menu ;;
-  *toggle*) show_toggle_menu ;;
+  # *toggle*) show_toggle_menu ;;
+  *toggle*) omarchy-toggle-waybar ;;
   *audio*) $TERMINAL --class=Wiremix -e wiremix ;;
   *wifi*) $TERMINAL -e nmtui-go-v0.2.2 ;;
   *bluetooth*) $TERMINAL -e bluetui-v0.6 ;;

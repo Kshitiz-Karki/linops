@@ -31,4 +31,6 @@ configuration{
     kb-move-char-forward: "Control+f";
     kb-mode-complete: "Control+o";
 }
-@theme "/home/nkk/Documents/github/w8ste-tokyonight-rofi/tokyonight_big1.rasi"
+// @theme "/home/nkk/Documents/github/w8ste-tokyonight-rofi/tokyonight.rasi"
+@theme "/home/nkk/Documents/github/rofi-catppuccin/catppuccin-default"
+
