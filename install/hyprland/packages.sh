@@ -10,9 +10,12 @@ sudo dnf install -y \
   rofi \
   slurp \
   swaybg \
+  swaylock \
   waybar \
   wiremix \
   wlsunset
+
+# sudo dnf install swaylock-effects
 
 # sudo dnf copr enable markupstart/SwayOSD
 # sudo dnf install swayosd

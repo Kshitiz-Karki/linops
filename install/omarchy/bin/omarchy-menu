@@ -75,7 +75,8 @@ show_screenshot_menu() {
 show_system_menu() {
   # case $(menu "System" "  Lock\n󱄄  Screensaver\n󰤄  Suspend\n  Relaunch\n󰜉  Restart\n󰐥  Shutdown") in
   case $(menu "System" "  Lock\n󰍃  Logout\n󰤄  Suspend\n  Relaunch\n󰜉  Restart\n󰐥  Shutdown") in
-  *Lock*) omarchy-lock-screen ;;
+  # *Lock*) omarchy-lock-screen ;;
+  *Lock*) swaylock ;;
   # *Logout*) hyprctl dispatch exit ;;
   *Logout*) loginctl terminate-user $USER ;;
   # *Screensaver*) omarchy-launch-screensaver force ;;
@@ -89,18 +90,19 @@ show_system_menu() {
 
 show_main_menu() {
   # go_to_menu "$(menu "Go" "󰀻  Apps\n󰧑  Learn\n󱓞  Trigger\n  Style\n  Setup\n󰉉  Install\n󰭌  Remove\n  Update\n  About\n  System")"
-  go_to_menu "$(menu "Go" "󰧑  Learn\n󰍜  Toggle Waybar\n  Audio\n  Wifi\n󰂯  Bluetooth\n  Screenshot\n  System")"
+  go_to_menu "$(menu "Go" "󰃀  Quick links\n󰧑  Learn\n󰍜  Toggle Waybar\n  Audio\n  Wifi\n󰂯  Bluetooth\n  Screenshot\n  System")"
 }
 
 go_to_menu() {
   case "${1,,}" in
+  *quick*) ~/Documents/code/linops/utilities/quicklinks ;;
   # *apps*) walker -p "Launch…" ;;
   *learn*) show_learn_menu ;;
   # *toggle*) show_toggle_menu ;;
   *toggle*) omarchy-toggle-waybar ;;
   *audio*) $TERMINAL --class=Wiremix -e wiremix ;;
-  *wifi*) $TERMINAL -e nmtui-go-v0.2.2 ;;
-  *bluetooth*) $TERMINAL -e bluetui-v0.6 ;;
+  *wifi*) $TERMINAL --class=NMtui-go -e nmtui ;;
+  *bluetooth*) $TERMINAL --class=Bluetui -e bluetui ;;
   # *trigger*) show_trigger_menu ;;
   # *share*) show_share_menu ;;
   # *style*) show_style_menu ;;
