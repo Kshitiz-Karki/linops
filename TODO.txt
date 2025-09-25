@@ -6,3 +6,5 @@
 - point ~/bin to linops/utilities
 - update and check main menu
 - update keybinds look to manual ??
+- update omarchy tracker
+- symlink ~/.config to linops/omarchy/config
