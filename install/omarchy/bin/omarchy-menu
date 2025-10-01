@@ -88,14 +88,22 @@ show_system_menu() {
   esac
 }
 
+show_utilities_menu() {
+  case $(menu "Utilities" "  xxxxxxxx") in
+  *) show_main_menu ;;
+  esac
+
+}
+
 show_main_menu() {
   # go_to_menu "$(menu "Go" "󰀻  Apps\n󰧑  Learn\n󱓞  Trigger\n  Style\n  Setup\n󰉉  Install\n󰭌  Remove\n  Update\n  About\n  System")"
-  go_to_menu "$(menu "Go" "󰃀  Quick links\n󰧑  Learn\n󰍜  Toggle Waybar\n  Audio\n  Wifi\n󰂯  Bluetooth\n  Screenshot\n  System")"
+  go_to_menu "$(menu "Go" "󰃀  Quick links\n  Utilities\n󰧑  Learn\n󰍜  Toggle Waybar\n  Audio\n  Wifi\n󰂯  Bluetooth\n  Screenshot\n  System")"
 }
 
 go_to_menu() {
   case "${1,,}" in
   *quick*) ~/Documents/code/linops/utilities/quicklinks ;;
+  *utilities*) show_utilities_menu ;;
   # *apps*) walker -p "Launch…" ;;
   *learn*) show_learn_menu ;;
   # *toggle*) show_toggle_menu ;;

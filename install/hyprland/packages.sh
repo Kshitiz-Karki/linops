@@ -7,7 +7,7 @@ sudo dnf install -y hyprland hyprshot satty
 sudo dnf install -y \
   mako \
   pamixer \
-  rofi \
+  rofi-wayland \
   slurp \
   swaybg \
   swaylock \
