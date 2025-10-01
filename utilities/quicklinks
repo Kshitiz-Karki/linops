@@ -13,4 +13,5 @@ if [ -n "$CHOICE" ]; then
   # take everything after the first ']'
   result="${clean#*]}"
   xdg-open "$result" >/dev/null 2>&1 &
+  swaymsg '[app_id="brave"] focus'
 fi

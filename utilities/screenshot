@@ -1,0 +1,32 @@
+#!/bin/bash
+
+if [[ -z "$1" || -z "$2" || -z "$3" ]]; then
+  {
+    echo "Usage: $0 <type (region/window/fullscreen)> <directory (save location)> <file-name>"
+    exit 1
+  }
+fi
+
+if [[ "$1" != "region" && "$1" != "window" && "$1" != "fullscreen" ]]; then
+  echo "❌ '$1' is not a valid option (region/window/fullscreen)."
+  exit 1
+fi
+
+path="$2" # take path as first argument
+path="${path%/}"
+filename="$3"
+
+if [[ -d "$path" ]]; then
+  echo "✅ '$path' is a valid directory."
+  if [[ "$1" == "region" ]]; then
+    grimshot save area "$path"/"$filename".png
+  elif [[ "$1" == "window" ]]; then
+    grimshot save window "$path"/"$filename".png
+  else
+    grim "$path"/"$filename".png
+  fi
+  exit 0
+else
+  echo "❌ '$path' is not a valid directory."
+  exit 1
+fi
