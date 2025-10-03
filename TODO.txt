@@ -1,6 +1,6 @@
 - make use of dotfiles using stow for configs
 - add linux commands from notes repo
-- point .local/share/omarchy/bin to linops/omarchy/bin
+- symlink .local/share/omarchy/bin to linops/omarchy/bin
 - point ~/bin to linops/utilities
 - update keybinds look to manual ??
 - update omarchy tracker
