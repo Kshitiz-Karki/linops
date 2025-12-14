@@ -14,7 +14,7 @@ sudo dnf config-manager addrepo --from-repofile=https://brave-browser-rpm-releas
 sudo dnf install brave-browser
 
 #mega
-wget https://mega.nz/linux/repo/Fedora_42/x86_64/megasync-Fedora_42.x86_64.rpm && sudo dnf install "$PWD/megasync-Fedora_42.x86_64.rpm"
+wget https://mega.nz/linux/repo/Fedora_43/x86_64/megasync-Fedora_43.x86_64.rpm && sudo dnf install "$PWD/megasync-Fedora_43.x86_64.rpm"
 
 #caskaydia mono nerd font
 mkdir -p ~/.local/share/fonts
@@ -55,4 +55,6 @@ sudo dnf install -y \
   trash-cli \
   wiremix \
   zoxide \
-  zsh
+  zsh \
+  rofi \
+  aria2c
