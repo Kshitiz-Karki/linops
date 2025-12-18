@@ -42,19 +42,17 @@ sudo dnf copr enable atim/starship
 sudo dnf install -y starship
 
 sudo dnf install -y \
-  alacritty \
   bat \
   btop \
-  fastfetch \
   kitty \
   mpv \
-  pamixer \
   rofi \
   stow \
   tldr \
   trash-cli \
-  wiremix \
   zoxide \
   zsh \
   rofi \
   aria2c
+
+# alacritty # wiremix # pamixer # fastfetch
