@@ -12,3 +12,5 @@ blueman-manager
 
 # https://flathub.org/en/apps/com.saivert.pwvucontrol
 flatpak install flathub com.saivert.pwvucontrol
+
+sudo dnf install evince zathura zathura-pdf-poppler
