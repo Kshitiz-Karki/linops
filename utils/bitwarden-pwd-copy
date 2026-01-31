@@ -1,0 +1,18 @@
+#!/bin/bash
+
+if [ -z "$1" ]; then
+  echo "Usage: $0 \"file path to check for\""
+  exit 1
+fi
+
+# Read the first line
+FIRST_LINE=$(head -n 1 "$1")
+
+# Copy to clipboard (works on Linux; requires xclip or wl-copy)
+if command -v wl-copy &>/dev/null; then
+  echo -n "$FIRST_LINE" | wl-copy
+  exit 0
+else
+  echo "wl-copy package not found (install xclip, wl-clipboard, or pbcopy)."
+  exit 1
+fi

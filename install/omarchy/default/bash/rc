@@ -1,7 +1,0 @@
-source ~/Documents/code/linops/install/omarchy/default/bash/shell
-source ~/Documents/code/linops/install/omarchy/default/bash/aliases
-source ~/Documents/code/linops/install/omarchy/default/bash/functions
-source ~/Documents/code/linops/install/omarchy/default/bash/prompt
-source ~/Documents/code/linops/install/omarchy/default/bash/init
-source ~/Documents/code/linops/install/omarchy/default/bash/envs
-[[ $- == *i* ]] && bind -f ~/Documents/code/linops/install/omarchy/default/bash/inputrc

@@ -1,6 +1,0 @@
-[videos]  chrome-extension://cnpgabmfnfehdamobkafalnpdoigdlil/_favicon/?pageUrl=https%3A%2F%2Fwww.google.com%2Fsearch%3Fq%3Dis%2Bthere%2Ba%2Bsite%252Ftool%2Bfrom%2Bwhere%2Bi%2Bcan%2Bget%2Bthe%2Bicon%2Bfor%2Bevery%2Bwebsite%253F%26sca_esv%3Df1a6d5ece4c2b634%26sxsrf%3DAE3TifMl1CYoFCEHCvCH_qmBHfWiZDp2-w%253A1767707795338%26source%3Dhp%26ei%3DkxRdaan-EcyPvr0PlNX9oAY%26iflsig%3DAOw8s4IAAAAAaV0io9ljkZ7aZB9c3dmWPxPHCKma8U0D%26aep%3D22%26udm%3D50%26ved%3D0ahUKEwjpk9LZiPeRAxXMh68BHZRqH2QQteYPCBY%26oq%3D%26gs_lp%3DEgdnd3Mtd2l6IgBIAFAAWABwAHgAkAEAmAEAoAEAqgEAuAEByAEAmAIAoAIAmAMAkgcAoAcAsgcAuAcAwgcAyAcAgAgA%26sclient%3Dgws-wiz%26mstk%3DAUtExfC3NJoWip5HFw4HezKlqlfGnsDn8NqdzH40hUTNpg_UgWTv0e_VDpXg1smzeL6MH_gx1HsaJHVhA7sYSGMRiuXKGzRzGQZlwAWLipBUDsS2qUjvKFX8cYzf3xkk0_XaACFeU5aC_LUBCtVd1W8FNu70gA8sAT4EHtmiCbejrCZD8uQ9dT3VU8mdv8VqBpwKrAteY3BD5wEIF7OeHycVaHYhHodIgaJlLjihAqd0FVePIbkvZGl4hA0M-J4YNP5om84fR89Gh8OHYAzP-AREx9lxmiCxuWCBo3U%26csuir%3D1%26mtid%3DtBRdacGyNrK7seMPoYWnsAk&size=16 https://www.youtube.com/
-[code]  https://github.com/
-[translate]  https://translate.google.com/?sl=de&tl=en&op=translate
-[vocab]  https://der-artikel.de/
-[vocab]  https://www.linguee.de/
-[vocab]  https://lingvist.com/course/learn-german-online/resources/german-alphabet/

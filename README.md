@@ -1,15 +1,10 @@
-# linops
+#  Usage
 
-Consolidated setup/configuration scripts for "Fedora + Gnome + Omarchy".
+Installs additional packages and dotfiles on top of existing installation of Fedora (sway spin).
 
-##  Installation
-
-      - packages: wget -qO- https://raw.githubusercontent.com/Kshitiz-Karki/linops/refs/heads/main/boot.sh | bash
-      - hyprland: wget -qO- https://raw.githubusercontent.com/Kshitiz-Karki/linops/refs/heads/main/install/hyprland/init.sh | bash
-
-##  Inspired by
-
-  - [omakub](https://omakub.org)
-  - [omarchy](https://omarchy.org/)
-  - [linutil](https://github.com/ChrisTitusTech/linutil)
-  - [crucible](https://github.com/typecraft-dev/crucible)
+`
+  cd ~/Documents
+  git clone ....
+  cd 
+  sudo ./install.sh
+`

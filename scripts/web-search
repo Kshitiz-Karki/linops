@@ -1,0 +1,14 @@
+#!/usr/bin/env bash
+
+# Prompt user via rofi
+# query=$(rofi -dmenu -p "Search" -config ~/.config/rofi/web-search.rasi)
+query=$(
+  printf "" | fuzzel --config="$HOME/.config/fuzzel/web-search.ini" --dmenu
+)
+
+# Exit if empty
+[ -z "$query" ] && exit 0
+
+# Open using default browser (uses browser's search engine)
+xdg-open "https://unduck.link?q=$(printf '%s' "$query" | sed 's/ /+/g')" >/dev/null 2>&1
+swaymsg '[app_id=brave]' focus
