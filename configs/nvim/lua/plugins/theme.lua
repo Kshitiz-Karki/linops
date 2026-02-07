@@ -1,0 +1,1 @@
+/home/nkk/.config/themes/neovim.lua

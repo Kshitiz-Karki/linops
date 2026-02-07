@@ -1,0 +1,47 @@
+# File system
+alias ls='eza -lh --group-directories-first --icons=auto'
+alias lsa='ls -a'
+alias lt='eza --tree --level=2 --long --icons --git'
+alias lta='lt -a'
+alias ff="fzf --preview 'bat --style=numbers --color=always {}'"
+#alias cd="zd"
+alias v="nvim"
+alias ll="eza --icons=always --color=always -a --group-directories-first --git --long"
+alias c="clear"
+alias lzi='nvim $(fzf -m --preview="bat --color=always {}")'
+alias q="exit"
+alias rm="trash-put"
+# alias ls="eza --icons=always --color=always -a --group-directories-first", use the one from omarchy
+
+# zd() {
+#   if [ $# -eq 0 ]; then
+#     builtin cd ~ && return
+#   elif [ -d "$1" ]; then
+#     builtin cd "$1"
+#   else
+#     z "$@" && printf " \U000F17A9 " && pwd || echo "Error: Directory not found"
+#   fi
+# }
+# open() {
+#   xdg-open "$@" >/dev/null 2>&1
+# }
+
+# Directories
+alias ..='cd ..'
+alias ...='cd ../..'
+alias ....='cd ../../..'
+
+# Tools
+alias n='nvim'
+alias g='git'
+
+# Git
+alias gcm='git commit -m'
+alias gcam='git commit -a -m'
+alias gcad='git commit -a --amend'
+
+alias dnf-update='sudo dnf update'
+alias dnf-upgrade='sudo dnf upgrade'
+alias dnf-install='sudo dnf install'
+alias dnf-search='sudo dnf search'
+alias dnf-remove='sudo dnf remove'

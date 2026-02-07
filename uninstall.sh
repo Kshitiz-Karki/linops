@@ -1,3 +1,5 @@
+#!/bin/bash
+
 #brave
 #https://support.brave.com/hc/en-us/articles/4404876135565-How-do-I-uninstall-Brave
 sudo dnf remove -y brave-browser brave-keyring

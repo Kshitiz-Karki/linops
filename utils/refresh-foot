@@ -1,0 +1,3 @@
+#!/bin/bash
+
+cat ~/.config/foot/base.ini ~/.config/foot/theme.ini > ~/.config/foot/foot.ini

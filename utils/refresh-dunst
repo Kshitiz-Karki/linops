@@ -1,0 +1,5 @@
+#!/bin/bash
+
+cat ~/.config/dunst/base ~/.config/dunst/theme > ~/.config/dunst/dunstrc
+
+pkill dunst && dunst &  # Restart dunst to apply changes

@@ -1,4 +1,4 @@
-#!/usr/bin/env bash
+#!/bin/bash
 
 # Prompt user via rofi
 # query=$(rofi -dmenu -p "Search" -config ~/.config/rofi/web-search.rasi)
