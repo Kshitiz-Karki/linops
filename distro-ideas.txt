@@ -1,0 +1,3 @@
+Following options provides rollback options in case of issues:
+- fedora sway atomic (immutable) and toolbox/distrobox (like ubunutu) for dev
+- cachyos (sway) with (limine + snapper) and distrobox (like ubunutu) for dev
