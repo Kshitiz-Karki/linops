@@ -1,0 +1,9 @@
+@theme "/home/nkk/.config/themes/rofi.rasi"
+
+window {
+    width: 50%;
+}
+
+configuration{
+   font: "CaskaydiaMono Nerd Font 11";
+}

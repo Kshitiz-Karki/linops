@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # Path to your txt file with URLs
-URL_FILE="$HOME/Documents/code/linops/utilities/urls.txt"
+URL_FILE="$HOME/Documents/linops/scripts/urls.txt"
 
 # Use rofi (or dmenu) to select a URL
 CHOICE=$(cat "$URL_FILE" | rofi -dmenu -p "Open URL")

@@ -1,0 +1,194 @@
+
+@import "mocha.css";
+
+/* Reset all styles */
+* {
+    border: none;
+    border-radius: 0;
+    min-height: 0;
+    margin: 0;
+    padding: 0;
+    font-family: 'Noto Sans Mono', 'Font Awesome 6 Free', 'Font Awesome 6 Brands', monospace, CaskaydiaMono Nerd Font;
+    font-size: 13px;
+    font-weight: bold;
+}
+
+#waybar {
+  background: transparent;
+  /* margin: 5px 5px; */
+/* background-color: shade(@surface0, 0.9); */
+  /* border: 2px solid alpha(@crust, 0.3); */
+}
+
+tooltip {
+    background: none;
+
+  background-color: @base;
+  border: 2px solid @subtext1;
+}
+
+tooltip label {
+  color: @subtext1;
+  padding: 6px;
+}
+
+#workspaces {
+  border-radius: 1rem;
+  margin: 4px 0;
+  /* background-color: @base; */
+  background-color: @overlay1;
+  margin-left: 1rem;
+  padding: 0 1rem;
+}
+
+#workspaces button {
+  color: @crust;
+  border-radius: 1rem;
+  padding: 0.4rem;
+}
+
+#workspaces button.empty {
+    opacity: 0.5;
+}
+
+#workspaces button:hover {
+    background: none;      /* Removes default GTK white hover background */
+    box-shadow: none;      /* Removes inset highlights or shadows */
+    text-shadow: none;     /* Removes any text-glow effects */ 
+    /* transition: none;      Disables any fade-in/out animations */
+    border: none;          /* Removes any border highlights */
+    /* background-color: transparent; */
+}
+
+#taskbar {
+  margin-left: 12px;
+}
+
+#taskbar button {
+  padding: 0 4px;
+}
+
+
+#taskbar button:hover {
+    background: none;             /* Removes the base background color */
+    background-color: transparent; /* Ensures transparency */
+    box-shadow: none;             /* Removes any 'glow' or inner shadows */
+    text-shadow: none;            /* Removes shadow around labels (if any) */
+    transition: none;             /* Disables any fade-in animation */
+}
+
+
+/* #window { */
+/*   background-color: @base; */
+/*   border-radius: 1rem; */
+/*   padding: 0 1rem; */
+/*   margin: 4px 0; */
+/*   color: @rosewater; */
+/* } */
+
+#scratchpad {
+  margin-left: 1rem;
+    /* color: @text; */
+
+}
+
+
+
+/* #idle_inhibitor, */
+#bluetooth,
+#language,
+#cpu,
+#memory,
+#temperature,
+#power-profiles-daemon,
+#network,
+#custom-music,
+/* #tray, */
+#backlight,
+#clock,
+#battery,
+#pulseaudio,
+#custom-lock,
+#custom-power {
+  background-color: @overlay1;
+  padding: 0 1rem;
+  margin: 4px 0;
+  color: @crust;
+}
+
+#bluetooth {
+  font-size: 16px;
+    /* color: @flamingo; */
+}
+
+#language {
+    /* color: @yellow; */
+    min-width: 16px;
+}
+
+#clock {
+  /* color: @blue; */
+  border-radius: 0px 1rem 1rem 0px;
+  margin-right: 1rem;
+}
+
+/* #battery { */
+/*   color: @green; */
+/* } */
+
+#battery.charging {
+  color: @green;
+}
+
+#battery.warning:not(.charging) {
+  color: @red;
+}
+
+#pulseaudio {
+  /* color: @maroon; */
+  border-radius: 1rem 0px 0px 1rem;
+  margin-left: 1rem;
+}
+
+/* #custom-music { */
+/*   color: @mauve; */
+/*   border-radius: 1rem; */
+/* } */
+
+/* #custom-lock { */
+/*     border-radius: 1rem 0px 0px 1rem; */
+/*     color: @lavender; */
+/* } */
+
+/* #custom-power { */
+/*     margin-right: 1rem; */
+/*     border-radius: 0px 1rem 1rem 0px; */
+/*     color: @red; */
+/* } */
+
+#tray {
+  margin-right: 1rem;
+}
+
+/* #power-profiles-daemon { */
+/*   color: @lavender; */
+/* } */
+/**/
+/* #network { */
+/*   color: @peach; */
+/* } */
+/**/
+/* #cpu { */
+/*   color: @teal; */
+/**/
+/* } */
+/**/
+/* #memory { */
+/*   color: @pink; */
+/**/
+/* } */
+/**/
+/* #temperature { */
+/*   color: @sky; */
+/**/
+/* } */

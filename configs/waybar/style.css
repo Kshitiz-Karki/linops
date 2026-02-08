@@ -1,0 +1,100 @@
+/* Reset all styles */
+* {
+    border: none;
+    border-radius: 0;
+    min-height: 0;
+    margin: 0;
+    padding: 0;
+    font-family: 'Noto Sans Mono', 'Font Awesome 6 Free', 'Font Awesome 6 Brands', monospace, CaskaydiaMono Nerd Font;
+    font-size: 13px;
+    font-weight: bold;
+}
+
+#waybar {
+  background: #000;
+}
+
+tooltip {
+  background: none;
+  background-color: #000;
+  border: 2px solid #fff;
+}
+
+tooltip label {
+  color: #fff;
+  padding: 6px;
+}
+
+#workspaces {
+  background-color: #000;
+  margin-left: 1rem;
+}
+
+#workspaces button {
+  color: #fff;
+  border-radius: 1rem;
+  padding: 0.4rem;
+}
+
+#workspaces button.empty {
+    opacity: 0.5;
+}
+
+#workspaces button:hover {
+    background: none;      /* Removes default GTK white hover background */
+    box-shadow: none;      /* Removes inset highlights or shadows */
+    text-shadow: none;     /* Removes any text-glow effects */ 
+    border: none;          /* Removes any border highlights */
+}
+
+#taskbar {
+  margin-left: 12px;
+}
+
+#taskbar button {
+  padding: 0 4px;
+}
+
+
+#taskbar button:hover {
+    background: none;             /* Removes the base background color */
+    background-color: transparent; /* Ensures transparency */
+    box-shadow: none;             /* Removes any 'glow' or inner shadows */
+    text-shadow: none;            /* Removes shadow around labels (if any) */
+    transition: none;             /* Disables any fade-in animation */
+}
+
+#scratchpad {
+  margin-left: 1rem;
+}
+
+#bluetooth,
+#language,
+#cpu,
+#memory,
+#temperature,
+#power-profiles-daemon,
+#network,
+#custom-music,
+#backlight,
+#clock,
+#battery,
+#pulseaudio,
+#custom-lock,
+#custom-power {
+  background-color: #000;
+  padding: 0 1rem;
+  color: @fff;
+}
+
+#bluetooth {
+  font-size: 16px;
+}
+
+#language {
+    min-width: 16px;
+}
+
+#tray {
+  margin-right: 1rem;
+}

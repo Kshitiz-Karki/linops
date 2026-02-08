@@ -1,0 +1,10 @@
+ttf-cascadia-mono-nerd
+power-profiles-daemon
+papirus-icon-theme
+fzf
+ripgrep
+fd
+neovim
+luarocks
+tree-sitter-cli
+

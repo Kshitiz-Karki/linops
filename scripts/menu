@@ -1,7 +1,5 @@
 #!/bin/bash
 
-# export PATH="$HOME/.local/share/omarchy/bin:$PATH"
-
 # Set to true when going directly to a submenu, so we can exit directly
 BACK_TO_EXIT=false
 
@@ -37,50 +35,13 @@ menu() {
   echo -e "$options" | rofi -dmenu -p "$prompt…" "${args[@]}"
 }
 
-# show_learn_menu() {
-#   # case $(menu "Learn" "  Keybindings\n  Omarchy\n  Hyprland\n󰣇  Arch\n  Neovim\n󱆃  Bash") in
-#   case $(menu "Learn" "  Keybindings\n  Omarchy\n  Neovim\n󱆃  Bash") in
-#   *Keybindings*) omarchy-menu-keybindings ;;
-#   *Omarchy*) xdg-open "https://learn.omacom.io/2/the-omarchy-manual" >/dev/null 2>&1 & ;;
-#   # *Hyprland*) omarchy-launch-webapp "https://wiki.hypr.land/" ;;
-#   # *Arch*) omarchy-launch-webapp "https://wiki.archlinux.org/title/Main_page" ;;
-#   *Bash*) xdg-open "https://devhints.io/bash" >/dev/null 2>&1 & ;;
-#   *Neovim*) xdg-open "https://www.lazyvim.org/keymaps" >/dev/null 2>&1 & ;;
-#   *) show_main_menu ;;
-#   esac
-# }
-
-# show_screenshot_menu() {
-#   case $(menu "Screenshot" "  Region\n  Window\n  Display") in
-#   *Region*) omarchy-cmd-screenshot ;;
-#   *Window*) omarchy-cmd-screenshot window ;;
-#   *Display*) omarchy-cmd-screenshot output ;;
-#   # *) show_capture_menu ;;
-#   *) show_main_menu ;;
-#   esac
-# }
-
-#show_toggle_menu() {
-# case $(menu "Toggle" "󱄄  Screensaver\n󰔎  Nightlight\n󱫖  Idle Lock\n󰍜  Top Bar") in
-#case $(menu "Toggle" "󰔎  Nightlight\n󰍜  Top Bar") in
-# *Screensaver*) omarchy-toggle-screensaver ;;
-#*Nightlight*) omarchy-toggle-nightlight ;;
-# *Idle*) omarchy-toggle-idle ;;
-#*Bar*) omarchy-toggle-waybar ;;
-# *) show_trigger_menu ;;
-#*) show_main_menu ;;
-#esac
-#}
-
 show_system_menu() {
   # case $(menu "System" "  Lock\n󱄄  Screensaver\n󰤄  Suspend\n  Relaunch\n󰜉  Restart\n󰐥  Shutdown") in
   case $(menu "System" "  Lock\n󰍃  Logout\n󰜉  Restart\n󰐥  Shutdown") in
-  # *Lock*) omarchy-lock-screen ;;
   *Lock*) swaylock ;;
   # *Logout*) hyprctl dispatch exit ;;
   # *Logout*) swaymsg exit ;;
   *Logout*) niri msg action quit ;;
-  # *Screensaver*) omarchy-launch-screensaver force ;;
   # *Suspend*) systemctl suspend ;;
   # *Relaunch*) uwsm stop ;;
   *Restart*) systemctl reboot ;;
@@ -104,29 +65,17 @@ show_main_menu() {
 
 go_to_menu() {
   case "${1,,}" in
-  *quick*) ~/Documents/code/linops/utilities/quicklinks ;;
+  *quick*) ~/Documents/linops/scripts/quicklinks.sh ;;
   # *apps*) walker -p "Launch…" ;;
-  *keybindings*) ~/Documents/code/linops/utilities/keybindings.sh ;;
+  *keybindings*) ~/Documents/linops/scripts/keybindings.sh ;;
   # *learn*) show_learn_menu ;;
   # *toggle*) show_toggle_menu ;;
   # *audio*) $TERMINAL --class=Wiremix -e wiremix ;;
   *bluetooth*) pidof bluetui || kitty --class=Bluetui -e bluetui ;;
   *audio*) pidof wiremix || kitty --class=Wiremix -e wiremix ;;
   *wifi*) pidof nmtui || kitty --class=NMtui-go -e nmtui ;;
-  *toggle*) ~/Documents/code/linops/install/omarchy/bin/omarchy-toggle-waybar ;;
+  *toggle*) ~/Documents/linops/scripts/toggle-waybar ;;
   *utilities*) show_utilities_menu ;;
-  # *trigger*) show_trigger_menu ;;
-  # *share*) show_share_menu ;;
-  # *style*) show_style_menu ;;
-  # *theme*) show_theme_menu ;;
-  # *screenshot*) show_screenshot_menu ;;
-  # *screenrecord*) show_screenrecord_menu ;;
-  # *setup*) show_setup_menu ;;
-  # *power*) show_setup_power_menu ;;
-  # *install*) show_install_menu ;;
-  # *remove*) show_remove_menu ;;
-  # *update*) show_update_menu ;;
-  # *about*) omarchy-launch-about ;;
   *system*) show_system_menu ;;
   esac
 }

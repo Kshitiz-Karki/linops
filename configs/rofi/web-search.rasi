@@ -1,0 +1,39 @@
+configuration {
+    lines: 0;
+    show-icons: false;
+
+    /* remove mode text (drun/run/window/etc) */
+    display-drun: "";
+    display-run: "";
+    display-window: "";
+    display-ssh: "";
+}
+
+window {
+    border: 1px;
+    padding: 0px;
+    location: center;
+    anchor: center;
+    width: 40%;
+}
+
+mainbox {
+    padding: 0px;
+}
+
+inputbar {
+    padding: 6px 8px;
+}
+
+listview {
+    lines: 0;
+    fixed-height: true;
+}
+
+message {
+    enabled: false;
+}
+
+textbox {
+    enabled: false;
+}
