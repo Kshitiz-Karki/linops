@@ -11,8 +11,8 @@
   ],
   "modules-right": [
     "sway/language",
-    "power-profiles-daemon",
-    "cpu",
+    // "power-profiles-daemon",
+    // "cpu",
     "memory",
     "temperature",
     "battery",

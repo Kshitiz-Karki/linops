@@ -35,6 +35,8 @@ fi
 gsettings set org.gnome.desktop.interface icon-theme 'Papirus-Dark'
 gsettings set org.gnome.desktop.interface color-scheme 'prefer-dark'
 gsettings set org.gnome.desktop.interface gtk-theme 'Adwaita-dark'
+# gsettings set org.gnome.desktop.interface color-scheme 'prefer-light'
+# gsettings set org.gnome.desktop.interface gtk-theme 'Adwaita'
 
 #https://linuxconfig.org/how-to-set-battery-charge-thresholds-on-linux
 echo 40 | sudo tee /sys/class/power_supply/BAT0/charge_start_threshold
