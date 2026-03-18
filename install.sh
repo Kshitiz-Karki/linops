@@ -32,6 +32,9 @@ elif [ "$ID" == "fedora" ]; then
   source "$LINOPS_PATH/packages/fedora.sh"
 fi
 
+#flatpaks
+flatpak install flathub md.obsidian.Obsidian
+
 gsettings set org.gnome.desktop.interface icon-theme 'Papirus-Dark'
 gsettings set org.gnome.desktop.interface color-scheme 'prefer-dark'
 gsettings set org.gnome.desktop.interface gtk-theme 'Adwaita-dark'

@@ -27,3 +27,6 @@ sudo rm /etc/yum.repos.d/vscode.repo
 #https://code.visualstudio.com/docs/setup/uninstall
 rm -rf ~/.config/Code
 rm -rf ~/.vscode
+
+#gnome apps
+sudo dnf remove gnome-software ptyxis
