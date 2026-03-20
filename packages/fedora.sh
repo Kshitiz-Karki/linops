@@ -41,3 +41,7 @@ sudo dnf install -y \
 # sudo dnf remove pavucontrol cups system-config-printer
 
 flatpak install flathub md.obsidian.Obsidian com.saivert.pwvucontrol
+
+# install nwg-look
+# 1. copr - https://copr.fedorainfracloud.org/coprs/tofik/nwg-shell/
+# 2. install terra then dnf install nwg-look
