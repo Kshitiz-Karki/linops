@@ -19,6 +19,7 @@ filename="$3"
 if [[ -d "$path" ]]; then
   echo "✅ '$path' is a valid directory."
   if [[ "$1" == "region" ]]; then
+    # grim -g "$(slurp)" "$path"/"$filename".png #add for niri
     grimshot save area "$path"/"$filename".png
   elif [[ "$1" == "window" ]]; then
     grimshot save window "$path"/"$filename".png

@@ -29,4 +29,18 @@ rm -rf ~/.config/Code
 rm -rf ~/.vscode
 
 #gnome apps
-sudo dnf remove gnome-software ptyxis
+sudo dnf remove \
+  gnome-software \
+  ptyxis \
+  gnome-contacts \
+  gnome-weather \
+  gnome-clocks \
+  gnome-maps \
+  simple-scan \
+  totem \
+  gnome-connections \
+  rhythmbox \
+  malcontent-control \
+  decibels \
+  showtime
+#fedora-bookmarks

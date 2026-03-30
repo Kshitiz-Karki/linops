@@ -34,6 +34,7 @@ fi
 
 #flatpaks
 flatpak install flathub md.obsidian.Obsidian
+flatpak install flathub com.saivert.pwvucontrol
 
 gsettings set org.gnome.desktop.interface icon-theme 'Papirus-Dark'
 gsettings set org.gnome.desktop.interface color-scheme 'prefer-dark'
