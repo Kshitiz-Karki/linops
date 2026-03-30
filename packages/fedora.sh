@@ -12,9 +12,6 @@ rm -rf CascadiaFont CascadiaMono.zip
 cd -
 
 #rest
-sudo dnf copr enable alternateved/eza
-# sudo dnf install -y eza
-
 sudo dnf copr enable atim/starship
 # sudo dnf install -y starship
 

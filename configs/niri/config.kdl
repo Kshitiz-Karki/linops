@@ -122,8 +122,7 @@ output "eDP-1" {
 // https://niri-wm.github.io/niri/Configuration:-Layout
 layout {
     // Set gaps around windows in logical pixels.
-    // gaps 16
-    gaps 12
+    gaps 0
 
     // When to center a column when changing focus, options are:
     // - "never", default behavior, focusing an off-screen column will keep at the left
@@ -168,7 +167,7 @@ layout {
     // You can change how the focus ring looks.
     focus-ring {
         // Uncomment this line to disable the focus ring.
-        // off
+        off
 
         // How many logical pixels the ring extends out from the windows.
         width 4
@@ -280,19 +279,21 @@ layout {
 // See the binds section below for more spawn examples.
 
 // This line starts waybar, a commonly used bar for Wayland compositors.
-// spawn-at-startup "waybar"
+spawn-at-startup "waybar"
+spawn-at-startup "dunst"
 
 
-// spawn-at-startup "swaybg" "-m" "fill" "-i" "/home/nkk/Documents/github/CozyPixels/Catppuccin/Uncategorized/call-it-a-day.jpg"
-// spawn-sh-at-startup "wlsunset -t 3000 -T 5000 -s 17:00 -S 06:00"
+spawn-at-startup "swaybg" "-m" "fill" "-i" "/home/nkk/Pictures/wallpapers/cabin-4.png"
+spawn-sh-at-startup "wlsunset -t 3000 -T 5000 -s 18:00 -S 06:00"
 
 // To run a shell command (with variables, pipes, etc.), use spawn-sh-at-startup:
 // spawn-sh-at-startup "qs -c ~/source/qs/MyAwesomeShell"
 
+// spawn-at-startup "qs" "-c" "noctalia-shell"
 
 hotkey-overlay {
     // Uncomment this line to disable the "Important Hotkeys" pop-up at startup.
-    // skip-at-startup
+    skip-at-startup
 }
 
 // Uncomment this line to ask the clients to omit their client-side decorations if possible.
@@ -365,7 +366,13 @@ window-rule {
 
 window-rule {
     match app-id="foot"
-    open-maximized true
+    // open-maximized true
+    open-maximized-to-edges true
+}
+
+window-rule {
+    match app-id="obsidian"
+    open-maximized-to-edges true
 }
 
 binds {
@@ -656,7 +663,7 @@ binds {
 
 overview {
   // Choose your favorite color.
-  backdrop-color "#26233a"
+  // backdrop-color "#26233a"
 }
 
 
