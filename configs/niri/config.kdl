@@ -283,7 +283,7 @@ spawn-at-startup "waybar"
 spawn-at-startup "dunst"
 
 
-spawn-at-startup "swaybg" "-m" "fill" "-i" "/home/nkk/Pictures/wallpapers/cabin-4.png"
+spawn-at-startup "swaybg" "-m" "fill" "-i" "/home/nkk/Pictures/wallpapers/diner-lonely-road.jpg"
 spawn-sh-at-startup "wlsunset -t 3000 -T 5000 -s 18:00 -S 06:00"
 
 // To run a shell command (with variables, pipes, etc.), use spawn-sh-at-startup:
@@ -306,7 +306,8 @@ hotkey-overlay {
 // You can change the path where screenshots are saved.
 // A ~ at the front will be expanded to the home directory.
 // The path is formatted with strftime(3) to give you the screenshot date and time.
-screenshot-path "~/Pictures/Screenshots/Screenshot from %Y-%m-%d %H-%M-%S.png"
+// screenshot-path "~/Pictures/Screenshots/Screenshot from %Y-%m-%d %H-%M-%S.png"
+screenshot-path "~/Pictures/Screenshots/B1/Screenshot from %Y-%m-%d %H-%M-%S.png"
 
 // You can also set this to null to disable saving screenshots to disk.
 // screenshot-path null
@@ -342,6 +343,7 @@ window-rule {
     // - host Firefox (app-id is "firefox")
     // - Flatpak Firefox (app-id is "org.mozilla.firefox")
     match app-id=r#"firefox$"# title="^Picture-in-Picture$"
+    match app-id="io.github.diegopvlk.Tomatillo"
     open-floating true
 }
 
