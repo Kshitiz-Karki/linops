@@ -31,16 +31,19 @@ set $rofi_cmd rofi \
 # TODO: add window with the next release of rofi-wayland
 set $menu rofi -terminal foot -show drun
 # set $menu $rofi_cmd -show combi -combi-modes drun#run -modes combi
-set $opened-windows rofi -terminal foot -show combi -combi-modes window
+set $opened-windows rofi -terminal foot -show window
+# set $opened-windows rofi -terminal foot -show combi -combi-modes window
 
 # web browser
-set $browser brave-browser
+# set $browser brave-browser
+set $browser helium
 
 ### Output configuration
 #
 # Default wallpaper (more resolutions are available in /usr/share/backgrounds/sway/)
 # Requires: desktop-backgrounds-compat, swaybg, jxl-pixbuf-loader
-output * bg /home/nkk/Pictures/wallpapers/wave-color-nord.png fill
+output * bg /home/nkk/Pictures/wallpapers/wallhaven-yx5kml_1920x1080.png fill
+# output * bg /usr/share/backgrounds/default.jxl fill
 #
 # Example configuration:
 #
@@ -57,14 +60,10 @@ output eDP-1 scale 1.5
 #
 # Example configuration:
 #
-# exec swayidle -w \
-#          timeout 300 'swaylock -f -c 000000' \
-#          timeout 600 'swaymsg "output * power off"' resume 'swaymsg "output * power on"' \
-#          before-sleep 'swaylock -f -c 000000'
 exec swayidle -w \
-         timeout 300 'swaylock -C ~/.config/swaylock/config' \
+         timeout 300 'swaylock -f -c 000000' \
          timeout 600 'swaymsg "output * power off"' resume 'swaymsg "output * power on"' \
-         before-sleep 'swaylock -C ~/.config/swaylock/config'
+         before-sleep 'swaylock -f -c 000000'
 #
 # This will lock your screen after 300 seconds of inactivity, then turn off
 # your displays after another 300 seconds, and turn your screens back on when
@@ -101,13 +100,13 @@ exec swayidle -w \
 #
     # Start a terminal
 bindsym $mod+Return exec $term
-bindsym $mod+Space exec ~/Documents/linops/scripts/menu
+bindsym $mod+m exec ~/Documents/linops/scripts/menu
 
 # Kill focused window
 bindsym $mod+q kill
 
 # Start your launcher
-bindsym $mod+m exec $menu
+bindsym $mod+Space exec $menu
 
 # show opened windows
 bindsym $mod+o exec $opened-windows
@@ -261,6 +260,7 @@ bindsym $mod+Shift+b exec killall -SIGUSR1 waybar
 
 # switch between current and last workspace, toggle back and forth
 bindsym ALt+Tab workspace back_and_forth
+# bindsym ALt+Tab exec ~/Documents/github/Swytch/swytch.sh
 # cycle through all active workspaces across all monitors
 bindsym $mod+Page_Up workspace next
 bindsym $mod+Page_Down workspace prev

@@ -13,7 +13,7 @@ cd -
 
 #rest
 sudo dnf copr enable atim/starship
-# sudo dnf install -y starship
+sudo dnf copr enable imput/helium
 
 sudo dnf install -y \
   eza \
@@ -30,7 +30,8 @@ sudo dnf install -y \
   aria2c \
   wlsunset grimshot \
   evince \
-  loupe
+  loupe \
+  helium-bin
 
 sudo dnf install -y grim slurp # required to take screenshot with custom filename and save location
 # power-profiles-daemon \

@@ -34,7 +34,8 @@ fi
 
 #flatpaks
 flatpak install flathub md.obsidian.Obsidian
-flatpak install flathub com.saivert.pwvucontrol
+# flatpak install flathub com.saivert.pwvucontrol
+flatpak install flathub org.gnome.DejaDup
 
 gsettings set org.gnome.desktop.interface icon-theme 'Papirus-Dark'
 gsettings set org.gnome.desktop.interface color-scheme 'prefer-dark'
@@ -88,7 +89,7 @@ ln -s ~/.config/themes/zathura ~/.config/zathura/theme
 ln -s ~/.config/themes/neovim.lua ~/.config/nvim/lua/plugins/theme.lua
 ln -s ~/.config/themes/kitty.conf ~/.config/kitty/theme.conf
 ln -s ~/.config/themes/btop.theme ~/.config/btop/themes/current.theme
-ln -s ~/.config/themes/dunst ~/.config/dunst/theme
+# ln -s ~/.config/themes/dunst ~/.config/dunst/theme
 ln -s ~/.config/themes/foot.ini ~/.config/foot/theme.ini
 
 printf "%b\n" "${GREEN}Installation complete.${RC}"
