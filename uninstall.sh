@@ -42,8 +42,8 @@ sudo dnf remove \
   rhythmbox \
   malcontent-control \
   decibels \
-  showtime
-#fedora-bookmarks
+  showtime \
+  firefox fedora-bookmarks
 
 #remove copr
 sudo dnf remove swayosd

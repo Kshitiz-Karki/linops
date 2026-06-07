@@ -1,0 +1,3 @@
+#!/bin/bash
+
+cliphist list | rofi -dmenu -matching fuzzy -i -p "Clipboard delete" -theme-str "window { width: 70%; }" | cliphist delete

@@ -1,0 +1,35 @@
+#!/bin/bash
+
+bindings=(
+  "[navigation]   -   j / PgUp            Scroll down"
+  "[navigation]   -   k / PgDn            Scroll up"
+  "[navigation]   -   gg                  Scroll to the top of the page"
+  "[navigation]   -   G                   Scroll to the bottom of the page"
+  "[navigation]   -   d                   Scroll a half page down"
+  "[navigation]   -   u                   Scroll a half page up"
+  "[navigation]   -   r                   Reload the page"
+  "[navigation]   -   gi                  Focus the first text input on the page"
+  "[navigation]   -   f                   Open a link in the current tab"
+  "[navigation]   -   F                   Open a link in a new tab"
+  "[find]         -   /                   Enter find mode"
+  "[find]         -   n                   Cycle forward to the next find match"
+  "[find]         -   N                   Cycle backward to the previous find match"
+  "[vomnibar]     -   o                   Open URL, bookmark or history entry"
+  "[vomnibar]     -   O                   Open URL, bookmark or history entry in a new tab"
+  "[vomnibar]     -   b                   Open a bookmark"
+  "[vomnibar]     -   B                   Open a bookmark in a new tab"
+  "[vomnibar]     -   T                   Search through your open tabs"
+  "[history]      -   H                   Go back in history"
+  "[history]      -   L                   Go forward in history"
+  "[tabs]         -   t                   Create new tab"
+  "[tabs]         -   J                   Go one tab left"
+  "[tabs]         -   K                   Go one tab right"
+  "[tabs]         -   g0                  Go to the first tab"
+  "[tabs]         -   g$                  Go to the last tab"
+  "[tabs]         -   x                   Close current tab"
+  "[tabs]         -   X                   Restore closed tab"
+  "[help]         -   ?                   Show vimium keybinds and more"
+)
+
+# Pipe array into rofi in dmenu mode
+printf '%s\n' "${bindings[@]}" | rofi -dmenu -p "Search" -theme-str "window { width: 85%; }"

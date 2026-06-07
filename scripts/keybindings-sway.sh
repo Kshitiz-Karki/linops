@@ -1,0 +1,53 @@
+#!/bin/bash
+
+SUPER=
+
+bindings=(
+  "$SUPER  + Return                       terminal"
+  "$SUPER  + Space                        app launcher"
+  "$SUPER  + m                            menu launcher"
+  "$SUPER  + Alt + k                      view sway keybinds"
+  "$SUPER  + Alt + v                      view vimium keybinds"
+  "$SUPER  + Alt + b                      bluetui"
+  "$SUPER  + Alt + a                      wiremix"
+  "$SUPER  + Alt + w                      nmtui"
+  "$SUPER  + Alt + t                      toggle waybar"
+  "$SUPER  + c                            clipboard history lookup"
+  "$SUPER  + d                            clipboard history delete"
+  "$SUPER  + Alt + x                      power"
+  "$SUPER  + o                            opened windows"
+  "$SUPER  + Shift + Space                next/switch keyboard layout"
+  "$SUPER  + q                            close/kill window"
+  "$SUPER  + b                            web browser"
+  "$SUPER  + Shift + c                    reload sway configuration"
+  "$SUPER  + Shift + e                    exit from sway wm"
+  "$SUPER  + Escape                       lock screen"
+  "$SUPER  + (///)                    move focus"
+  "$SUPER  + (h/j/k/l)                    move focus"
+  "$SUPER  + (1/2/3...)                   switch to workspace"
+  "$SUPER  + Shift + (1/2/3...)           move focused container to workspace"
+  "$SUPER  + z                            horizontal split"
+  "$SUPER  + v                            vertical split"
+  "$SUPER  + s                            switch to stacking layout"
+  "$SUPER  + w                            switch to tabbed layout"
+  "$SUPER  + e                            switch to 'toggle split' layout"
+  "$SUPER  + f                            make current focus fullscreen"
+  "$SUPER  + Shift + t                    toggle between floating & tiling mode"
+  "$SUPER  + t                            focus between the tiling area and the floating area"
+  "$SUPER  + a                            move focus to the parent container"
+  "$SUPER  + Shift + -                    move currently focused window to the scratchpad"
+  "$SUPER  + -                            toggle/cycle between scratchpad windows"
+  "$SUPER  + r + (///)                shrink/grow current window (resize)"
+  "$SUPER  + r + (h/j/k/l)                shrink/grow current window (resize)"
+  "Alt + Tab                         switch between current & last workspace"
+  "$SUPER  + PgUp                         next workspace"
+  "$SUPER  + PgDn                         previous workspace"
+  "$SUPER  + Shift + r                    screenshot region"
+  "PrtSc                             screenshot window"
+  "$SUPER  + Shift + w                    screenshot region - only clipboard"
+  "$SUPER  + Shift + b                    copy bitwarden master password"
+
+)
+
+# Pipe array into rofi in dmenu mode
+printf '%s\n' "${bindings[@]}" | rofi -dmenu -p "Search" -theme-str "window { width: 80%; }"

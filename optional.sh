@@ -30,9 +30,13 @@ dnf check-update
 sudo dnf install -y code
 
 #niri on top of fedora workstation
-sudo dnf install brightnessctl dunst wlsunset swaybg
+sudo dnf install brightnessctl dunst wlsunset swaybg fuzzel
+sudo dnf remove alacritty
+
+# for AppImage to work
+sudo dnf install fuse-libs
 
 #sway on top of fedora workstation
-sudo dnf install @swaywm @swaywm-extended
-sudo dnf install @sway-desktop-environment
-sudo dnf install sway-config-fedora
+sudo dnf install @swaywm
+sudo dnf remove sway-config-upstream
+sudo dnf install sway-config-fedora wlsunset fuzzel wmenu

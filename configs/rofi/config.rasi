@@ -30,5 +30,7 @@ configuration{
     // kb-remove-char-back: "BackSpace";
     // kb-move-char-forward: "Control+f";
     // kb-mode-complete: "Control+o";
+    matching: "fuzzy";
+    case-sensitive: false;
 }
-@theme "/home/nkk/.config/themes/rofi.rasi"
+@import "catppuccin-default"

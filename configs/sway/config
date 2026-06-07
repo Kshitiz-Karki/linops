@@ -20,6 +20,8 @@ set $right l
 # Your preferred terminal emulator
 # Recommends: foot
 set $term foot
+set $bluetui bluetui-v0.8.1
+set $nmtui nmtui-go_0.2.7
 # Your preferred application launcher
 # Note: pass the final command to swaymsg so that the resulting window can be opened
 # on the original workspace that the command was run on.
@@ -29,14 +31,16 @@ set $rofi_cmd rofi \
 # Shows a combined list of the applications with desktop files and
 # executables from PATH.
 # TODO: add window with the next release of rofi-wayland
-set $menu rofi -terminal foot -show drun
+set $menu rofi -terminal $term -show drun
+# set $menu foot --app-id otter-launcher -T foot otter-launcher
+# for_window [app_id="otter-launcher"] floating enable
 # set $menu $rofi_cmd -show combi -combi-modes drun#run -modes combi
-set $opened-windows rofi -terminal foot -show window
+set $opened-windows rofi -terminal $term -show window
 # set $opened-windows rofi -terminal foot -show combi -combi-modes window
 
 # web browser
-# set $browser brave-browser
-set $browser helium
+set $browser brave-browser
+# set $browser helium
 
 ### Output configuration
 #
@@ -91,16 +95,19 @@ exec swayidle -w \
 
   input type:keyboard {
       xkb_layout "us, de"
-    xkb_options "grp:alt_shift_toggle"
+    # xkb_options "grp:alt_shift_toggle"
   }
+
 
 ### Key bindings
 #
 # Basics:
 #
-    # Start a terminal
+# toggle keyboard layouts
+bindsym $mod+shift+space exec "swaymsg input type:keyboard xkb_switch_layout next"
+
+# Start a terminal
 bindsym $mod+Return exec $term
-bindsym $mod+m exec ~/Documents/linops/scripts/menu
 
 # Kill focused window
 bindsym $mod+q kill
@@ -127,7 +134,7 @@ bindsym $mod+Shift+c reload
 # Exit sway (logs you out of your Wayland session)
 bindsym $mod+Shift+e exec swaynag -t warning -m 'You pressed the exit shortcut. Do you really want to exit sway? This will end your Wayland session.' -B 'Yes, exit sway' 'swaymsg exit'
 #
-# Lock screen 
+# Lock screen
 bindsym $mod+Escape exec swaylock
 #
 # Moving around:
@@ -144,15 +151,15 @@ bindsym $mod+Up focus up
 bindsym $mod+Right focus right
 
 # Move the focused window with the same, but add Shift
-bindsym $mod+Shift+$left move left
-bindsym $mod+Shift+$down move down
-bindsym $mod+Shift+$up move up
-bindsym $mod+Shift+$right move right
-# Ditto, with arrow keys
-bindsym $mod+Shift+Left move left
-bindsym $mod+Shift+Down move down
-bindsym $mod+Shift+Up move up
-bindsym $mod+Shift+Right move right
+# bindsym $mod+Shift+$left move left
+# bindsym $mod+Shift+$down move down
+# bindsym $mod+Shift+$up move up
+# bindsym $mod+Shift+$right move right
+# # Ditto, with arrow keys
+# bindsym $mod+Shift+Left move left
+# bindsym $mod+Shift+Down move down
+# bindsym $mod+Shift+Up move up
+# bindsym $mod+Shift+Right move right
 #
 # Workspaces:
 #
@@ -167,7 +174,7 @@ bindsym $mod+7 workspace number 7
 bindsym $mod+8 workspace number 8
 bindsym $mod+9 workspace number 9
 bindsym $mod+0 workspace number 10
- 
+
 # Move focused container to workspace
 bindsym $mod+Shift+1 move container to workspace number 1
 bindsym $mod+Shift+2 move container to workspace number 2
@@ -243,45 +250,48 @@ bindsym Escape mode "default"
 }
 bindsym $mod+r mode "resize"
 
-# added by me
-# Utilities:
-    # Special keys to adjust volume via PulseAudio
-    # bindsym --locked XF86AudioMute exec pactl set-sink-mute \@DEFAULT_SINK@ toggle
-    # bindsym --locked XF86AudioLowerVolume exec pactl set-sink-volume \@DEFAULT_SINK@ -5%
-    # bindsym --locked XF86AudioRaiseVolume exec pactl set-sink-volume \@DEFAULT_SINK@ +5%
-    # bindsym --locked XF86AudioMicMute exec pactl set-source-mute \@DEFAULT_SOURCE@ toggle
-    # Special keys to adjust brightness via brightnessctl
-    # bindsym --locked XF86MonBrightnessDown exec brightnessctl set 5%-
-    # bindsym --locked XF86MonBrightnessUp exec brightnessctl set 5%+
+# menu keybinds
+bindsym $mod+m exec ~/Documents/linops/scripts/menu.sh
+# bindsym $mod+Shift+m mode "menu"
 
-# taken from https://github.com/Ruixi-rebirth/sway-dotfiles/tree/main
-# waybar toggle #
-bindsym $mod+Shift+b exec killall -SIGUSR1 waybar
+# mode "menu" {
+  # taken from https://github.com/Ruixi-rebirth/sway-dotfiles/tree/main
+  # waybar toggle #
+  bindsym $mod+Alt+k exec ~/Documents/linops/scripts/keybindings-sway.sh
+  bindsym $mod+Alt+v exec ~/Documents/linops/scripts/keybindings-vimium.sh
+  bindsym $mod+Alt+b exec pidof $bluetui || $term --app-id=bluetui -e ~/bin/$bluetui
+  bindsym $mod+Alt+a exec pidof wiremix || $term --app-id=wiremix -e /usr/bin/wiremix
+  bindsym $mod+Alt+w exec pidof $nmtui || $term --app-id=nmtui-go -e ~/bin/$nmtui
+  bindsym $mod+Alt+t exec killall -SIGUSR1 waybar
+  bindsym $mod+Alt+s exec ~/Documents/linops/scripts/tmux-session
+  bindsym $mod+c exec ~/Documents/linops/scripts/cliphist-lookup-rofi
+  bindsym $mod+d exec ~/Documents/linops/scripts/cliphist-delete-rofi
+  bindsym $mod+Alt+x exec rofi -show power-menu -modi power-menu:~/Documents/linops/utils/rofi-power-menu
+  # bindsym $mod+Alt+
+  # bindsym Escape mode "default"
+# }
+
+# touchpad gestures
+bindgesture --exact swipe:3:left workspace next
+bindgesture --exact swipe:3:right workspace prev
+bindgesture --exact swipe:3:up exec rofi -show window
+bindgesture --exact swipe:3:down kill
 
 # switch between current and last workspace, toggle back and forth
 bindsym ALt+Tab workspace back_and_forth
-# bindsym ALt+Tab exec ~/Documents/github/Swytch/swytch.sh
 # cycle through all active workspaces across all monitors
 bindsym $mod+Page_Up workspace next
 bindsym $mod+Page_Down workspace prev
 
 
-# Show keybindings help
-bindsym $mod+Shift+slash exec ~/.config/sway/scripts/help.sh
-
 # Screenshots
-# bindsym $mod+Shift+r exec grimshot save area ~/Pictures/Screenshots/$(date +'%Y-%m-%d-%H%M%S').png | wl-copy && notify-send "📋 Screenshot copied to clipboard"
-bindsym $mod+Shift+w exec grimshot save window ~/Pictures/Screenshots/$(date +'%Y-%m-%d-%H%M%S').png
-bindsym Print exec grim ~/Pictures/Screenshots/$(date +'%Y-%m-%d-%H%M%S').png
-bindsym $mod+Shift+r exec grim -g "$(slurp)" - | wl-copy && notify-send "📋 Screenshot copied to clipboard"
-
-bindsym $mod+shift+s exec ~/bin/web-search
+bindsym $mod+Shift+r exec grimshot save area ~/Pictures/Screenshots/$(date +'%Y-%m-%d-%H%M%S').png | wl-copy && notify-send "📋 Screenshot copied to clipboard && saved at ~/Pictures/Screenshots/"
+bindsym Print exec grim ~/Pictures/Screenshots/$(date +'%Y-%m-%d-%H%M%S').png | wl-copy && notify-send "📋 Screenshot copied to clipboard && saved at ~/Pictures/Screenshots/"
+bindsym $mod+Shift+w exec grim -g "$(slurp)" - | wl-copy && notify-send "📋 Screenshot not saved but copied to clipboard"
 
 
-
-
-
-#added from justaguylinux
+#Utils
+bindsym $mod+Shift+b exec head -n 1 ~/Documents/backup/secret.txt | wl-copy && notify-send "📋 Bitwarden master password copied to clipboard"
 
 # Notification center
 # bindsym $mod+Shift+n exec swaync-client -t
@@ -322,7 +332,8 @@ bindsym $mod+shift+s exec ~/bin/web-search
 # for_window [class="^.*"] border pixel 3
 
 # autostart
-exec_always --no-startup-id wlsunset -t 3000 -T 5000 -s 17:00 -S 06:00
+exec --no-startup-id wlsunset -t 3000 -T 5000 -s 18:30 -S 06:00
+exec --no-startup-id wl-paste --type text --watch cliphist store
 # exec_always --no-startup-id ~/bin/autotiling
 # exec_always  --no-startup-id  mako &
 
@@ -339,34 +350,37 @@ gaps outer 0
 smart_borders on
 smart_gaps on
 
+# move foot terminal with app_id="foot-scratchpad
+for_window [app_id="foot-scratchpad"] move to scratchpad
+
 #------------------------------#
 # Always float certain windows #
 #------------------------------#
 #swaymsg -t get_tree | grep app_id
-    # for_window [app_id="Wiremix"]                     floating enable, border pixel 3, resize set height 540
-    for_window [app_id="Bluetui"]                     floating enable, border pixel 3, move position center,resize set height 540, resize set width 960
-    for_window [app_id="NMtui-go"]                    floating enable, border pixel 3, move position center,resize set height 540, resize set width 960
+    for_window [app_id="wiremix"]                     floating enable, border pixel 3, move position center,resize set height 540, resize set width 960
+    for_window [app_id="bluetui"]                     floating enable, border pixel 3, move position center,resize set height 540, resize set width 960
+    for_window [app_id="nmtui-go"]                    floating enable, border pixel 3, move position center,resize set height 540, resize set width 960
     for_window [class="MEGAsync"]                     floating enable, move position center
     for_window [app_id="pwvucontrol"]                 floating enable, move position center
     # for_window [app_id="pop-up"]                     floating enable
-    # for_window [app_id="bubble"]                     floating enable 
+    # for_window [app_id="bubble"]                     floating enable
     # for_window [app_id="task_dialog"]                floating enable
     # for_window [app_id="Preferences"]                floating enable
-    # for_window [app_id="dialog"]                     floating enable 
+    # for_window [app_id="dialog"]                     floating enable
     # for_window [app_id="menu"]                       floating enable
     # for_window [app_id="Organizer"]                  floating enable
     # for_window [app_id="About"]                      floating enable
     # for_window [app_id="toolbox"]                    floating enable
-    # for_window [app_id="page-info"]                  floating enable	
+    # for_window [app_id="page-info"]                  floating enable
     # for_window [app_id="webconsole"]                 floating enable
     # for_window [app_id="Authy"]                      floating enable
     # for_window [app_id="termfloat"]                  floating enable
     # for_window [app_id="termfloat"]                  resize set height 540
     # for_window [app_id="termfloat"]                  resize set width 960
-    # for_window [app_id="mpv"]                        floating enable 
+    # for_window [app_id="mpv"]                        floating enable
     # for_window [app_id="mpv"]                        resize set height 540
     # for_window [app_id="mpv"]                        resize set width 960
-    # for_window [app_id="Nautilus"]                   floating enable 
+    # for_window [app_id="Nautilus"]                   floating enable
     # for_window [app_id="Nautilus"]                   resize set height 540
     # for_window [app_id="Nautilus"]                   resize set width 960
 
@@ -380,12 +394,20 @@ smart_gaps on
 #------------------------------------------#
     # for_window [app_id="org.gnome.TextEditor"] move --no-auto-back-and-forth container to workspace 4
     # for_window [app_id="org.gnome.TextEditor"] focus
-    # assign [app_id="firefox"] 3
-    # for_window [app_id="firefox"] focus
+    assign [app_id="brave-browser"] 1
+    for_window [app_id="brave-browser"] focus
+    assign [app_id="dev.zed.Zed"] 2
+    for_window [app_id="dev.zed.Zed"] focus
+    assign [app_id="foot"] 3
+    for_window [app_id="foot"] focus
+    # replace app_id with class, if socket=xwayland
+    assign [app_id="obsidian"] 4
+    for_window [app_id="obsidian"] focus
 
 ### Appearance
 # Font for window titles/tabs
 font pango:CaskaydiaMono Nerd Font Mono 10
+
 
 # Clipboard history
 # exec wl-paste --watch cliphist store

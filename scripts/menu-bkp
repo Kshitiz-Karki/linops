@@ -1,0 +1,85 @@
+#!/bin/bash
+
+# Set to true when going directly to a submenu, so we can exit directly
+BACK_TO_EXIT=false
+
+TERMINAL=foot
+BLUETUI=bluetui-v0.8.1
+NMTUI=nmtui-go_0.2.7
+
+back_to() {
+  local parent_menu="$1"
+
+  if [[ "$BACK_TO_EXIT" == "true" ]]; then
+    exit 0
+  elif [[ -n "$parent_menu" ]]; then
+    "$parent_menu"
+  else
+    show_main_menu
+  fi
+}
+
+menu() {
+  local prompt="$1"
+  local options="$2"
+  local extra="$3"
+  local preselect="$4"
+
+  read -r -a args <<<"$extra"
+
+  if [[ -n "$preselect" ]]; then
+    local index
+    index=$(echo -e "$options" | grep -nxF "$preselect" | cut -d: -f1)
+    if [[ -n "$index" ]]; then
+      args+=("-a" "$index")
+    fi
+  fi
+
+  echo -e "$options" | rofi -matching fuzzy -i -dmenu -p "$prompt…" "${args[@]}"
+}
+
+# show_system_menu() {
+#   # case $(menu "System" "  Lock\n󱄄  Screensaver\n󰤄  Suspend\n  Relaunch\n󰜉  Restart\n󰐥  Shutdown") in
+#   case $(menu "System" "  Lock\n󰍃  Logout\n󰜉  Restart\n󰐥  Shutdown") in
+#   *Lock*) swaylock ;;
+#   # *Logout*) hyprctl dispatch exit ;;
+#   # *Logout*) swaymsg exit ;;
+#   *Logout*) niri msg action quit ;;
+#   # *Suspend*) systemctl suspend ;;
+#   # *Relaunch*) uwsm stop ;;
+#   *Restart*) systemctl reboot ;;
+#   *Shutdown*) systemctl poweroff ;;
+#   *) back_to show_main_menu ;;
+#   esac
+# }
+
+show_utilities_menu() {
+  case $(menu "Utilities" "  xxxxxxxx") in
+  *) show_main_menu ;;
+  esac
+
+}
+
+show_main_menu() {
+  go_to_menu "$(menu "Choose" "󰃀  Quick links\n  Keybindings\n󰂯  Bluetooth\n  Audio\n  Wifi\n󰍜  Toggle Waybar\n  Utilities\n  Power menu\n br search with brave")"
+}
+
+go_to_menu() {
+  case "${1,,}" in
+  *quick*) ~/Documents/linops/scripts/quicklinks.sh ;;
+  *keybindings*) ~/Documents/linops/scripts/keybindings.sh ;;
+  *bluetooth*) pidof $BLUETUI || $TERMINAL --app-id=bluetui -e ~/bin/$BLUETUI ;;
+  *audio*) pidof wiremix || $TERMINAL --app-id=wiremix -e /usr/bin/wiremix ;;
+  *wifi*) pidof $NMTUI || $TERMINAL --app-id=nmtui-go -e ~/bin/$NMTUI ;;
+  *toggle*) ~/Documents/linops/scripts/toggle-waybar ;;
+  *utilities*) show_utilities_menu ;;
+  *power*) rofi -show power-menu -modi power-menu:~/Documents/linops/utils/rofi-power-menu ;;
+  esac
+}
+
+if [[ -n "$1" ]]; then
+  BACK_TO_EXIT=true
+  go_to_menu "$1"
+else
+  show_main_menu
+fi

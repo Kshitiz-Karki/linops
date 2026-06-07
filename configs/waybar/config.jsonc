@@ -1,14 +1,14 @@
 {
   "spacing": 4, // Gaps between modules (4px)
   "modules-left": [
-    "niri/workspaces",
+    // "sway/workspaces",
     "wlr/taskbar"
   ],
   "modules-center": [
     "clock"
   ],
   "modules-right": [
-    "niri/language",
+    "sway/language",
     // "power-profiles-daemon",
     // "cpu",
     "memory",
@@ -17,7 +17,7 @@
     "pulseaudio",
     "tray"
   ],
-  "niri/workspaces": {
+  "sway/workspaces": {
     "on-click": "activate",
     "format": "{icon}",
     "format-icons": {
@@ -41,7 +41,7 @@
       "5": []
     }
   },
-  "niri/language": {
+  "sway/language": {
     "tooltip": false,
   },
   "wlr/taskbar": {
