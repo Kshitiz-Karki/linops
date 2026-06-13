@@ -31,9 +31,9 @@ case "${choice,,}" in
 # *search*) ~/Documents/linops/scripts/web-search.sh ;;
 *sway*) ~/Documents/linops/scripts/keybindings-sway.sh ;;
 *vimium*) ~/Documents/linops/scripts/keybindings-vimium.sh ;;
-*bluetooth*) pidof $BLUETUI || $TERMINAL --app-id=bluetui -e ~/bin/$BLUETUI ;;
+*bluetooth*) pidof $BLUETUI || $TERMINAL --app-id=bluetui -e ~/.local/bin/$BLUETUI ;;
 *audio*) pidof wiremix || $TERMINAL --app-id=wiremix -e /usr/bin/wiremix ;;
-*wifi*) pidof $NMTUI || $TERMINAL --app-id=nmtui-go -e ~/bin/$NMTUI ;;
+*wifi*) pidof $NMTUI || $TERMINAL --app-id=nmtui-go -e ~/.local/bin/$NMTUI ;;
 *toggle*) ~/Documents/linops/scripts/toggle-waybar.sh ;;
 *sessions*) ~/Documents/linops/scripts/tmux-session ;;
 *clipboard*) ~/Documents/linops/scripts/cliphist-lookup-rofi ;;

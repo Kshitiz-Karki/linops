@@ -6,18 +6,15 @@ GREEN='\033[32m'
 RED='\033[0;31m'
 
 repolist=(
-  "/home/${USER}/dotfiles"
+  # "/home/${USER}/dotfiles"
   "/home/${USER}/Pictures"
   "/home/${USER}/Documents/books-and-pdfs"
   "/home/${USER}/Documents/obsidian"
-  "/home/${USER}/Documents/code/bookmarks-manager"
-  "/home/${USER}/Documents/code/configurator"
-  "/home/${USER}/Documents/code/fedorator"
+  # "/home/${USER}/Documents/code/bookmarks-manager"
   "/home/${USER}/Documents/code/check-and-remove"
   "/home/${USER}/Documents/code/DSA"
   "/home/${USER}/Documents/code/exercism"
   "/home/${USER}/Documents/code/intro-cs"
-  "/home/${USER}/Documents/code/omarchy"
 )
 
 clear

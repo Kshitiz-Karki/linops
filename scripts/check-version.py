@@ -21,6 +21,10 @@ TOOLS = {
         "repo": "abhixdd/ghgrab",
         "version_cmd": ["ghgrab", "--version"],
     },
+    "exercism": {
+        "repo": "exercism/cli",
+        "version_cmd": ["exercism", "version"],
+    },
 }
 
 

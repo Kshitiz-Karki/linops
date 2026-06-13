@@ -16,6 +16,10 @@ zinit light zsh-users/zsh-completions
 zinit light zsh-users/zsh-autosuggestions
 zinit light Aloxaf/fzf-tab
 
+# Add for exercism
+export fpath=(~/.zsh/functions $fpath)
+
+
 # Load completions
 autoload -Uz compinit && compinit
 
@@ -97,7 +101,7 @@ function y() {
 }
 source ~/.config/zsh/aliases
 source ~/.config/zsh/envs
-source ~/.config/zsh/functions
+# source ~/.config/zsh/functions
 # export PATH=~/bin:$PATH
 export PATH=~/.local/bin:~/bin:$PATH
 #added for pyenv

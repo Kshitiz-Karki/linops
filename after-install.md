@@ -1,0 +1,5 @@
+- download following binaries to ~/.local/bin/ :
+  - [surge](https://github.com/SurgeDM/Surge)
+  - [bluetui](https://github.com/pythops/bluetui)
+  - [ghgrab](https://github.com/abhixdd/ghgrab)
+  - [nmtui-go](https://github.com/doeixd/nmtui-go)

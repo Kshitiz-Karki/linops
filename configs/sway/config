@@ -259,9 +259,9 @@ bindsym $mod+m exec ~/Documents/linops/scripts/menu.sh
   # waybar toggle #
   bindsym $mod+Alt+k exec ~/Documents/linops/scripts/keybindings-sway.sh
   bindsym $mod+Alt+v exec ~/Documents/linops/scripts/keybindings-vimium.sh
-  bindsym $mod+Alt+b exec pidof $bluetui || $term --app-id=bluetui -e ~/bin/$bluetui
+  bindsym $mod+Alt+b exec pidof $bluetui || $term --app-id=bluetui -e ~/.local/bin/$bluetui
   bindsym $mod+Alt+a exec pidof wiremix || $term --app-id=wiremix -e /usr/bin/wiremix
-  bindsym $mod+Alt+w exec pidof $nmtui || $term --app-id=nmtui-go -e ~/bin/$nmtui
+  bindsym $mod+Alt+w exec pidof $nmtui || $term --app-id=nmtui-go -e ~/.local/bin/$nmtui
   bindsym $mod+Alt+t exec killall -SIGUSR1 waybar
   bindsym $mod+Alt+s exec ~/Documents/linops/scripts/tmux-session
   bindsym $mod+c exec ~/Documents/linops/scripts/cliphist-lookup-rofi
