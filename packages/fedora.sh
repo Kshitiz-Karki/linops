@@ -15,6 +15,7 @@ cd -
 sudo dnf copr enable atim/starship
 sudo dnf copr enable imput/helium-bin
 # sudo dnf copr enable varlad/zellij
+sudo dnf copr enable lilay/topgrade
 
 sudo dnf install -y \
   eza \
@@ -32,7 +33,7 @@ sudo dnf install -y \
   wlsunset grimshot \
   evince \
   loupe \
-  helium-bin wiremix cargo cliphist tmux
+  helium-bin wiremix cargo cliphist tmux topgrade gh
 
 sudo dnf install -y grim slurp # required to take screenshot with custom filename and save location
 # power-profiles-daemon \
@@ -46,3 +47,6 @@ flatpak install flathub md.obsidian.Obsidian com.saivert.pwvucontrol
 # install nwg-look
 # 1. copr - https://copr.fedorainfracloud.org/coprs/tofik/nwg-shell/
 # 2. install terra then dnf install nwg-look
+
+#disable fedora flatpak, use flathib instead
+flatpak remote-modify fedora --disable

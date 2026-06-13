@@ -45,3 +45,5 @@ alias dnf-upgrade='sudo dnf upgrade'
 alias dnf-install='sudo dnf install'
 alias dnf-search='sudo dnf search'
 alias dnf-remove='sudo dnf remove'
+
+alias check-repo="$HOME/Documents/github/check-repo/check-repo.zsh"

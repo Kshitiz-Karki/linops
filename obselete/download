@@ -1,0 +1,10 @@
+#!/bin/bash
+
+if [ -z "$1" ]; then
+  {
+    echo "Usage: $0 \"link for file to download\""
+    exit 1
+  }
+fi
+
+aria2c -s 10 -x 10 $1

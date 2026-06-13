@@ -12,6 +12,7 @@ bindings=(
   "$SUPER  + Alt + a                      wiremix"
   "$SUPER  + Alt + w                      nmtui"
   "$SUPER  + Alt + t                      toggle waybar"
+  "$SUPER  + Alt + s                      tmux sessions"
   "$SUPER  + c                            clipboard history lookup"
   "$SUPER  + d                            clipboard history delete"
   "$SUPER  + Alt + x                      power"
@@ -45,7 +46,8 @@ bindings=(
   "$SUPER  + Shift + r                    screenshot region"
   "PrtSc                             screenshot window"
   "$SUPER  + Shift + w                    screenshot region - only clipboard"
-  "$SUPER  + Shift + b                    copy bitwarden master password"
+  "$SUPER  + Shift + b                    copy master password"
+  "$SUPER  + Shift + u                    copy user password"
 
 )
 

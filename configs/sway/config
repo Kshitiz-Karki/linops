@@ -266,7 +266,7 @@ bindsym $mod+m exec ~/Documents/linops/scripts/menu.sh
   bindsym $mod+Alt+s exec ~/Documents/linops/scripts/tmux-session
   bindsym $mod+c exec ~/Documents/linops/scripts/cliphist-lookup-rofi
   bindsym $mod+d exec ~/Documents/linops/scripts/cliphist-delete-rofi
-  bindsym $mod+Alt+x exec rofi -show power-menu -modi power-menu:~/Documents/linops/utils/rofi-power-menu
+  bindsym $mod+Alt+x exec rofi -show power-menu -modi power-menu:~/Documents/github/rofi-power-menu/rofi-power-menu
   # bindsym $mod+Alt+
   # bindsym Escape mode "default"
 # }
@@ -291,7 +291,8 @@ bindsym $mod+Shift+w exec grim -g "$(slurp)" - | wl-copy && notify-send "📋 Sc
 
 
 #Utils
-bindsym $mod+Shift+b exec head -n 1 ~/Documents/backup/secret.txt | wl-copy && notify-send "📋 Bitwarden master password copied to clipboard"
+bindsym $mod+Shift+b exec ~/Documents/backup/secret.py pass | wl-copy && notify-send "📋 Bitwarden master password copied to clipboard"
+bindsym $mod+Shift+u exec ~/Documents/backup/secret.py user | wl-copy && notify-send "📋 User password copied to clipboard"
 
 # Notification center
 # bindsym $mod+Shift+n exec swaync-client -t

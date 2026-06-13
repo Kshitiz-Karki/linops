@@ -15,7 +15,7 @@ labels=(
   "  Wifi                      [$SUPER + Alt + w]"
   "󰍜  Toggle Waybar             [$SUPER + Alt + t]"
   # "  Projects              [Super + Shift + m & p]"
-  "  Sessions                  [$SUPER + Alt + s]"
+  "  Tmux sessions             [$SUPER + Alt + s]"
   "  Clipboard history list    [$SUPER    +    c]"
   "  Power                     [$SUPER + Alt + x]"
 )
@@ -37,7 +37,7 @@ case "${choice,,}" in
 *toggle*) ~/Documents/linops/scripts/toggle-waybar.sh ;;
 *sessions*) ~/Documents/linops/scripts/tmux-session ;;
 *clipboard*) ~/Documents/linops/scripts/cliphist-lookup-rofi ;;
-*power*) rofi -show power-menu -modi power-menu:~/Documents/linops/utils/rofi-power-menu ;;
+*power*) rofi -show power-menu -modi power-menu:~/Documents/github/rofi-power-menu/rofi-power-menu ;;
 esac
 
 # alternate way **********************************
