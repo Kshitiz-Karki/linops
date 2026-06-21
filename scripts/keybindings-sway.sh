@@ -12,7 +12,8 @@ bindings=(
   "$SUPER  + Alt + a                      wiremix"
   "$SUPER  + Alt + w                      nmtui"
   "$SUPER  + Alt + t                      toggle waybar"
-  "$SUPER  + Alt + s                      tmux sessions"
+  "$SUPER  + p                            tmux projects"
+  "$SUPER  + s                            tmux sessions"
   "$SUPER  + c                            clipboard history lookup"
   "$SUPER  + d                            clipboard history delete"
   "$SUPER  + Alt + x                      power"
@@ -52,4 +53,4 @@ bindings=(
 )
 
 # Pipe array into rofi in dmenu mode
-printf '%s\n' "${bindings[@]}" | rofi -dmenu -p "Search" -theme-str "window { width: 80%; }"
+printf '%s\n' "${bindings[@]}" | rofi -dmenu -p "Search" -theme-str "window { width: 80%; height: 80%; }"

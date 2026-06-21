@@ -1,0 +1,37 @@
+#! /usr/bin/env bash
+
+set -eu
+
+# Set your terminal:
+TERMINAL="foot"
+PREFIX="$HOME"
+
+# Pick repo
+projects="$(
+  {
+    find "$HOME/Documents/projects" -mindepth 1 -maxdepth 1 -type d
+    find "$HOME/Documents/github" -mindepth 1 -maxdepth 1 -type d
+    printf '%s\n' \
+      "$HOME/.config" \
+      "$HOME/Documents/obsidian" \
+      "$HOME/Documents/linops"
+  } | sed "s|^$PREFIX/||"
+)"
+
+chosen="$(printf '%s\n' $projects | rofi -dmenu -i -p 'Projects:' -matching fuzzy)"
+
+[ -n "$chosen" ] || exit 0
+
+dir="$PREFIX/$chosen"
+dirname="$(basename $dir)"
+
+# echo "chosen=$chosen"
+# echo "dir=$dir"
+# echo "dirname=$dirname"
+
+# Nuke any existing terminal (since you only use one terminal)
+swaymsg '[workspace="3" app_id="foot"]' kill || true
+sleep 0.1
+
+# Launch a clean terminal: attach if exists, else create
+exec $TERMINAL -e tmux new-session -As "$dirname" -c "$dir" &

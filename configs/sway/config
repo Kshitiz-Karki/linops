@@ -46,7 +46,7 @@ set $browser brave-browser
 #
 # Default wallpaper (more resolutions are available in /usr/share/backgrounds/sway/)
 # Requires: desktop-backgrounds-compat, swaybg, jxl-pixbuf-loader
-output * bg /home/nkk/Pictures/wallpapers/wallhaven-yx5kml_1920x1080.png fill
+output * bg /home/nkk/Documents/github/CozyPixels/Nord/Dynamic Wallpapers/ign_Fuji-2.png fill
 # output * bg /usr/share/backgrounds/default.jxl fill
 #
 # Example configuration:
@@ -194,13 +194,15 @@ bindsym $mod+Shift+0 move container to workspace number 10
     # You can "split" the current object of your focus with
     # $mod+b or $mod+v, for horizontal and vertical splits
     # respectively.
-bindsym $mod+z splith
-bindsym $mod+v splitv
+#NotInUse
+# bindsym $mod+z splith
+# bindsym $mod+v splitv
 
-    # Switch the current container between different layout styles
-bindsym $mod+s layout stacking
-bindsym $mod+w layout tabbed
-bindsym $mod+e layout toggle split
+# Switch the current container between different layout styles
+#NotInUse
+# bindsym $mod+s layout stacking
+# bindsym $mod+w layout tabbed
+# bindsym $mod+e layout toggle split
 
     # Make the current focus fullscreen
 bindsym $mod+f fullscreen
@@ -263,7 +265,8 @@ bindsym $mod+m exec ~/Documents/linops/scripts/menu.sh
   bindsym $mod+Alt+a exec pidof wiremix || $term --app-id=wiremix -e /usr/bin/wiremix
   bindsym $mod+Alt+w exec pidof $nmtui || $term --app-id=nmtui-go -e ~/.local/bin/$nmtui
   bindsym $mod+Alt+t exec killall -SIGUSR1 waybar
-  bindsym $mod+Alt+s exec ~/Documents/linops/scripts/tmux-session
+  bindsym $mod+s exec ~/Documents/linops/scripts/tmux-sessions
+  bindsym $mod+p exec ~/Documents/linops/scripts/tmux-projects
   bindsym $mod+c exec ~/Documents/linops/scripts/cliphist-lookup-rofi
   bindsym $mod+d exec ~/Documents/linops/scripts/cliphist-delete-rofi
   bindsym $mod+Alt+x exec rofi -show power-menu -modi power-menu:~/Documents/github/rofi-power-menu/rofi-power-menu

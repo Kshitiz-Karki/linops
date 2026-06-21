@@ -8,15 +8,16 @@ SUPER=
 labels=(
   # "󰃀  Quick links       [Super + Shift + m & q]"   # use vimium browser extension
   # "󰖟  Web search / bangs    [Super + Shift + m & i]" # not useful because of vimium extension
+  "  Installed TUI/CLI apps"
   "  Sway keybinds             [$SUPER + Alt + k]"
   "  Vimium keybinds           [$SUPER + Alt + v]"
   "󰂯  Bluetooth                 [$SUPER + Alt + b]"
   "  Audio                     [$SUPER + Alt + a]"
   "  Wifi                      [$SUPER + Alt + w]"
   "󰍜  Toggle Waybar             [$SUPER + Alt + t]"
-  # "  Projects              [Super + Shift + m & p]"
-  "  Tmux sessions             [$SUPER + Alt + s]"
-  "  Clipboard history list    [$SUPER    +    c]"
+  "  Projects                  [$SUPER    +    p]"
+  "  Tmux sessions             [$SUPER    +    s]"
+  "  Clipboard history         [$SUPER    +    c]"
   "  Power                     [$SUPER + Alt + x]"
 )
 
@@ -29,13 +30,15 @@ echo "choice: ${choice}"
 
 case "${choice,,}" in
 # *search*) ~/Documents/linops/scripts/web-search.sh ;;
+*apps*) ~/Documents/linops/scripts/terminal-apps.sh ;;
 *sway*) ~/Documents/linops/scripts/keybindings-sway.sh ;;
 *vimium*) ~/Documents/linops/scripts/keybindings-vimium.sh ;;
 *bluetooth*) pidof $BLUETUI || $TERMINAL --app-id=bluetui -e ~/.local/bin/$BLUETUI ;;
 *audio*) pidof wiremix || $TERMINAL --app-id=wiremix -e /usr/bin/wiremix ;;
 *wifi*) pidof $NMTUI || $TERMINAL --app-id=nmtui-go -e ~/.local/bin/$NMTUI ;;
 *toggle*) ~/Documents/linops/scripts/toggle-waybar.sh ;;
-*sessions*) ~/Documents/linops/scripts/tmux-session ;;
+*projects*) ~/Documents/linops/scripts/tmux-projects ;;
+*sessions*) ~/Documents/linops/scripts/tmux-sessions ;;
 *clipboard*) ~/Documents/linops/scripts/cliphist-lookup-rofi ;;
 *power*) rofi -show power-menu -modi power-menu:~/Documents/github/rofi-power-menu/rofi-power-menu ;;
 esac

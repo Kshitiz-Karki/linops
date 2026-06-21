@@ -16,6 +16,8 @@ sudo dnf copr enable atim/starship
 sudo dnf copr enable imput/helium-bin
 # sudo dnf copr enable varlad/zellij
 sudo dnf copr enable lilay/topgrade
+sudo dnf copr enable lionheartp/Hyprland
+sudo dnf copr enable jdxcode/mise
 
 sudo dnf install -y \
   eza \
@@ -33,7 +35,7 @@ sudo dnf install -y \
   wlsunset grimshot \
   evince \
   loupe \
-  helium-bin wiremix cargo cliphist tmux topgrade gh
+  helium-bin wiremix cliphist tmux topgrade gh waypaper mise
 
 sudo dnf install -y grim slurp # required to take screenshot with custom filename and save location
 # power-profiles-daemon \

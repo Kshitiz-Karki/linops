@@ -37,6 +37,11 @@ flatpak install flathub md.obsidian.Obsidian
 # flatpak install flathub com.saivert.pwvucontrol
 flatpak install flathub org.gnome.DejaDup
 
+#github repos
+mkdir -p ~/Documents/github
+cd ~/Documents/github
+# ..... to be added
+
 gsettings set org.gnome.desktop.interface icon-theme 'Papirus-Dark'
 gsettings set org.gnome.desktop.interface color-scheme 'prefer-dark'
 gsettings set org.gnome.desktop.interface gtk-theme 'Adwaita-dark'

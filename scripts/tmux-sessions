@@ -1,0 +1,30 @@
+#! /usr/bin/env bash
+
+TERMINAL="foot"
+
+function tmux_sessions() {
+  tmux list-session -F '#S'
+}
+
+chosen=$( (
+  echo "Create new session…"
+  tmux_sessions
+) | rofi -dmenu -i -p "Tmux sessions" -matching fuzzy)
+
+if [[ x"Create new session…" = x"${chosen}" ]]; then
+  name=$(
+    rofi -dmenu -i -p "session name: " -l 0 -matching fuzzy \
+      -theme ~/.config/rofi/input.rasi
+  )
+  [ -n "$name" ] || exit 0
+  chosen=$name
+fi
+
+[ -n "${chosen}" ] || exit 0
+
+# Nuke any existing terminal (since you only use one terminal)
+swaymsg '[workspace="3" app_id="foot"]' kill || true
+sleep 0.1
+
+# Launch a clean terminal: attach if exists, else create
+exec $TERMINAL -e tmux new-session -As "$chosen" &

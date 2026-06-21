@@ -40,3 +40,13 @@ sudo dnf install fuse-libs
 sudo dnf install @swaywm
 sudo dnf remove sway-config-upstream
 sudo dnf install sway-config-fedora wlsunset fuzzel wmenu
+
+#install evil-helix
+VERSION="20250915"
+cd /opt
+sudo curl -Lo helix.tar.gz https://github.com/usagi-flow/evil-helix/releases/download/release-${VERSION}/evil-helix-aarch64-linux.tar.gz
+sudo tar -xf helix.tar.gz
+rm helix.tar.gz
+cd /usr/local/bin
+sudo ln -sv /opt/helix/hx .
+cd ~/Downloads
