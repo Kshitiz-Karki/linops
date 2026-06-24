@@ -2,3 +2,4 @@
 - add a script to change and update fonts
 - add a script to change themes
 - add snapper like in fedora (like in opensuse)
+- linuxize / lincraft / lingrade

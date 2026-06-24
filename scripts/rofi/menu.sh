@@ -4,6 +4,8 @@ TERMINAL=foot
 BLUETUI=bluetui-v0.8.1
 NMTUI=nmtui-go_0.2.7
 SUPER=
+SCRIPTS_PATH=~/Documents/linops/scripts
+SCRIPTS_PATH_LAUNCHER=~/Documents/linops/scripts/rofi
 
 labels=(
   # "󰃀  Quick links       [Super + Shift + m & q]"   # use vimium browser extension
@@ -30,16 +32,16 @@ echo "choice: ${choice}"
 
 case "${choice,,}" in
 # *search*) ~/Documents/linops/scripts/web-search.sh ;;
-*apps*) ~/Documents/linops/scripts/terminal-apps.sh ;;
-*sway*) ~/Documents/linops/scripts/keybindings-sway.sh ;;
-*vimium*) ~/Documents/linops/scripts/keybindings-vimium.sh ;;
+*apps*) $SCRIPTS_PATH_LAUNCHER/terminal-apps.sh ;;
+*sway*) $SCRIPTS_PATH_LAUNCHER/keybindings-sway.sh ;;
+*vimium*) $SCRIPTS_PATH_LAUNCHER/keybindings-vimium.sh ;;
 # *bluetooth*) pidof $BLUETUI || $TERMINAL --app-id=bluetui -e ~/.local/bin/$BLUETUI ;;
 *audio*) pidof wiremix || $TERMINAL --app-id=wiremix -e /usr/bin/wiremix ;;
 # *wifi*) pidof $NMTUI || $TERMINAL --app-id=nmtui-go -e ~/.local/bin/$NMTUI ;;
-*toggle*) ~/Documents/linops/scripts/toggle-waybar.sh ;;
-*projects*) ~/Documents/linops/scripts/tmux-projects ;;
-*sessions*) ~/Documents/linops/scripts/tmux-sessions ;;
-*clipboard*) ~/Documents/linops/scripts/cliphist-lookup-rofi ;;
+*toggle*) $SCRIPTS_PATH/toggle-waybar.sh ;;
+*projects*) $SCRIPTS_PATH_LAUNCHER/tmux-projects ;;
+*sessions*) $SCRIPTS_PATH_LAUNCHER/tmux-sessions ;;
+*clipboard*) $SCRIPTS_PATH_LAUNCHER/cliphist-lookup ;;
 *power*) rofi -show power-menu -modi power-menu:~/Documents/github/rofi-power-menu/rofi-power-menu ;;
 esac
 
