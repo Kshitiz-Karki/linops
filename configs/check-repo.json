@@ -1,0 +1,8 @@
+{
+  "default": [
+    "~/dotfiles", "~/Pictures", "~/Documents/obsidian", "~/Documents/books-and-pdfs", "~/Documents/linops", "~/Documents/projects/check-and-remove", "~/Documents/projects/DSA", "~/Documents/projects/exercism", "~/Documents/projects/intro-cs"
+  ],
+  "linux": [],
+  "macos": [],
+  "wsl": []
+}

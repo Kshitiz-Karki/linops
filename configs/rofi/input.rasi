@@ -1,9 +1,0 @@
-@import "config"
-
-inputbar {
-  children: [ "prompt", "entry" ];
-}
-
-entry {
-  placeholder: "";
-}

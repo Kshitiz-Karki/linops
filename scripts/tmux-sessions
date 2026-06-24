@@ -23,7 +23,7 @@ fi
 [ -n "${chosen}" ] || exit 0
 
 # Nuke any existing terminal (since you only use one terminal)
-swaymsg '[workspace="3" app_id="foot"]' kill || true
+swaymsg '[workspace="6" app_id="foot"]' kill || true
 sleep 0.1
 
 # Launch a clean terminal: attach if exists, else create

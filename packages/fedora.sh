@@ -35,7 +35,7 @@ sudo dnf install -y \
   wlsunset grimshot \
   evince \
   loupe \
-  helium-bin wiremix cliphist tmux topgrade gh waypaper mise
+  helium-bin wiremix cliphist tmux topgrade gh waypaper mise stow jetbrains-mono-fonts
 
 sudo dnf install -y grim slurp # required to take screenshot with custom filename and save location
 # power-profiles-daemon \

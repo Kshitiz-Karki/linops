@@ -12,7 +12,7 @@ projects="$(
     find "$HOME/Documents/projects" -mindepth 1 -maxdepth 1 -type d
     find "$HOME/Documents/github" -mindepth 1 -maxdepth 1 -type d
     printf '%s\n' \
-      "$HOME/.config" \
+      "$HOME/dotfiles" \
       "$HOME/Documents/obsidian" \
       "$HOME/Documents/linops"
   } | sed "s|^$PREFIX/||"
@@ -30,7 +30,7 @@ dirname="$(basename $dir)"
 # echo "dirname=$dirname"
 
 # Nuke any existing terminal (since you only use one terminal)
-swaymsg '[workspace="3" app_id="foot"]' kill || true
+swaymsg '[workspace="6" app_id="foot"]' kill || true
 sleep 0.1
 
 # Launch a clean terminal: attach if exists, else create

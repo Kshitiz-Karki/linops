@@ -11,9 +11,9 @@ labels=(
   "  Installed TUI/CLI apps"
   "  Sway keybinds             [$SUPER + Alt + k]"
   "  Vimium keybinds           [$SUPER + Alt + v]"
-  "󰂯  Bluetooth                 [$SUPER + Alt + b]"
+  # "󰂯  Bluetooth                 [$SUPER + Alt + b]"
   "  Audio                     [$SUPER + Alt + a]"
-  "  Wifi                      [$SUPER + Alt + w]"
+  # "  Wifi                      [$SUPER + Alt + w]"
   "󰍜  Toggle Waybar             [$SUPER + Alt + t]"
   "  Projects                  [$SUPER    +    p]"
   "  Tmux sessions             [$SUPER    +    s]"
@@ -33,9 +33,9 @@ case "${choice,,}" in
 *apps*) ~/Documents/linops/scripts/terminal-apps.sh ;;
 *sway*) ~/Documents/linops/scripts/keybindings-sway.sh ;;
 *vimium*) ~/Documents/linops/scripts/keybindings-vimium.sh ;;
-*bluetooth*) pidof $BLUETUI || $TERMINAL --app-id=bluetui -e ~/.local/bin/$BLUETUI ;;
+# *bluetooth*) pidof $BLUETUI || $TERMINAL --app-id=bluetui -e ~/.local/bin/$BLUETUI ;;
 *audio*) pidof wiremix || $TERMINAL --app-id=wiremix -e /usr/bin/wiremix ;;
-*wifi*) pidof $NMTUI || $TERMINAL --app-id=nmtui-go -e ~/.local/bin/$NMTUI ;;
+# *wifi*) pidof $NMTUI || $TERMINAL --app-id=nmtui-go -e ~/.local/bin/$NMTUI ;;
 *toggle*) ~/Documents/linops/scripts/toggle-waybar.sh ;;
 *projects*) ~/Documents/linops/scripts/tmux-projects ;;
 *sessions*) ~/Documents/linops/scripts/tmux-sessions ;;

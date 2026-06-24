@@ -17,6 +17,12 @@ GREEN='\033[32m'
 
 LINOPS_PATH="$HOME/Documents/linops"
 
+#TODO: configure dotfiles - gnu stow
+
+#after check-repo github repo is cloned, then run below:
+#create hardlink - ln original.txt backup.txt
+ln -v ~/Documents/github/check-repo/repo_targets.json ~/Documents/linops/configs/check-repo.json
+
 # Install the custom package list
 printf "%b\n" "${YELLOW}Installing packages...${RC}"
 
@@ -57,35 +63,36 @@ printf "%b\n" "${YELLOW}Setting up utilities...${RC}"
 # for file in ~/Documents/code/configurator/utilities/*; do sudo cp $file ~/bin; done
 ln -s $LINOPS_PATH/utils ~/bin
 
-printf "%b\n" "${YELLOW}Deploying configs...${RC}"
-ln -snf $LINOPS_PATH/configs/zathura ~/.config/zathura
-ln -snf $LINOPS_PATH/configs/waybar ~/.config/waybar
-ln -snf $LINOPS_PATH/configs/swaync ~/.config/swaync
-ln -snf $LINOPS_PATH/configs/swaylock ~/.config/swaylock
-ln -snf $LINOPS_PATH/configs/sway ~/.config/sway
-ln -snf $LINOPS_PATH/configs/rofi ~/.config/rofi
-ln -snf $LINOPS_PATH/configs/niri ~/.config/niri
-ln -snf $LINOPS_PATH/configs/i3 ~/.config/i3
-ln -snf $LINOPS_PATH/configs/fuzzel ~/.config/fuzzel
-ln -snf $LINOPS_PATH/configs/foot ~/.config/foot
-ln -snf $LINOPS_PATH/configs/dunst ~/.config/dunst
-ln -snf $LINOPS_PATH/configs/btop ~/.config/btop
-ln -snf $LINOPS_PATH/configs/eza ~/.config/eza
-ln -snf $LINOPS_PATH/configs/kitty ~/.config/kitty
-ln -snf $LINOPS_PATH/configs/nvim ~/.config/nvim
-ln -snf $LINOPS_PATH/configs/zoxide ~/.config/zoxide
-ln -snf $LINOPS_PATH/configs/zsh ~/.config/zsh
-ln -snf $LINOPS_PATH/configs/starship.toml ~/.config
-mv ~/.bashrc ~/.bashrc.bkp
-ln -snf $LINOPS_PATH/configs/.bashrc ~/
-ln -snf $LINOPS_PATH/configs/.zshrc ~/
+# managed via gnu stow
+# printf "%b\n" "${YELLOW}Deploying configs...${RC}"
+# ln -snf $LINOPS_PATH/configs/zathura ~/.config/zathura
+# ln -snf $LINOPS_PATH/configs/waybar ~/.config/waybar
+# ln -snf $LINOPS_PATH/configs/swaync ~/.config/swaync
+# ln -snf $LINOPS_PATH/configs/swaylock ~/.config/swaylock
+# ln -snf $LINOPS_PATH/configs/sway ~/.config/sway
+# ln -snf $LINOPS_PATH/configs/rofi ~/.config/rofi
+# ln -snf $LINOPS_PATH/configs/niri ~/.config/niri
+# ln -snf $LINOPS_PATH/configs/i3 ~/.config/i3
+# ln -snf $LINOPS_PATH/configs/fuzzel ~/.config/fuzzel
+# ln -snf $LINOPS_PATH/configs/foot ~/.config/foot
+# ln -snf $LINOPS_PATH/configs/dunst ~/.config/dunst
+# ln -snf $LINOPS_PATH/configs/btop ~/.config/btop
+# ln -snf $LINOPS_PATH/configs/eza ~/.config/eza
+# ln -snf $LINOPS_PATH/configs/kitty ~/.config/kitty
+# ln -snf $LINOPS_PATH/configs/nvim ~/.config/nvim
+# ln -snf $LINOPS_PATH/configs/zoxide ~/.config/zoxide
+# ln -snf $LINOPS_PATH/configs/zsh ~/.config/zsh
+# ln -snf $LINOPS_PATH/configs/starship.toml ~/.config
+# mv ~/.bashrc ~/.bashrc.bkp
+# ln -snf $LINOPS_PATH/configs/.bashrc ~/
+# ln -snf $LINOPS_PATH/configs/.zshrc ~/
 
-if [[ ":$PATH:" == *":$HOME/bin:"* || ":$PATH:" == *":~/bin:"* ]]; then
-  echo '~/bin is in PATH'
-else
-  echo 'export PATH=~/bin:$PATH' >>~/.zshrc
-  echo 'export PATH=~/bin:$PATH' >>~/.bashrc
-fi
+# if [[ ":$PATH:" == *":$HOME/bin:"* || ":$PATH:" == *":~/bin:"* ]]; then
+#   echo '~/bin is in PATH'
+# else
+#   echo 'export PATH=~/bin:$PATH' >>~/.zshrc
+#   echo 'export PATH=~/bin:$PATH' >>~/.bashrc
+# fi
 
 printf "%b\n" "${YELLOW}Applying catppuccin mocha (default) theme...${RC}"
 # mkdir -p ~/Documents/themes
