@@ -5,23 +5,19 @@ My Sway wm based personal (not so asthetic but productivity-oriented) dotfiles a
 ## Requirements
 
 Ensure you have the following installed on your system:
+  - wget
   - git
 
 ## Installation
 
-First, setup git, generate and upload ssh key to github.com
+- Step 1: After fresh fedora installation, run below and restart:
 
 ```
-git config --global user.name "xxx"
-git config --global user.email "xxx@gmail.com"
-git config --global init.defaultBranch main
-# upload the generated key to github
-ssh-keygen -t ed25519 -C "xxx@gmail.com"
-cat ~/.ssh/id_ed25519.pub
+wget -qO- https://raw.githubusercontent.com/Kshitiz-Karki/linops/refs/heads/main/pre-install.sh | bash
 ```
 
-then git clone this repo and run install.sh
+- Step 2: After restart, run below:
 
 ```
-$ curl ...
+wget -qO- https://raw.githubusercontent.com/Kshitiz-Karki/linops/refs/heads/main/boot.sh | bash
 ```

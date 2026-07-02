@@ -1,0 +1,9 @@
+#!/bin/bash
+
+package_managers=("apt" "dnf" "zypper" "pacman" "snap" "flatpak")
+echo "Installed package managers:"
+for manager in "${package_managers[@]}"; do
+  if command -v "$manager" >/dev/null 2>&1; then
+    echo "$manager"
+  fi
+done

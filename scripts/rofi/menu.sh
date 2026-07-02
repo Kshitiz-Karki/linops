@@ -19,7 +19,7 @@ labels=(
   "󰍜  Toggle Waybar             [$SUPER + Alt + t]"
   "  Projects                  [$SUPER    +    p]"
   "  Tmux sessions             [$SUPER    +    s]"
-  "  Clipboard history         [$SUPER    +    c]"
+  # "  Clipboard history         [$SUPER    +    c]"
   "  Power                     [$SUPER + Alt + x]"
 )
 
@@ -41,8 +41,8 @@ case "${choice,,}" in
 *toggle*) $SCRIPTS_PATH/toggle-waybar.sh ;;
 *projects*) $SCRIPTS_PATH_LAUNCHER/tmux-projects ;;
 *sessions*) $SCRIPTS_PATH_LAUNCHER/tmux-sessions ;;
-*clipboard*) $SCRIPTS_PATH_LAUNCHER/cliphist-lookup ;;
-*power*) rofi -show power-menu -modi power-menu:~/Documents/github/rofi-power-menu/rofi-power-menu ;;
+# *clipboard*) $SCRIPTS_PATH_LAUNCHER/cliphist-lookup ;;
+*power*) rofi -show power-menu -modi power-menu:"${SCRIPTS_PATH_LAUNCHER}/power-menu" ;;
 esac
 
 # alternate way **********************************

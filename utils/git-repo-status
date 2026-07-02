@@ -7,14 +7,15 @@ RED='\033[0;31m'
 
 repolist=(
   # "/home/${USER}/dotfiles"
-  "/home/${USER}/Pictures"
-  "/home/${USER}/Documents/books-and-pdfs"
-  "/home/${USER}/Documents/obsidian"
-  # "/home/${USER}/Documents/code/bookmarks-manager"
-  "/home/${USER}/Documents/code/check-and-remove"
-  "/home/${USER}/Documents/code/DSA"
-  "/home/${USER}/Documents/code/exercism"
-  "/home/${USER}/Documents/code/intro-cs"
+  "${HOME}/dotfiles"
+  "${HOME}/Pictures"
+  "${HOME}/Documents/obsidian"
+  "${HOME}/Documents/books-and-pdfs"
+  "${HOME}/Documents/linops"
+  "${HOME}/Documents/projects/check-and-remove"
+  "${HOME}/Documents/projects/DSA"
+  "${HOME}/Documents/projects/exercism"
+  "${HOME}/Documents/projects/intro-cs"
 )
 
 clear
@@ -30,8 +31,12 @@ for repo in "${repolist[@]}"; do
   if [ ! -d "$repo" ]; then
     printf "%b\n" "${RED}Directory '$repo' does not exist.${RC}"
   else
-    cd $repo
-    git status
+    cd "$repo" || continue
+    if [ -n "$(git status --porcelain)" ]; then
+      printf "%b\n" "${RED}Repository needs attention.${RC}"
+    else
+      printf "%b\n" "${GREEN}Repository is clean.${RC}"
+    fi
   fi
   printf "%b\n" "${YELLOW}****************************************************************${RC}"
 done

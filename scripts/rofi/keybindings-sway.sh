@@ -14,8 +14,6 @@ bindings=(
   "$SUPER  + Alt + t                      toggle waybar"
   "$SUPER  + p                            tmux projects"
   "$SUPER  + s                            tmux sessions"
-  "$SUPER  + c                            clipboard history lookup"
-  "$SUPER  + d                            clipboard history delete"
   "$SUPER  + Alt + x                      power"
   "$SUPER  + o                            opened windows"
   "$SUPER  + Shift + Space                next/switch keyboard layout"

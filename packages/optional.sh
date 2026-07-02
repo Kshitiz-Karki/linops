@@ -1,18 +1,6 @@
 #!/bin/bash
 
 #brave browser
-# add debloat scripts for brave, https://github.com/MulesGaming/brave-debloatinator
-sudo mkdir /etc/brave/policies/managed -p
-cat <<EOF >/etc/brave/policies/managed/brave_debullshitinator-policies.json
-{
-  "BraveRewardsDisabled": true,
-  "BraveWalletDisabled": true,
-  "BraveVPNDisabled": 1,
-  "BraveAIChatEnabled": false,
-  "TorDisabled": true,
-  "PasswordManagerEnabled": false
-}
-EOF
 dnf install dnf-plugins-core
 dnf config-manager addrepo --from-repofile=https://brave-browser-rpm-release.s3.brave.com/brave-browser.repo
 dnf install brave-browser
