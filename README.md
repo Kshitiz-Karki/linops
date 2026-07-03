@@ -1,6 +1,6 @@
 # LINOPS
 
-My Sway wm based personal (not so asthetic but productivity-oriented) dotfiles and packages installer after a fresh fedora installation.
+Minimal sway wm based (not so asthetic but productivity-oriented) dotfiles and packages installer after a fresh fedora installation.
 
 ## Requirements
 
