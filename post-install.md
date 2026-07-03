@@ -11,8 +11,3 @@
 - uninstall (after fedora sway spin installation):
   - sudo dnf group remove printing
   - sudo dnf remove sddm # use tty login using .bash_profile and .zprofile
-
-  kumarkd.1962@gmail.com 9829726766
-  L*B4hF#z*A94ny
-
-  9713909680
