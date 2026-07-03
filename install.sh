@@ -45,12 +45,7 @@ stow .
 source ~/.bashrc
 
 printf "%b\n" "${YELLOW}Install packages ...${RC}"
-. /etc/os-release
-if [ "$ID" == "arch" ]; then
-  source "$REPO_PATH/packages/arch.sh"
-elif [ "$ID" == "fedora" ]; then
-  source "$REPO_PATH/packages/fedora.sh"
-fi
+source "$REPO_PATH/packages/main.sh"
 
 printf "%b\n" "${YELLOW}Set zsh as the default shell for the current user ...${RC}"
 sudo chsh -s /usr/bin/zsh "$USER"

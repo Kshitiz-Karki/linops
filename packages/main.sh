@@ -17,6 +17,7 @@ sudo dnf swap ffmpeg-free ffmpeg --allowerasing
 sudo dnf group upgrade multimedia
 sudo dnf group upgrade core
 
+sudo dnf install -y fwupd
 fwupdmgr refresh --force
 fwupdmgr get-devices
 fwupdmgr get-updates
@@ -100,4 +101,7 @@ sudo dnf install -y anki
 flatpak remote-modify fedora --disable
 
 #install flatpaks
-source "$REPO_PATH/packages/flatpaks.sh"
+flatpak install flathub md.obsidian.Obsidian
+# com.github.tchx84.Flatseal \
+# org.gnome.DejaDup \
+# com.saivert.pwvucontrol
