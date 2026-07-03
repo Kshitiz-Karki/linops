@@ -1,28 +1,66 @@
 #!/bin/bash
 
+#post install scripts - start
+# guide - https://techhut.tv/fedora-44-post-install-guide
+# youtube - https://www.youtube.com/watch?v=Zu8A3_NflvA
+sudo cat >/etc/dnf/dnf.conf <<'EOF'
+# see `man dnf.conf` for defaults and possible options
+
+[main]
+fastestmirror=True
+max_parallel_downloads=4
+EOF
+
+sudo dnf update -y
+sudo dnf install https://mirrors.rpmfusion.org/free/fedora/rpmfusion-free-release-$(rpm -E %fedora).noarch.rpm https://mirrors.rpmfusion.org/nonfree/fedora/rpmfusion-nonfree-release-$(rpm -E %fedora).noarch.rpm
+sudo dnf swap ffmpeg-free ffmpeg --allowerasing
+sudo dnf group upgrade multimedia
+sudo dnf group upgrade core
+
+fwupdmgr refresh --force
+fwupdmgr get-devices
+fwupdmgr get-updates
+fwupdmgr update
+
+flatpak remote-add --if-not-exists flathub https://dl.flathub.org/repo/flathub.flatpakrepo
+
+#post install scripts - end
+
+# nerd fonts installer & updater (use a custom bash script instead??)
+# https://github.com/getnf/getnf
+curl -fsSL https://raw.githubusercontent.com/getnf/getnf/main/install.sh | bash
+getnf -i CascadiaMono
+
 #caskaydia mono nerd font
-mkdir -p ~/.local/share/fonts
-mkdir -p ~/Documents/github
-cd ~/Documents/github
-wget https://github.com/ryanoasis/nerd-fonts/releases/latest/download/CascadiaMono.zip
-unzip CascadiaMono.zip -d CascadiaFont
-cp -r CascadiaFont ~/.local/share/fonts
-fc-cache
-rm -rf CascadiaFont CascadiaMono.zip
-cd -
+# mkdir -p ~/.local/share/fonts
+# mkdir -p ~/Documents/github
+# cd ~/Documents/github
+# wget https://github.com/ryanoasis/nerd-fonts/releases/latest/download/CascadiaMono.zip
+# unzip CascadiaMono.zip -d CascadiaFont
+# cp -r CascadiaFont ~/.local/share/fonts
+# fc-cache
+# rm -rf CascadiaFont CascadiaMono.zip
+# cd -
 
-#rest
-sudo dnf copr enable atim/starship
-sudo dnf copr enable imput/helium-bin
-# sudo dnf copr enable varlad/zellij
-sudo dnf copr enable lilay/topgrade
-# sudo dnf copr enable lionheartp/Hyprland #cliphist
-sudo dnf copr enable jdxcode/mise
-
+# system, wayland, desktop/window manager packages
 sudo dnf install -y \
-  eza \
-  starship \
+  curl wget \
   papirus-icon-theme \
+  wlsunset \
+  jetbrains-mono-fonts \
+  grimshot grim slurp
+# wiremix \
+# pamixer
+
+# cli apps/packages or dev tools
+sudo dnf copr enable -y atim/starship
+sudo dnf copr enable -y lilay/topgrade
+sudo dnf copr enable -y jdxcode/mise
+sudo dnf install -y \
+  starship \
+  topgrade \
+  mise \
+  eza \
   fzf ripgrep fd neovim luarocks tree-sitter-cli \
   bat \
   btop \
@@ -31,24 +69,35 @@ sudo dnf install -y \
   zoxide \
   zsh \
   rofi \
-  aria2c \
-  wlsunset grimshot \
-  evince \
-  loupe \
-  helium-bin wiremix tmux topgrade gh waypaper mise stow jetbrains-mono-fonts
+  tmux
+# gh
+# aria2c
+# cliphist
 
-sudo dnf install -y grim slurp # required to take screenshot with custom filename and save location
-# power-profiles-daemon \
+# gui apps
+# sudo dnf copr enable lionheartp/Hyprland # waypaper
+sudo dnf install -y \
+  imv \
+  chromium-browser
+# waypaper
+#brave browser
+sudo dnf install dnf-plugins-core
+sudo dnf config-manager addrepo --from-repofile=https://brave-browser-rpm-release.s3.brave.com/brave-browser.repo
+# sudo dnf install -y brave-browser
+sudo dnf install -y brave-origin
+# zed editor
+curl -f https://zed.dev/install.sh | sh
 
-# stow # mpv # kitty alacritty # wiremix # pamixer # fastfetch cliphist
-
-# sudo dnf remove pavucontrol cups system-config-printer
-
-flatpak install flathub md.obsidian.Obsidian com.saivert.pwvucontrol
+# install terra respository
+sudo dnf install --nogpgcheck --repofrompath 'terra,https://repos.fyralabs.com/terra$releasever' terra-release
+sudo dnf install -y anki
 
 # install nwg-look
 # 1. copr - https://copr.fedorainfracloud.org/coprs/tofik/nwg-shell/
-# 2. install terra then dnf install nwg-look
+# 2. terra - sudo dnf install nwg-look
 
 #disable fedora flatpak, use flathib instead
 flatpak remote-modify fedora --disable
+
+#install flatpaks
+source "$REPO_PATH/packages/flatpaks.sh"

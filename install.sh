@@ -1,11 +1,19 @@
 #!/bin/bash
 
-# clear
+set -e
+
+clear
 
 RC='\033[0m'
 YELLOW='\033[33m'
 GREEN='\033[32m'
-# RED='\033[0;31m'
+
+export REPO_NAME="linops"
+mkdir -p ~/Projects
+export REPO_PATH="$HOME/Projects/$REPO_NAME"
+
+rm -rf $REPO_PATH
+git clone "https://github.com:Kshitiz-Karki/${REPO_NAME}.git" $REPO_PATH >/dev/null
 
 # Check for sudo
 # if [ "$EUID" -ne 0 ]; then
@@ -17,7 +25,7 @@ GREEN='\033[32m'
 # mkdir -p ~/Projects/github
 # cd ~/Documents/github
 
-printf "%b\n" "${YELLOW}Apply catppuccin mocha (default) theme...${RC}"
+printf "%b\n" "${YELLOW}Apply catppuccin mocha (default) theme ...${RC}"
 ln -s $REPO_PATH/themes/catppuccin-mocha ~/.config/themes
 ln -s ~/.config/themes/btop.theme ~/.config/btop/themes/current.theme
 ln -s ~/.config/themes/dunst ~/.config/dunst/theme
@@ -31,22 +39,21 @@ ln -s ~/.config/themes/gtklock.css ~/.config/gtklock/color.css
 printf "%b\n" "${YELLOW}Configure dotfiles using gnu stow ...${RC}"
 sudo dnf install -y stow
 git clone https://github.com/Kshitiz-Karki/dotfiles.git ~/dotfiles >/dev/null
+cd ~/dotfiles
+stow .
 
-printf "%b\n" "${YELLOW}Install packages...${RC}"
+source ~/.bashrc
+
+printf "%b\n" "${YELLOW}Install packages ...${RC}"
 . /etc/os-release
 if [ "$ID" == "arch" ]; then
-  sudo pacman -Syu --noconfirm
-  sudo pacman -S --noconfirm --needed --disable-download-timeout $(<packages/arch.txt)
+  source "$REPO_PATH/packages/arch.sh"
 elif [ "$ID" == "fedora" ]; then
-  sudo dnf update -y
-  sudo dnf install https://download1.rpmfusion.org/free/fedora/rpmfusion-free-release-$(rpm -E %fedora).noarch.rpm https://download1.rpmfusion.org/nonfree/fedora/rpmfusion-nonfree-release-$(rpm -E %fedora).noarch.rpm
-  # sudo dnf config-manager setopt fedora-cisco-openh264.enabled=1
   source "$REPO_PATH/packages/fedora.sh"
 fi
-#flatpaks
-flatpak install flathub md.obsidian.Obsidian
-# flatpak install flathub com.saivert.pwvucontrol
-flatpak install flathub org.gnome.DejaDup
+
+printf "%b\n" "${YELLOW}Set zsh as the default shell for the current user ...${RC}"
+sudo chsh -s /usr/bin/zsh "$USER"
 
 printf "%b\n" "${YELLOW}Apply papirus icon theme ...${RC}"
 gsettings set org.gnome.desktop.interface icon-theme 'Papirus-Dark'
@@ -63,4 +70,11 @@ echo 80 | sudo tee /sys/class/power_supply/BAT0/charge_stop_threshold
 printf "%b\n" "${YELLOW}Set up utilities at ~/bin ...${RC}"
 ln -s $REPO_PATH/utils ~/bin
 
-printf "%b\n" "${GREEN}Installation complete.${RC}"
+printf "%b\n" "${YELLOW}Cleanup (remove unrequired packages) ...${RC}"
+sudo dnf group remove -y printing
+sudo dnf remove -y \
+  cups \
+  system-config-printer \
+  sddm # use tty login using .bash_profile and .zprofile
+
+printf "%b\n" "${GREEN}Complete.${RC}"

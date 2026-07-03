@@ -50,3 +50,4 @@ sudo dnf remove swayosd
 sudo dnf copr disable erikreider/swayosd
 cd /etc/yum.repos.d
 sudo rm _copr:copr.fedorainfracloud.org:erikreider:swayosd.repo
+# or, alternately uninstall the package & disable copr repo from gnome-software gui app

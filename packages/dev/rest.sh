@@ -1,5 +1,5 @@
 #!/bin/bash
 
-#C
-sudo dnf install -y libasan
-sudo dnf install -y valgrind
+# dependencies to compile, run & test .c files
+sudo dnf install -y libasan \
+  valgrind

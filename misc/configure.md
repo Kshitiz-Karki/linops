@@ -1,5 +1,27 @@
-#!/bin/bash
+# Setup git
 
+```sh
+#change current remote
+git remote -v
+
+# change remote
+git remote set-url origin https://github.com/username/repo.git
+#or
+git remote set-url origin git@github.com:username/repo.git
+
+git config --global user.name "xxx"
+git config --global user.email "xxx@gmail.com"
+git config --global init.defaultBranch main
+# upload the generated key to github
+ssh-keygen -t ed25519 -C "xxx@gmail.com"
+cat ~/.ssh/id_ed25519.pub
+```
+
+```
+```
+# Gnome keybindings
+
+```sh
 # Alt+F4 is very cumbersome
 gsettings set org.gnome.desktop.wm.keybindings close "['<Super>q']"
 
@@ -52,3 +74,6 @@ gsettings set org.gnome.desktop.wm.keybindings move-to-workspace-3 "['<Super><Sh
 gsettings set org.gnome.desktop.wm.keybindings move-to-workspace-4 "['<Super><Shift>4']"
 gsettings set org.gnome.desktop.wm.keybindings move-to-workspace-5 "['<Super><Shift>5']"
 gsettings set org.gnome.desktop.wm.keybindings move-to-workspace-6 "['<Super><Shift>6']"
+```
+```
+```

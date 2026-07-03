@@ -1,5 +1,8 @@
 #!/bin/bash
 
+sudo pacman -Syu --noconfirm
+sudo pacman -S --noconfirm --needed --disable-download-timeout $(<packages/arch.txt)
+
 #Update pacman.conf
 sudo cp /etc/pacman.conf /etc/pacman.conf.bak
 sudo sed -i 's/^#Color$/Color/' /etc/pacman.conf
@@ -23,6 +26,8 @@ if ! command -v yay &>/dev/null; then
   rm -rf ../yay-bin
   cd -
 fi
+
+source "$REPO_PATH/packages/flatpaks.sh"
 
 #fwupd
 sudo pacman -Sy --needed fwupd

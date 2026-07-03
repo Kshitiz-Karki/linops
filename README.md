@@ -1,6 +1,6 @@
 # LINOPS
 
-My Sway wm based personal (not so asthetic but productivity-oriented) dotfiles and packages installer after a fresh linux installation. Should work on fedora and cachyos.
+My Sway wm based personal (not so asthetic but productivity-oriented) dotfiles and packages installer after a fresh fedora installation.
 
 ## Requirements
 
@@ -10,14 +10,10 @@ Ensure you have the following installed on your system:
 
 ## Installation
 
-- Step 1: After fresh fedora installation, run below and restart:
-
 ```
-wget -qO- https://raw.githubusercontent.com/Kshitiz-Karki/linops/refs/heads/main/pre-install.sh | bash
+wget -qO- https://raw.githubusercontent.com/Kshitiz-Karki/linops/refs/heads/main/install.sh | bash
 ```
 
-- Step 2: After restart, run below:
+## Misc
 
-```
-wget -qO- https://raw.githubusercontent.com/Kshitiz-Karki/linops/refs/heads/main/boot.sh | bash
-```
+- other possible names - linuxize / lincraft / lingrade
