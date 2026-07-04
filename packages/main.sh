@@ -10,9 +10,9 @@
 
 sudo dnf update -y
 sudo dnf install https://mirrors.rpmfusion.org/free/fedora/rpmfusion-free-release-$(rpm -E %fedora).noarch.rpm https://mirrors.rpmfusion.org/nonfree/fedora/rpmfusion-nonfree-release-$(rpm -E %fedora).noarch.rpm
-sudo dnf swap ffmpeg-free ffmpeg --allowerasing
-sudo dnf group upgrade multimedia
-sudo dnf group upgrade core
+sudo dnf swap -y ffmpeg-free ffmpeg --allowerasing
+sudo dnf group upgrade -y multimedia
+sudo dnf group upgrade -y core
 
 sudo dnf install -y fwupd
 fwupdmgr refresh --force
