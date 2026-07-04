@@ -25,6 +25,14 @@ git clone "https://github.com/Kshitiz-Karki/${REPO_NAME}.git" $REPO_PATH >/dev/n
 # mkdir -p ~/Projects/github
 # cd ~/Documents/github
 
+printf "%b\n" "${YELLOW}Configure dotfiles using gnu stow ...${RC}"
+sudo dnf install -y stow
+git clone https://github.com/Kshitiz-Karki/dotfiles.git ~/dotfiles >/dev/null
+cd ~/dotfiles
+stow .
+
+source ~/.bashrc
+
 printf "%b\n" "${YELLOW}Apply catppuccin mocha (default) theme ...${RC}"
 ln -s $REPO_PATH/themes/catppuccin-mocha ~/.config/themes
 ln -s ~/.config/themes/btop.theme ~/.config/btop/themes/current.theme
@@ -35,14 +43,6 @@ ln -s ~/.config/themes/neovim.lua ~/.config/nvim/lua/plugins/theme.lua
 ln -s ~/.config/themes/waybar.css ~/.config/waybar/color.css
 ln -s ~/.config/themes/gtklock.css ~/.config/gtklock/color.css
 # ln -s ~/.config/themes/zathura ~/.config/zathura/theme
-
-printf "%b\n" "${YELLOW}Configure dotfiles using gnu stow ...${RC}"
-sudo dnf install -y stow
-git clone https://github.com/Kshitiz-Karki/dotfiles.git ~/dotfiles >/dev/null
-cd ~/dotfiles
-stow .
-
-source ~/.bashrc
 
 printf "%b\n" "${YELLOW}Install packages ...${RC}"
 source "$REPO_PATH/packages/main.sh"
