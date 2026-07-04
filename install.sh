@@ -25,18 +25,18 @@ git clone "https://github.com/Kshitiz-Karki/${REPO_NAME}.git" $REPO_PATH >/dev/n
 # mkdir -p ~/Projects/github
 # cd ~/Documents/github
 
-printf "%b\n" "${YELLOW}Configure dotfiles using gnu stow ...${RC}"
-mv ~/.bashrc ~/.bashrc.bkp
-mv ~/.bash_profile ~/.bash_profile.bkp
-sudo dnf install -y stow
-# git clone https://github.com/Kshitiz-Karki/dotfiles.git ~/dotfiles >/dev/null
-cd ~/dotfiles
-stow .
-
-source ~/.bashrc
-
-printf "%b\n" "${YELLOW}Apply catppuccin mocha (default) theme ...${RC}"
-ln -s $REPO_PATH/themes/catppuccin-mocha ~/.config/themes
+# printf "%b\n" "${YELLOW}Configure dotfiles using gnu stow ...${RC}"
+# mv ~/.bashrc ~/.bashrc.bkp
+# mv ~/.bash_profile ~/.bash_profile.bkp
+# sudo dnf install -y stow
+# # git clone https://github.com/Kshitiz-Karki/dotfiles.git ~/dotfiles >/dev/null
+# cd ~/dotfiles
+# stow .
+#
+# source ~/.bashrc
+#
+# printf "%b\n" "${YELLOW}Apply catppuccin mocha (default) theme ...${RC}"
+# ln -s $REPO_PATH/themes/catppuccin-mocha ~/.config/themes
 # move below to separate file like theme-switcher.sh
 # ln -s ~/.config/themes/btop.theme ~/.config/btop/themes/current.theme
 # ln -s ~/.config/themes/dunst ~/.config/dunst/theme
