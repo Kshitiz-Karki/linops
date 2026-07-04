@@ -63,8 +63,8 @@ gsettings set org.gnome.desktop.interface icon-theme 'Papirus-Dark'
 
 printf "%b\n" "${YELLOW}Set battery charge thresholds (40 - 80) ...${RC}"
 #https://linuxconfig.org/how-to-set-battery-charge-thresholds-on-linux
-echo 40 | sudo tee /sys/class/power_supply/BAT0/charge_start_threshold
-echo 80 | sudo tee /sys/class/power_supply/BAT0/charge_stop_threshold
+# echo 40 | sudo tee /sys/class/power_supply/BAT0/charge_start_threshold
+# echo 80 | sudo tee /sys/class/power_supply/BAT0/charge_stop_threshold
 
 printf "%b\n" "${YELLOW}Set up utilities at ~/bin ...${RC}"
 ln -s $REPO_PATH/utils ~/bin
