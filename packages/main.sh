@@ -14,11 +14,11 @@ sudo dnf swap -y ffmpeg-free ffmpeg --allowerasing
 sudo dnf group upgrade -y multimedia
 sudo dnf group upgrade -y core
 
-sudo dnf install -y fwupd
-fwupdmgr refresh --force
-fwupdmgr get-devices
-fwupdmgr get-updates
-fwupdmgr update
+# sudo dnf install -y fwupd
+# fwupdmgr refresh --force
+# fwupdmgr get-devices
+# fwupdmgr get-updates
+# fwupdmgr update
 
 flatpak remote-add --if-not-exists flathub https://dl.flathub.org/repo/flathub.flatpakrepo
 
@@ -45,6 +45,7 @@ sudo dnf install -y
 
 sudo dnf install -y \
   curl wget \
+  fwupd \
   papirus-icon-theme \
   wlsunset \
   jetbrains-mono-fonts \
