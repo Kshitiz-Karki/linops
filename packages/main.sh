@@ -94,11 +94,13 @@ sudo dnf install -y dnf-plugins-core
 # 1. copr - https://copr.fedorainfracloud.org/coprs/tofik/nwg-shell/
 # 2. terra - sudo dnf install nwg-look
 
+#disable fedora flatpak, use flathib instead
+if command -v flatpak >/dev/null; then
+  flatpak remote-modify fedora --disable
+fi
+
 #enable flathub
 flatpak remote-add --if-not-exists flathub https://dl.flathub.org/repo/flathub.flatpakrepo
-
-#disable fedora flatpak, use flathib instead
-flatpak remote-modify fedora --disable
 
 #install flatpaks
 # flatpak install flathub md.obsidian.Obsidian
