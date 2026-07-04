@@ -44,6 +44,8 @@ getnf -i CascadiaMono
 # cd -
 
 # system, wayland, desktop/window manager packages
+sudo dnf install -y
+
 sudo dnf install -y \
   curl wget \
   papirus-icon-theme \
@@ -55,12 +57,11 @@ sudo dnf install -y \
 
 # cli apps/packages or dev tools
 sudo dnf copr enable -y atim/starship
-sudo dnf copr enable -y lilay/topgrade
-sudo dnf copr enable -y jdxcode/mise
+# sudo dnf copr enable -y lilay/topgrade
+# sudo dnf copr enable -y jdxcode/mise
 sudo dnf install -y \
   starship \
-  topgrade \
-  mise \
+  \
   eza \
   fzf ripgrep fd neovim luarocks tree-sitter-cli \
   bat \
@@ -70,7 +71,8 @@ sudo dnf install -y \
   zoxide \
   zsh \
   rofi \
-  tmux
+  tmux # topgrade \
+# mise \
 # gh
 # aria2c
 # cliphist
@@ -78,8 +80,8 @@ sudo dnf install -y \
 # gui apps
 # sudo dnf copr enable lionheartp/Hyprland # waypaper
 sudo dnf install -y \
-  imv \
-  chromium-browser
+  imv
+# chromium-browser
 # waypaper
 #brave browser
 sudo dnf install dnf-plugins-core
@@ -101,7 +103,7 @@ sudo dnf install -y anki
 flatpak remote-modify fedora --disable
 
 #install flatpaks
-flatpak install flathub md.obsidian.Obsidian
+# flatpak install flathub md.obsidian.Obsidian
 # com.github.tchx84.Flatseal \
 # org.gnome.DejaDup \
 # com.saivert.pwvucontrol

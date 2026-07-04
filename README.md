@@ -13,7 +13,3 @@ Ensure you have the following installed on your system:
 ```
 wget -qO- https://raw.githubusercontent.com/Kshitiz-Karki/linops/refs/heads/main/install.sh | bash
 ```
-
-## Misc
-
-- other possible names - linuxize / lincraft / lingrade
