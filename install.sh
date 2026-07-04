@@ -48,7 +48,7 @@ printf "%b\n" "${YELLOW}Install packages ...${RC}"
 source "$REPO_PATH/packages/main.sh"
 
 printf "%b\n" "${YELLOW}Set zsh as the default shell for the current user ...${RC}"
-sudo chsh -s /usr/bin/zsh "$USER"
+sudo chsh -s $(command -v zsh) "$USER"
 
 printf "%b\n" "${YELLOW}Apply papirus icon theme ...${RC}"
 gsettings set org.gnome.desktop.interface icon-theme 'Papirus-Dark'
