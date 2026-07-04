@@ -20,8 +20,6 @@ sudo dnf group upgrade -y core
 # fwupdmgr get-updates
 # fwupdmgr update
 
-flatpak remote-add --if-not-exists flathub https://dl.flathub.org/repo/flathub.flatpakrepo
-
 #post install scripts - end
 
 # nerd fonts installer & updater (use a custom bash script instead??)
@@ -46,6 +44,7 @@ sudo dnf install -y
 sudo dnf install -y \
   curl wget \
   fwupd \
+  flatpak \
   papirus-icon-theme \
   wlsunset \
   jetbrains-mono-fonts \
@@ -96,6 +95,9 @@ sudo dnf install -y anki
 # install nwg-look
 # 1. copr - https://copr.fedorainfracloud.org/coprs/tofik/nwg-shell/
 # 2. terra - sudo dnf install nwg-look
+
+#enable flathub
+flatpak remote-add --if-not-exists flathub https://dl.flathub.org/repo/flathub.flatpakrepo
 
 #disable fedora flatpak, use flathib instead
 flatpak remote-modify fedora --disable
