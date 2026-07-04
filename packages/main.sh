@@ -3,10 +3,10 @@
 #post install scripts - start
 # guide - https://techhut.tv/fedora-44-post-install-guide
 # youtube - https://www.youtube.com/watch?v=Zu8A3_NflvA
-sudo tee -a /etc/dnf/dnf.conf >/dev/null <<'EOF'
-fastestmirror=True
-max_parallel_downloads=4
-EOF
+# sudo tee -a /etc/dnf/dnf.conf >/dev/null <<'EOF'
+# fastestmirror=True
+# max_parallel_downloads=4
+# EOF
 
 sudo dnf update -y
 sudo dnf install https://mirrors.rpmfusion.org/free/fedora/rpmfusion-free-release-$(rpm -E %fedora).noarch.rpm https://mirrors.rpmfusion.org/nonfree/fedora/rpmfusion-nonfree-release-$(rpm -E %fedora).noarch.rpm
