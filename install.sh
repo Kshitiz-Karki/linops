@@ -26,8 +26,10 @@ git clone "https://github.com/Kshitiz-Karki/${REPO_NAME}.git" $REPO_PATH >/dev/n
 # cd ~/Documents/github
 
 printf "%b\n" "${YELLOW}Configure dotfiles using gnu stow ...${RC}"
+mv ~/.bashrc ~/.bashrc.bkp
+mv ~/.bash_profile ~/.bash_profile.bkp
 sudo dnf install -y stow
-git clone https://github.com/Kshitiz-Karki/dotfiles.git ~/dotfiles >/dev/null
+# git clone https://github.com/Kshitiz-Karki/dotfiles.git ~/dotfiles >/dev/null
 cd ~/dotfiles
 stow .
 
