@@ -87,7 +87,7 @@ sudo dnf install -y brave-origin
 curl -f https://zed.dev/install.sh | sh
 
 # install terra respository
-sudo dnf install --nogpgcheck --repofrompath 'terra,https://repos.fyralabs.com/terra$releasever' terra-release
+sudo dnf install -y --nogpgcheck --repofrompath 'terra,https://repos.fyralabs.com/terra$releasever' terra-release
 sudo dnf install -y anki
 
 # install nwg-look
