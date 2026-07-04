@@ -37,13 +37,15 @@ source ~/.bashrc
 
 printf "%b\n" "${YELLOW}Apply catppuccin mocha (default) theme ...${RC}"
 ln -s $REPO_PATH/themes/catppuccin-mocha ~/.config/themes
-ln -s ~/.config/themes/btop.theme ~/.config/btop/themes/current.theme
-ln -s ~/.config/themes/dunst ~/.config/dunst/theme
-ln -s ~/.config/themes/foot.ini ~/.config/foot/theme.ini
+# move below to separate file like theme-switcher.sh
+# ln -s ~/.config/themes/btop.theme ~/.config/btop/themes/current.theme
+# ln -s ~/.config/themes/dunst ~/.config/dunst/theme
+# ln -s ~/.config/themes/foot.ini ~/.config/foot/theme.ini
+# ln -s ~/.config/themes/neovim.lua ~/.config/nvim/lua/plugins/theme.lua
+# ln -s ~/.config/themes/waybar.css ~/.config/waybar/color.css
+# ln -s ~/.config/themes/gtklock.css ~/.config/gtklock/color.css
+# uncomment below when in use
 # ln -s ~/.config/themes/kitty.conf ~/.config/kitty/theme.conf
-ln -s ~/.config/themes/neovim.lua ~/.config/nvim/lua/plugins/theme.lua
-ln -s ~/.config/themes/waybar.css ~/.config/waybar/color.css
-ln -s ~/.config/themes/gtklock.css ~/.config/gtklock/color.css
 # ln -s ~/.config/themes/zathura ~/.config/zathura/theme
 
 printf "%b\n" "${YELLOW}Install packages ...${RC}"
