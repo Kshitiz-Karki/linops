@@ -3,10 +3,7 @@
 #post install scripts - start
 # guide - https://techhut.tv/fedora-44-post-install-guide
 # youtube - https://www.youtube.com/watch?v=Zu8A3_NflvA
-sudo cat >/etc/dnf/dnf.conf <<'EOF'
-# see `man dnf.conf` for defaults and possible options
-
-[main]
+sudo tee -a /etc/dnf/dnf.conf >/dev/null <<'EOF'
 fastestmirror=True
 max_parallel_downloads=4
 EOF
