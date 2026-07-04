@@ -24,8 +24,8 @@ sudo dnf group upgrade -y core
 
 # nerd fonts installer & updater (use a custom bash script instead??)
 # https://github.com/getnf/getnf
-curl -fsSL https://raw.githubusercontent.com/getnf/getnf/main/install.sh | bash
-getnf -i CascadiaMono
+# curl -fsSL https://raw.githubusercontent.com/getnf/getnf/main/install.sh | bash
+# getnf -i CascadiaMono
 
 #caskaydia mono nerd font
 # mkdir -p ~/.local/share/fonts
@@ -39,8 +39,6 @@ getnf -i CascadiaMono
 # cd -
 
 # system, wayland, desktop/window manager packages
-sudo dnf install -y
-
 sudo dnf install -y \
   curl wget \
   fwupd \
