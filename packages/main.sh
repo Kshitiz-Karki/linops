@@ -87,8 +87,8 @@ sudo dnf install -y dnf-plugins-core
 # curl -f https://zed.dev/install.sh | sh
 
 # install terra respository
-sudo dnf install -y --nogpgcheck --repofrompath 'terra,https://repos.fyralabs.com/terra$releasever' terra-release
-sudo dnf install -y anki
+# sudo dnf install -y --nogpgcheck --repofrompath 'terra,https://repos.fyralabs.com/terra$releasever' terra-release
+# sudo dnf install -y anki
 
 # install nwg-look
 # 1. copr - https://copr.fedorainfracloud.org/coprs/tofik/nwg-shell/
