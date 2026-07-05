@@ -14,7 +14,7 @@ projects="$(
     printf '%s\n' \
       "$HOME/dotfiles" \
       "$HOME/Documents/obsidian" \
-      "$HOME/Documents/linops"
+      "$HOME/Projects/linops"
   } | sed "s|^$PREFIX/||"
 )"
 

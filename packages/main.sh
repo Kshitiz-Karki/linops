@@ -3,10 +3,10 @@
 #post install scripts - start
 # guide - https://techhut.tv/fedora-44-post-install-guide
 # youtube - https://www.youtube.com/watch?v=Zu8A3_NflvA
-# sudo tee -a /etc/dnf/dnf.conf >/dev/null <<'EOF'
-# fastestmirror=True
-# max_parallel_downloads=4
-# EOF
+sudo tee -a /etc/dnf/dnf.conf >/dev/null <<'EOF'
+fastestmirror=True
+max_parallel_downloads=4
+EOF
 
 sudo dnf update -y
 sudo dnf install https://mirrors.rpmfusion.org/free/fedora/rpmfusion-free-release-$(rpm -E %fedora).noarch.rpm https://mirrors.rpmfusion.org/nonfree/fedora/rpmfusion-nonfree-release-$(rpm -E %fedora).noarch.rpm
@@ -22,21 +22,19 @@ sudo dnf group upgrade -y core
 
 #post install scripts - end
 
-# nerd fonts installer & updater (use a custom bash script instead??)
-# https://github.com/getnf/getnf
-# curl -fsSL https://raw.githubusercontent.com/getnf/getnf/main/install.sh | bash
-# getnf -i CascadiaMono
+# install bin - binary manager (https://github.com/marcosnils/bin)
+# usage example - https://github.com/marcosnils/bin#-commands-reference
+cd ~/Downloads
+VERSION_BIN=$(gh release view --repo marcosnils/bin --json tagName --jq '.tagName | ltrimstr("v")')
+wget -qO bin "https://github.com/marcosnils/bin/releases/download/v${VERSION_BIN}/bin_${VERSION_BIN}_linux_amd64"
+chmod u+x bin
+./bin install github.com/marcosnils/bin
+rm bin
 
-#caskaydia mono nerd font
-# mkdir -p ~/.local/share/fonts
-# mkdir -p ~/Documents/github
-# cd ~/Documents/github
-# wget https://github.com/ryanoasis/nerd-fonts/releases/latest/download/CascadiaMono.zip
-# unzip CascadiaMono.zip -d CascadiaFont
-# cp -r CascadiaFont ~/.local/share/fonts
-# fc-cache
-# rm -rf CascadiaFont CascadiaMono.zip
-# cd -
+# nerd fonts installer & updater
+# https://github.com/getnf/getnf
+curl -fsSL https://raw.githubusercontent.com/getnf/getnf/main/install.sh | bash
+getnf -i CascadiaMono
 
 # system, wayland, desktop/window manager packages
 sudo dnf install -y \
@@ -80,11 +78,11 @@ sudo dnf install -y \
 # waypaper
 #brave browser
 sudo dnf install -y dnf-plugins-core
-# sudo dnf config-manager addrepo --from-repofile=https://brave-browser-rpm-release.s3.brave.com/brave-browser.repo
+sudo dnf config-manager addrepo --from-repofile=https://brave-browser-rpm-release.s3.brave.com/brave-browser.repo
 # sudo dnf install -y brave-browser
-# sudo dnf install -y brave-origin
+sudo dnf install -y brave-origin
 # zed editor
-# curl -f https://zed.dev/install.sh | sh
+curl -f https://zed.dev/install.sh | sh
 
 # install terra respository
 # sudo dnf install -y --nogpgcheck --repofrompath 'terra,https://repos.fyralabs.com/terra$releasever' terra-release

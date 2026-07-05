@@ -15,28 +15,22 @@ export REPO_PATH="$HOME/Projects/$REPO_NAME"
 rm -rf $REPO_PATH
 git clone "https://github.com/Kshitiz-Karki/${REPO_NAME}.git" $REPO_PATH >/dev/null
 
-# Check for sudo
-# if [ "$EUID" -ne 0 ]; then
-#   printf "%b\n" "${RED}This script must be run with sudo.${RC}"
-#   exit 1
-# fi
-
 #setup github projects
 # mkdir -p ~/Projects/github
 # cd ~/Documents/github
 
-# printf "%b\n" "${YELLOW}Configure dotfiles using gnu stow ...${RC}"
-# mv ~/.bashrc ~/.bashrc.bkp
-# mv ~/.bash_profile ~/.bash_profile.bkp
-# sudo dnf install -y stow
-# # git clone https://github.com/Kshitiz-Karki/dotfiles.git ~/dotfiles >/dev/null
-# cd ~/dotfiles
-# stow .
-#
-# source ~/.bashrc
-#
-# printf "%b\n" "${YELLOW}Apply catppuccin mocha (default) theme ...${RC}"
-# ln -s $REPO_PATH/themes/catppuccin-mocha ~/.config/themes
+printf "%b\n" "${YELLOW}Configure dotfiles using gnu stow ...${RC}"
+mv ~/.bashrc ~/.bashrc.bkp
+mv ~/.bash_profile ~/.bash_profile.bkp
+sudo dnf install -y stow
+git clone https://github.com/Kshitiz-Karki/dotfiles.git ~/dotfiles >/dev/null
+cd ~/dotfiles
+stow .
+
+source ~/.bashrc
+
+printf "%b\n" "${YELLOW}Apply catppuccin mocha (default) theme ...${RC}"
+ln -s $REPO_PATH/themes/catppuccin-mocha ~/.config/themes
 # move below to separate file like theme-switcher.sh
 # ln -s ~/.config/themes/btop.theme ~/.config/btop/themes/current.theme
 # ln -s ~/.config/themes/dunst ~/.config/dunst/theme

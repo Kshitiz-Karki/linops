@@ -1,22 +1,24 @@
 #!/bin/bash
 
-#mega
-cd ~/Downloads/
-wget https://mega.nz/linux/repo/Fedora_43/x86_64/megasync-Fedora_43.x86_64.rpm && sudo dnf install "$PWD/megasync-Fedora_43.x86_64.rpm"
+# dependencies to compile, run & test .c files
+sudo dnf install -y libasan \
+  valgrind
 
-# pdf viewer (customizable & themeable alternative)
-sudo dnf install -y zathura zathura-pdf-poppler
-
-#vscode
+#vscode install
 sudo rpm --import https://packages.microsoft.com/keys/microsoft.asc
 echo -e "[code]\nname=Visual Studio Code\nbaseurl=https://packages.microsoft.com/yumrepos/vscode\nenabled=1\nautorefresh=1\ntype=rpm-md\ngpgcheck=1\ngpgkey=https://packages.microsoft.com/keys/microsoft.asc" | sudo tee /etc/yum.repos.d/vscode.repo >/dev/null
 dnf check-update
 sudo dnf install -y code
 
-# required for AppImages
-sudo dnf install -y fuse-libs
-# integrate AppImages with the system menu
-flatpak install it.mijorus.gearlever #uncomment when using AppImages
+#vscode uninstall
+sudo dnf remove -y code
+#remove vs code software repository
+#https://docs.fedoraproject.org/en-US/quick-docs/adding-or-removing-software-repositories-in-fedora/
+sudo rm /etc/yum.repos.d/vscode.repo
+#remove configs
+#https://code.visualstudio.com/docs/setup/uninstall
+rm -rf ~/.config/Code
+rm -rf ~/.vscode
 
 #install evil-helix
 VERSION="20250915"

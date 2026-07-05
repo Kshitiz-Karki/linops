@@ -4,8 +4,8 @@ TERMINAL=foot
 BLUETUI=bluetui-v0.8.1
 NMTUI=nmtui-go_0.2.7
 SUPER=
-SCRIPTS_PATH=~/Documents/linops/scripts
-SCRIPTS_PATH_LAUNCHER=~/Documents/linops/scripts/rofi
+SCRIPTS_PATH=~/Projects/linops/scripts
+SCRIPTS_PATH_LAUNCHER=~/Projects/linops/scripts/rofi
 
 labels=(
   # "󰃀  Quick links       [Super + Shift + m & q]"   # use vimium browser extension
