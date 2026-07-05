@@ -4,9 +4,7 @@ My personal dotfiles and packages installer on top of a fresh fedora sway spin.
 
 ## Requirements
 
-Ensure you have the following installed on your system:
-  - wget
-  - git
+  - [Fedora sway spin](https://fedoraproject.org/spins/sway/)
 
 ## Installation
 

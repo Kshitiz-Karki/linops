@@ -71,6 +71,8 @@ printf "%b\n" "${YELLOW}Cleanup (remove unrequired packages) ...${RC}"
 sudo dnf group remove -y printing
 sudo dnf remove -y \
   cups \
+  swaylock \
+  mpv \
   system-config-printer \
   sddm # use tty login using .bash_profile and .zprofile
 

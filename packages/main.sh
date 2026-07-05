@@ -24,7 +24,8 @@ sudo dnf install -y \
   fwupd \
   flatpak \
   papirus-icon-theme \
-  jetbrains-mono-fonts
+  jetbrains-mono-fonts \
+  gtklock
 # wiremix \
 # pamixer
 
@@ -70,8 +71,7 @@ getnf -i CascadiaMono
 
 # *****************************GUI PAKAGES*****************************
 # sudo dnf copr enable lionheartp/Hyprland # waypaper
-sudo dnf install -y \
-  imv
+# sudo dnf install -y \
 # chromium-browser
 # waypaper
 #brave browser
