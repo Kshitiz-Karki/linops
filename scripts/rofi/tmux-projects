@@ -12,6 +12,7 @@ projects="$(
     find "$HOME/Documents/projects" -mindepth 1 -maxdepth 1 -type d
     find "$HOME/Documents/github" -mindepth 1 -maxdepth 1 -type d
     printf '%s\n' \
+      "/usr/share/sway/config.d" \
       "$HOME/dotfiles" \
       "$HOME/Documents/obsidian" \
       "$HOME/Projects/linops"

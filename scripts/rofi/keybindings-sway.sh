@@ -9,7 +9,7 @@ bindings=(
   "$SUPER  + Alt + k                      view sway keybinds"
   "$SUPER  + Alt + v                      view vimium keybinds"
   # "$SUPER  + Alt + b                      bluetui"
-  "$SUPER  + Alt + a                      wiremix"
+  # "$SUPER  + Alt + a                      wiremix"
   # "$SUPER  + Alt + w                      nmtui"
   "$SUPER  + Alt + t                      toggle waybar"
   "$SUPER  + p                            tmux projects"

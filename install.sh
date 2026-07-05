@@ -42,6 +42,10 @@ ln -s $REPO_PATH/themes/catppuccin-mocha ~/.config/themes
 # ln -s ~/.config/themes/kitty.conf ~/.config/kitty/theme.conf
 # ln -s ~/.config/themes/zathura ~/.config/zathura/theme
 
+printf "%b\n" "${YELLOW}Install & configure github cli ...${RC}"
+sudo dnf install -y gh
+gh auth login
+
 printf "%b\n" "${YELLOW}Install packages ...${RC}"
 source "$REPO_PATH/packages/main.sh"
 

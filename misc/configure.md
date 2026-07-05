@@ -1,4 +1,4 @@
-# Setup git
+# Git
 
 ```sh
 #change current remote
@@ -17,8 +17,6 @@ ssh-keygen -t ed25519 -C "xxx@gmail.com"
 cat ~/.ssh/id_ed25519.pub
 ```
 
-```
-```
 # Gnome keybindings
 
 ```sh
@@ -74,6 +72,4 @@ gsettings set org.gnome.desktop.wm.keybindings move-to-workspace-3 "['<Super><Sh
 gsettings set org.gnome.desktop.wm.keybindings move-to-workspace-4 "['<Super><Shift>4']"
 gsettings set org.gnome.desktop.wm.keybindings move-to-workspace-5 "['<Super><Shift>5']"
 gsettings set org.gnome.desktop.wm.keybindings move-to-workspace-6 "['<Super><Shift>6']"
-```
-```
 ```

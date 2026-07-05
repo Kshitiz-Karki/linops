@@ -1,6 +1,6 @@
 #!/bin/bash
 
-#post install scripts - start
+# *********************FEDORA POST INSTALL SCRIPTS - START*********************
 # guide - https://techhut.tv/fedora-44-post-install-guide
 # youtube - https://www.youtube.com/watch?v=Zu8A3_NflvA
 sudo tee -a /etc/dnf/dnf.conf >/dev/null <<'EOF'
@@ -14,31 +14,14 @@ sudo dnf swap -y ffmpeg-free ffmpeg --allowerasing
 sudo dnf group upgrade -y multimedia
 sudo dnf group upgrade -y core
 
-# sudo dnf install -y fwupd
-# fwupdmgr refresh --force
-# fwupdmgr get-devices
-# fwupdmgr get-updates
-# fwupdmgr update
+# install terra respository
+# sudo dnf install -y --nogpgcheck --repofrompath 'terra,https://repos.fyralabs.com/terra$releasever' terra-release
 
-#post install scripts - end
+# *********************FEDORA POST INSTALL SCRIPTS - END*********************
 
-# install bin - binary manager (https://github.com/marcosnils/bin)
-# usage example - https://github.com/marcosnils/bin#-commands-reference
-cd ~/Downloads
-VERSION_BIN=$(gh release view --repo marcosnils/bin --json tagName --jq '.tagName | ltrimstr("v")')
-wget -qO bin "https://github.com/marcosnils/bin/releases/download/v${VERSION_BIN}/bin_${VERSION_BIN}_linux_amd64"
-chmod u+x bin
-./bin install github.com/marcosnils/bin
-rm bin
-
-# nerd fonts installer & updater
-# https://github.com/getnf/getnf
-curl -fsSL https://raw.githubusercontent.com/getnf/getnf/main/install.sh | bash
-getnf -i CascadiaMono
-
-# system, wayland, desktop/window manager packages
+# *************************SYSTEM PAKAGES*************************
 sudo dnf install -y \
-  curl wget \
+  curl wget awk zstd tar \
   fwupd \
   flatpak \
   papirus-icon-theme \
@@ -48,13 +31,12 @@ sudo dnf install -y \
 # wiremix \
 # pamixer
 
-# cli apps/packages or dev tools
+# *************************CLI PAKAGES/DEV TOOLS*************************
 sudo dnf copr enable -y atim/starship
-# sudo dnf copr enable -y lilay/topgrade
+sudo dnf copr enable -y lilay/topgrade
 # sudo dnf copr enable -y jdxcode/mise
 sudo dnf install -y \
   starship \
-  \
   eza \
   fzf ripgrep fd neovim luarocks tree-sitter-cli \
   bat \
@@ -64,29 +46,46 @@ sudo dnf install -y \
   zoxide \
   zsh \
   rofi \
-  tmux # topgrade \
+  tmux \
+  gh \
+  topgrade
 # mise \
-# gh
 # aria2c
 # cliphist
 
-# gui apps
+printf "%b\n" "${YELLOW}Install bin - binary manager ...${RC}"
+# install bin - binary manager (https://github.com/marcosnils/bin)
+# usage example - https://github.com/marcosnils/bin#-commands-reference
+cd ~/Downloads
+VERSION_BIN=$(gh release view --repo marcosnils/bin --json tagName --jq '.tagName | ltrimstr("v")')
+wget -qO bin "https://github.com/marcosnils/bin/releases/download/v${VERSION_BIN}/bin_${VERSION_BIN}_linux_amd64"
+chmod u+x bin
+./bin install github.com/marcosnils/bin
+rm bin
+cd -
+
+#install surge - TUI download manager
+bin install github.com/SurgeDM/Surge
+
+# nerd fonts installer & updater
+# https://github.com/getnf/getnf
+curl -fsSL https://raw.githubusercontent.com/getnf/getnf/main/install.sh | bash
+getnf -i CascadiaMono
+
+# *****************************GUI PAKAGES*****************************
 # sudo dnf copr enable lionheartp/Hyprland # waypaper
 sudo dnf install -y \
   imv
 # chromium-browser
 # waypaper
 #brave browser
-sudo dnf install -y dnf-plugins-core
-sudo dnf config-manager addrepo --from-repofile=https://brave-browser-rpm-release.s3.brave.com/brave-browser.repo
+# sudo dnf install -y dnf-plugins-core
+# sudo dnf config-manager addrepo --from-repofile=https://brave-browser-rpm-release.s3.brave.com/brave-browser.repo
 # sudo dnf install -y brave-browser
-sudo dnf install -y brave-origin
+# sudo dnf install -y brave-origin
 # zed editor
-curl -f https://zed.dev/install.sh | sh
-
-# install terra respository
-# sudo dnf install -y --nogpgcheck --repofrompath 'terra,https://repos.fyralabs.com/terra$releasever' terra-release
-# sudo dnf install -y anki
+# curl -f https://zed.dev/install.sh | sh
+source "${REPO_PATH}/packages/anki.sh"
 
 # install nwg-look
 # 1. copr - https://copr.fedorainfracloud.org/coprs/tofik/nwg-shell/
