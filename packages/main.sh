@@ -21,13 +21,10 @@ sudo dnf group upgrade -y core
 
 # *************************SYSTEM PAKAGES*************************
 sudo dnf install -y \
-  curl wget awk zstd tar \
   fwupd \
   flatpak \
   papirus-icon-theme \
-  wlsunset \
-  jetbrains-mono-fonts \
-  grimshot grim slurp
+  jetbrains-mono-fonts
 # wiremix \
 # pamixer
 
@@ -47,7 +44,6 @@ sudo dnf install -y \
   zsh \
   rofi \
   tmux \
-  gh \
   topgrade
 # mise \
 # aria2c
@@ -91,10 +87,10 @@ source "${REPO_PATH}/packages/anki.sh"
 # 1. copr - https://copr.fedorainfracloud.org/coprs/tofik/nwg-shell/
 # 2. terra - sudo dnf install nwg-look
 
-#disable fedora flatpak, use flathib instead
-if command -v flatpak >/dev/null; then
-  flatpak remote-modify fedora --disable
-fi
+#disable fedora flatpak, use flathib instead (fedora flatpak not pre-installed in sway spin)
+# if command -v flatpak >/dev/null; then
+#   flatpak remote-modify fedora --disable
+# fi
 
 #enable flathub
 flatpak remote-add --if-not-exists flathub https://dl.flathub.org/repo/flathub.flatpakrepo
