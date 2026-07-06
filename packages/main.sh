@@ -9,7 +9,7 @@ max_parallel_downloads=4
 EOF
 
 sudo dnf update -y
-sudo dnf install https://mirrors.rpmfusion.org/free/fedora/rpmfusion-free-release-$(rpm -E %fedora).noarch.rpm https://mirrors.rpmfusion.org/nonfree/fedora/rpmfusion-nonfree-release-$(rpm -E %fedora).noarch.rpm
+sudo dnf install -y https://mirrors.rpmfusion.org/free/fedora/rpmfusion-free-release-$(rpm -E %fedora).noarch.rpm https://mirrors.rpmfusion.org/nonfree/fedora/rpmfusion-nonfree-release-$(rpm -E %fedora).noarch.rpm
 sudo dnf swap -y ffmpeg-free ffmpeg --allowerasing
 sudo dnf group upgrade -y multimedia
 sudo dnf group upgrade -y core
@@ -96,7 +96,7 @@ source "${REPO_PATH}/packages/anki.sh"
 flatpak remote-add --if-not-exists flathub https://dl.flathub.org/repo/flathub.flatpakrepo
 
 #install flatpaks
-# flatpak install flathub md.obsidian.Obsidian
-# com.github.tchx84.Flatseal \
-# org.gnome.DejaDup \
+flatpak install -y flathub md.obsidian.Obsidian \
+  com.github.tchx84.Flatseal \
+  org.gnome.DejaDup
 # com.saivert.pwvucontrol
