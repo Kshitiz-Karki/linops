@@ -46,6 +46,8 @@ printf "%b\n" "${YELLOW}Install & configure github cli ...${RC}"
 sudo dnf install -y gh
 gh auth login
 
+mkdir -p ~/.local/bin
+
 printf "%b\n" "${YELLOW}Install packages ...${RC}"
 source "$REPO_PATH/packages/main.sh"
 

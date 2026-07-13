@@ -11,7 +11,7 @@ My personal dotfiles and packages installer on top of a fresh fedora sway spin.
 Install fedora sway spin, then:
 
 ```
-wget -qO- https://raw.githubusercontent.com/Kshitiz-Karki/linops/refs/heads/main/install.sh | bash
+wget -qO- https://raw.githubusercontent.com/Kshitiz-Karki/linops/main/install.sh | bash
 ```
 
 ## Why sway spin and not Fedora Everything/Minimal ISO?
