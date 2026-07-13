@@ -96,7 +96,11 @@ source "${REPO_PATH}/packages/anki.sh"
 flatpak remote-add --if-not-exists flathub https://dl.flathub.org/repo/flathub.flatpakrepo
 
 #install flatpaks
-flatpak install -y flathub md.obsidian.Obsidian \
-  com.github.tchx84.Flatseal \
+apps=(
+  md.obsidian.Obsidian
+  com.github.tchx84.Flatseal
   org.gnome.DejaDup
-# com.saivert.pwvucontrol
+  # com.saivert.pwvucontrol
+)
+
+flatpak install --noninteractive flathub "${apps[@]}"
