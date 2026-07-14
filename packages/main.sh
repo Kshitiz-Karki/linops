@@ -20,36 +20,38 @@ sudo dnf group upgrade -y core
 # *********************FEDORA POST INSTALL SCRIPTS - END*********************
 
 # *************************SYSTEM PAKAGES*************************
-sudo dnf install -y \
-  fwupd \
-  flatpak \
-  papirus-icon-theme \
-  jetbrains-mono-fonts \
+sys_pkgs=(
+  fwupd
+  flatpak
+  papirus-icon-theme
+  jetbrains-mono-fonts
   gtklock
-# wiremix \
-# pamixer
-
+  # wiremix
+  # pamixer
+)
+sudo dnf install -y "${sys_pkgs[@]}"
 # *************************CLI PAKAGES/DEV TOOLS*************************
 sudo dnf copr enable -y atim/starship
 sudo dnf copr enable -y lilay/topgrade
 # sudo dnf copr enable -y jdxcode/mise
-sudo dnf install -y \
-  starship \
-  eza \
-  fzf ripgrep fd neovim luarocks tree-sitter-cli \
-  bat \
-  btop \
-  tldr \
-  trash-cli \
-  zoxide \
-  zsh \
-  rofi \
-  tmux \
+cli_dev_pkgs=(
+  starship
+  eza
+  fzf ripgrep fd neovim luarocks tree-sitter-cli
+  bat
+  btop
+  tldr
+  trash-cli
+  zoxide
+  zsh
+  rofi
+  tmux
   topgrade
-# mise \
-# aria2c
-# cliphist
-
+  # mise
+  # aria2c
+  # cliphist
+)
+sudo dnf install -y "${cli_dev_pkgs[@]}"
 printf "%b\n" "${YELLOW}Install bin - binary manager ...${RC}"
 # install bin - binary manager (https://github.com/marcosnils/bin)
 # usage example - https://github.com/marcosnils/bin#-commands-reference
@@ -96,11 +98,11 @@ source "${REPO_PATH}/packages/anki.sh"
 flatpak remote-add --if-not-exists flathub https://dl.flathub.org/repo/flathub.flatpakrepo
 
 #install flatpaks
-apps=(
+flatpaks=(
   md.obsidian.Obsidian
   com.github.tchx84.Flatseal
   org.gnome.DejaDup
   # com.saivert.pwvucontrol
 )
 
-flatpak install --noninteractive flathub "${apps[@]}"
+flatpak install --noninteractive flathub "${flatpaks[@]}"
