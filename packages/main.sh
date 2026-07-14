@@ -55,16 +55,16 @@ sudo dnf install -y "${cli_dev_pkgs[@]}"
 printf "%b\n" "${YELLOW}Install bin - binary manager ...${RC}"
 # install bin - binary manager (https://github.com/marcosnils/bin)
 # usage example - https://github.com/marcosnils/bin#-commands-reference
-cd ~/Downloads
-VERSION_BIN=$(gh release view --repo marcosnils/bin --json tagName --jq '.tagName | ltrimstr("v")')
-wget -qO bin "https://github.com/marcosnils/bin/releases/download/v${VERSION_BIN}/bin_${VERSION_BIN}_linux_amd64"
-chmod u+x bin
-./bin install github.com/marcosnils/bin
-rm bin
-cd -
+# cd ~/Downloads
+# VERSION_BIN=$(gh release view --repo marcosnils/bin --json tagName --jq '.tagName | ltrimstr("v")')
+# wget -qO bin "https://github.com/marcosnils/bin/releases/download/v${VERSION_BIN}/bin_${VERSION_BIN}_linux_amd64"
+# chmod u+x bin
+# ./bin install github.com/marcosnils/bin
+# rm bin
+# cd -
 
 #install surge - TUI download manager
-bin install github.com/SurgeDM/Surge
+# bin install github.com/SurgeDM/Surge
 
 # nerd fonts installer & updater
 # https://github.com/getnf/getnf
@@ -83,7 +83,7 @@ getnf -i CascadiaMono
 # sudo dnf install -y brave-origin
 # zed editor
 # curl -f https://zed.dev/install.sh | sh
-source "${REPO_PATH}/packages/anki.sh"
+# source "${REPO_PATH}/packages/anki.sh"
 
 # install nwg-look
 # 1. copr - https://copr.fedorainfracloud.org/coprs/tofik/nwg-shell/

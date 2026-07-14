@@ -43,8 +43,8 @@ ln -s $REPO_PATH/themes/catppuccin-mocha ~/.config/themes
 # ln -s ~/.config/themes/zathura ~/.config/zathura/theme
 
 printf "%b\n" "${YELLOW}Install & configure github cli ...${RC}"
-sudo dnf install -y gh
-gh auth login
+# sudo dnf install -y gh
+# gh auth login
 
 mkdir -p ~/.local/bin
 
