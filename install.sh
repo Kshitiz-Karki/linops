@@ -43,8 +43,8 @@ ln -s $REPO_PATH/themes/catppuccin-mocha ~/.config/themes
 # ln -s ~/.config/themes/zathura ~/.config/zathura/theme
 
 printf "%b\n" "${YELLOW}Install & configure github cli ...${RC}"
-# sudo dnf install -y gh
-# gh auth login
+sudo dnf install -y gh
+gh auth login
 
 mkdir -p ~/.local/bin
 
@@ -61,10 +61,10 @@ gsettings set org.gnome.desktop.interface icon-theme 'Papirus-Dark'
 # gsettings set org.gnome.desktop.interface color-scheme 'prefer-light'
 # gsettings set org.gnome.desktop.interface gtk-theme 'Adwaita'
 
-# printf "%b\n" "${YELLOW}Set battery charge thresholds (40 - 80) ...${RC}"
+printf "%b\n" "${YELLOW}Set battery charge thresholds (40 - 80) ...${RC}"
 #https://linuxconfig.org/how-to-set-battery-charge-thresholds-on-linux
-# echo 40 | sudo tee /sys/class/power_supply/BAT0/charge_start_threshold
-# echo 80 | sudo tee /sys/class/power_supply/BAT0/charge_stop_threshold
+echo 40 | sudo tee /sys/class/power_supply/BAT0/charge_start_threshold
+echo 80 | sudo tee /sys/class/power_supply/BAT0/charge_stop_threshold
 
 printf "%b\n" "${YELLOW}Set up utilities at ~/bin ...${RC}"
 ln -s $REPO_PATH/utils ~/bin
@@ -73,10 +73,10 @@ printf "%b\n" "${YELLOW}Cleanup (remove unrequired packages) ...${RC}"
 sudo dnf group remove -y printing
 unreqd_pkgs=(
   cups
-  swaylock
+  # swaylock
   mpv
   system-config-printer
-  sddm # use tty login using .bash_profile and .zprofile
+  # sddm # use tty login using .bash_profile and .zprofile
 )
 sudo dnf remove -y "${unreqd_pkgs[@]}"
 printf "%b\n" "${GREEN}Complete.${RC}"

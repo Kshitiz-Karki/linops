@@ -52,16 +52,17 @@ cli_dev_pkgs=(
   # cliphist
 )
 sudo dnf install -y "${cli_dev_pkgs[@]}"
+
 printf "%b\n" "${YELLOW}Install bin - binary manager ...${RC}"
 # install bin - binary manager (https://github.com/marcosnils/bin)
 # usage example - https://github.com/marcosnils/bin#-commands-reference
-# cd ~/Downloads
-# VERSION_BIN=$(gh release view --repo marcosnils/bin --json tagName --jq '.tagName | ltrimstr("v")')
-# wget -qO bin "https://github.com/marcosnils/bin/releases/download/v${VERSION_BIN}/bin_${VERSION_BIN}_linux_amd64"
-# chmod u+x bin
-# ./bin install github.com/marcosnils/bin
-# rm bin
-# cd -
+cd ~/Downloads
+VERSION_BIN=$(gh release view --repo marcosnils/bin --json tagName --jq '.tagName | ltrimstr("v")')
+wget -qO bin "https://github.com/marcosnils/bin/releases/download/v${VERSION_BIN}/bin_${VERSION_BIN}_linux_amd64"
+chmod u+x bin
+./bin install github.com/marcosnils/bin
+rm bin
+cd -
 
 #install surge - TUI download manager
 # bin install github.com/SurgeDM/Surge
@@ -72,18 +73,21 @@ curl -fsSL https://raw.githubusercontent.com/getnf/getnf/main/install.sh | bash
 getnf -i CascadiaMono
 
 # *****************************GUI PAKAGES*****************************
-# sudo dnf copr enable lionheartp/Hyprland # waypaper
-# sudo dnf install -y \
-# chromium-browser
-# waypaper
+sudo dnf copr enable lionheartp/Hyprland # waypaper
 #brave browser
-# sudo dnf install -y dnf-plugins-core
-# sudo dnf config-manager addrepo --from-repofile=https://brave-browser-rpm-release.s3.brave.com/brave-browser.repo
-# sudo dnf install -y brave-browser
-# sudo dnf install -y brave-origin
+sudo dnf install -y dnf-plugins-core
+sudo dnf config-manager addrepo --from-repofile=https://brave-browser-rpm-release.s3.brave.com/brave-browser.repo
+gui_pkgs=(
+  chromium-browser
+  waypaper
+  # brave-browser
+  brave-origin
+)
+sudo dnf install -y "${gui_pkgs[@]}"
 # zed editor
-# curl -f https://zed.dev/install.sh | sh
-# source "${REPO_PATH}/packages/anki.sh"
+curl -f https://zed.dev/install.sh | sh
+
+source "${REPO_PATH}/packages/anki.sh"
 
 # install nwg-look
 # 1. copr - https://copr.fedorainfracloud.org/coprs/tofik/nwg-shell/
