@@ -6,37 +6,30 @@ GREEN='\033[32m'
 RED='\033[0;31m'
 
 repolist=(
-  # "/home/${USER}/dotfiles"
   "${HOME}/dotfiles"
   "${HOME}/Pictures"
   "${HOME}/Documents/obsidian"
   "${HOME}/Documents/books-and-pdfs"
-  "${HOME}/Documents/linops"
   "${HOME}/Documents/projects/check-and-remove"
   "${HOME}/Documents/projects/DSA"
   "${HOME}/Documents/projects/exercism"
   "${HOME}/Documents/projects/intro-cs"
+  "${HOME}/Projects/linops"
 )
 
 clear
-
-printf "%b\n" "${YELLOW}************************ configured repos ************************${RC}"
 for repo in "${repolist[@]}"; do
-  printf "%b\n" "${GREEN}$repo${RC}"
-done
+  printf "%-60s" "$repo"
 
-printf "%b\n" "${YELLOW}******************** git status for each repo ********************${RC}"
-for repo in "${repolist[@]}"; do
-  printf "%b\n" "${GREEN}for '$repo':${RC}"
   if [ ! -d "$repo" ]; then
-    printf "%b\n" "${RED}Directory '$repo' does not exist.${RC}"
+    printf "%b\n" "${RED}Directory does not exist.${RC}"
   else
     cd "$repo" || continue
-    if [ -n "$(git status --porcelain)" ]; then
-      printf "%b\n" "${RED}Repository needs attention.${RC}"
+
+    if [ -n "$(git status --porcelain 2>/dev/null)" ]; then
+      printf "%b\n" "${YELLOW}Repository needs attention.${RC}"
     else
       printf "%b\n" "${GREEN}Repository is clean.${RC}"
     fi
   fi
-  printf "%b\n" "${YELLOW}****************************************************************${RC}"
 done
