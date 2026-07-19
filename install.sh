@@ -30,7 +30,7 @@ stow .
 source ~/.bashrc
 
 printf "%b\n" "${YELLOW}Apply catppuccin mocha (default) theme ...${RC}"
-ln -s $REPO_PATH/themes/catppuccin-mocha ~/.config/themes
+ln -sfn $REPO_PATH/themes/catppuccin-mocha ~/.config/themes
 # move below to separate file like theme-switcher.sh
 # ln -s ~/.config/themes/btop.theme ~/.config/btop/themes/current.theme
 # ln -s ~/.config/themes/dunst ~/.config/dunst/theme
