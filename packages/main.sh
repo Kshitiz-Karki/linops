@@ -34,6 +34,8 @@ sudo dnf install -y "${sys_pkgs[@]}"
 sudo dnf copr enable -y atim/starship
 sudo dnf copr enable -y lilay/topgrade
 # sudo dnf copr enable -y jdxcode/mise
+# neovim minimal
+sudo dnf install -y neovim python3-neovim
 cli_dev_pkgs=(
   starship
   eza
@@ -72,6 +74,9 @@ cd -
 curl -fsSL https://raw.githubusercontent.com/getnf/getnf/main/install.sh | bash
 getnf -i CascadiaMono
 
+# opencode
+curl -fsSL https://opencode.ai/install | bash
+
 # *****************************GUI PAKAGES*****************************
 sudo dnf copr enable lionheartp/Hyprland # waypaper
 #brave browser
@@ -98,6 +103,13 @@ source "${REPO_PATH}/packages/anki.sh"
 #   flatpak remote-modify fedora --disable
 # fi
 
+#tailscale
+curl -fsSL https://tailscale.com/install.sh | sh
+# run below to add device
+# sudo tailscale up
+#install i3 window manager
+sudo dnf install -y @i3
+
 #enable flathub
 flatpak remote-add --if-not-exists flathub https://dl.flathub.org/repo/flathub.flatpakrepo
 
@@ -106,6 +118,7 @@ flatpaks=(
   md.obsidian.Obsidian
   com.github.tchx84.Flatseal
   org.gnome.DejaDup
+  com.rustdesk.RustDesk # for screen share and control using tailscale, needs i3 window manager
   # com.saivert.pwvucontrol
 )
 

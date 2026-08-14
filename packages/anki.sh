@@ -5,6 +5,8 @@
 
 AVAILABLE_VERSION=$(gh release view --repo ankitects/anki --json tagName --jq '.tagName | ltrimstr("v")')
 
+sudo dnf install -y gh
+
 # if anki is already installed and is of latest version then do nothing
 if command -v anki >/dev/null; then
   ANKI_VERSION=$(anki -v)

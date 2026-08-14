@@ -72,11 +72,8 @@ ln -s $REPO_PATH/utils ~/bin
 printf "%b\n" "${YELLOW}Cleanup (remove unrequired packages) ...${RC}"
 sudo dnf group remove -y printing
 unreqd_pkgs=(
-  cups
-  # swaylock
-  mpv
   system-config-printer
-  # sddm # use tty login using .bash_profile and .zprofile
+  fedora-bookmarks
 )
 sudo dnf remove -y "${unreqd_pkgs[@]}"
 printf "%b\n" "${GREEN}Complete.${RC}"
