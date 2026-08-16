@@ -1,13 +1,11 @@
-#!/bin/bash
-
+# Exercism
+```sh
 bin install github.com/exercism/cli
 exercism configure --token=8121c352-aae9-425d-a342-de13f94bbd67
 # change default workspace
 mkdir -p ~/Projects/exercism
 exercism configure --workspace="/home/$USER/Projects/exercism"
-
 ###### below info can be found at: https://github.com/exercism/cli/releases/download/v3.5.8/exercism-3.5.8-linux-x86_64.tar.gz
-
 ### Shell Completion Scripts
 #
 #### Bash
@@ -59,3 +57,23 @@ exercism configure --workspace="/home/$USER/Projects/exercism"
 #Completions must go in the user defined `$fish_complete_path`. By default, this is `~/.config/fish/completions`
 #
 #    mv ../shell/exercism.fish ~/.config/fish/exercism.fish
+```
+
+
+# Python
+```sh
+#https://developer.fedoraproject.org/tech/languages/python/multiple-pythons.html
+# sudo dnf install python3.11
+# use mise instead
+python3.11 -m venv --prompt . .venv
+source .venv/bin/activate
+python -m pip install --upgrade pip
+python3 -m pip install pytest pytest-cache pytest-subtests pytest-pylint
+```
+
+
+# C
+```sh
+# dependencies to compile, run & test .c files
+sudo dnf install -y libasan valgrind
+```

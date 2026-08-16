@@ -51,7 +51,9 @@ if [[ -z "$query" && -n "$bang" ]]; then
   #  -n - checks if string is non-empty
   # default case: perform brave search
   xdg-open "https://search.brave.com/search?q=$bang"
-  swaymsg workspace 1
+  if [ "$XDG_CURRENT_DESKTOP" = "sway" ] || pgrep -x sway >/dev/null; then
+    swaymsg workspace 1
+  fi
   exit 0
 fi
 
@@ -64,8 +66,9 @@ url_template="${bangs[$bang]}"
 printf -v url "$url_template" "${query// /+}"
 
 xdg-open "$url"
-swaymsg workspace 1
-
+if [ "$XDG_CURRENT_DESKTOP" = "sway" ] || pgrep -x sway >/dev/null; then
+  swaymsg workspace 1
+fi
 # query=$(
 #   printf "" | fuzzel --config="$HOME/.config/fuzzel/web-search.ini" --dmenu
 # )

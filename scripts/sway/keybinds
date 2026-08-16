@@ -1,0 +1,143 @@
+#!/bin/bash
+
+# SUPER=
+#
+# bindings=(
+#   "$SUPER  + Return                       terminal"
+#   "$SUPER  + Space                        app launcher"
+#   "$SUPER  + m                            menu launcher"
+#   "$SUPER  + Alt + k                      view sway keybinds"
+#   "$SUPER  + Alt + v                      view vimium keybinds"
+#   # "$SUPER  + Alt + b                      bluetui"
+#   # "$SUPER  + Alt + a                      wiremix"
+#   # "$SUPER  + Alt + w                      nmtui"
+#   "$SUPER  + Alt + t                      toggle waybar"
+#   "$SUPER  + p                            tmux projects"
+#   "$SUPER  + s                            tmux sessions"
+#   "$SUPER  + Alt + x                      power"
+#   "$SUPER  + o                            opened windows"
+#   "$SUPER  + Shift + Space                next/switch keyboard layout"
+#   "$SUPER  + q                            close/kill window"
+#   "$SUPER  + b                            web browser"
+#   "$SUPER  + Shift + c                    reload sway configuration"
+#   "$SUPER  + Shift + e                    exit from sway wm"
+#   "$SUPER  + Escape                       lock screen"
+#   "$SUPER  + (///)                    move focus"
+#   "$SUPER  + (h/j/k/l)                    move focus"
+#   "$SUPER  + (1/2/3...)                   switch to workspace"
+#   "$SUPER  + Shift + (1/2/3...)           move focused container to workspace"
+#   "$SUPER  + z                            horizontal split"
+#   "$SUPER  + v                            vertical split"
+#   "$SUPER  + s                            switch to stacking layout"
+#   "$SUPER  + w                            switch to tabbed layout"
+#   "$SUPER  + e                            switch to 'toggle split' layout"
+#   "$SUPER  + f                            make current focus fullscreen"
+#   "$SUPER  + Shift + t                    toggle between floating & tiling mode"
+#   "$SUPER  + t                            focus between the tiling area and the floating area"
+#   "$SUPER  + a                            move focus to the parent container"
+#   "$SUPER  + Shift + -                    move currently focused window to the scratchpad"
+#   "$SUPER  + -                            toggle/cycle between scratchpad windows"
+#   "$SUPER  + r + (///)                shrink/grow current window (resize)"
+#   "$SUPER  + r + (h/j/k/l)                shrink/grow current window (resize)"
+#   "Alt + Tab                         switch between current & last workspace"
+#   "$SUPER  + PgUp                         next workspace"
+#   "$SUPER  + PgDn                         previous workspace"
+#   "$SUPER  + Shift + r                    screenshot region"
+#   "PrtSc                             screenshot window"
+#   "$SUPER  + Shift + w                    screenshot region - only clipboard"
+#   "$SUPER  + Shift + b                    copy master password"
+#   "$SUPER  + Shift + u                    copy user password"
+#
+# )
+#
+# # Pipe array into rofi in dmenu mode
+# printf '%s\n' "${bindings[@]}" | rofi -dmenu -p "Search" -theme-str "window { width: 80%; height: 80%; }"
+
+# source: https://codeberg.org/justaguylinux/sway-setup/src/branch/main/config/scripts/help
+SWAY_CONFIG="$HOME/.config/sway/config"
+KEYBINDS="$HOME/Projects/linops/scripts/keys.conf"
+THEME="$HOME/.config/rofi/noctalia.rasi"
+
+# Resolve sway "set $var value" definitions so keybind columns show $mod→Super etc.
+declare -A vars
+while IFS= read -r line; do
+  if [[ $line =~ ^set[[:space:]]+\$([a-zA-Z_]+)[[:space:]]+(.+)$ ]]; then
+    vars["${BASH_REMATCH[1]}"]="${BASH_REMATCH[2]}"
+  fi
+done <"$SWAY_CONFIG"
+a
+# Translate $mod → Super (most readable for users)
+vars[mod]="Super"
+
+resolve_vars() {
+  local s="$1"
+  for v in "${!vars[@]}"; do
+    s="${s//\$$v/${vars[$v]}}"
+  done
+  echo "$s"
+}
+
+rows=$(awk '
+    function xmlesc(s) {
+        gsub(/&/, "\\&amp;", s)
+        gsub(/</, "\\&lt;", s)
+        return s
+    }
+    BEGIN { last = ""; in_keybind_section = 0 }
+
+    # Section marker: # === NAME ===
+    /^#[[:space:]]*===[[:space:]]+.+[[:space:]]+===[[:space:]]*$/ {
+        s = $0
+        sub(/^#[[:space:]]*===[[:space:]]+/, "", s)
+        sub(/[[:space:]]+===[[:space:]]*$/, "", s)
+        printf "SECTION|%s\n", s
+        last = ""
+        next
+    }
+
+    # Regular comment → buffer as description for the next bindsym
+    /^#/ { last = substr($0, 2); sub(/^[[:space:]]+/, "", last); next }
+
+    # bindsym line
+    /^bindsym[[:space:]]/ {
+        line = $0
+        sub(/^bindsym[[:space:]]+/, "", line)
+        if (match(line, /^[^[:space:]]+/)) {
+            key = substr(line, RSTART, RLENGTH)
+            rest = substr(line, RLENGTH + 1)
+            sub(/^[[:space:]]+/, "", rest)
+            # If no description comment, use the command (cleaned)
+            desc = last
+            if (desc == "") {
+                desc = rest
+                sub(/^exec[[:space:]]+/, "", desc)
+                if (length(desc) > 60) desc = substr(desc, 1, 57) "..."
+            }
+            printf "ROW|%s|%s\n", key, desc
+        }
+        last = ""
+        next
+    }
+
+    { last = "" }
+' "$KEYBINDS")
+
+# Resolve $mod etc. and apply Pango markup
+formatted=$(while IFS='|' read -r type a b; do
+  case "$type" in
+  SECTION)
+    name=$(resolve_vars "$a")
+    # printf '<span size="large" weight="bold" foreground="#ff8f40">── %s ──</span>\n' "${name//&/&amp;}"
+    printf '<span size="large" weight="bold">── %s ──</span>\n' "${name//&/&amp;}"
+    ;;
+  ROW)
+    key=$(resolve_vars "$a")
+    desc=$(resolve_vars "$b")
+    # printf '<span foreground="#78a9ff">%-35s</span>  %s\n' "${key//&/&amp;}" "${desc//&/&amp;}"
+    printf '<span>%-35s</span>  %s\n' "${key//&/&amp;}" "${desc//&/&amp;}"
+    ;;
+  esac
+done <<<"$rows")
+
+echo "$formatted" | rofi -dmenu -markup-rows -i -p "Sway Keybindings" \
+  -line-padding 4 -hide-scrollbar -theme "$THEME"

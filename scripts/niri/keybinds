@@ -1,0 +1,22 @@
+#!/usr/bin/env bash
+
+KEYBINDS_FILE="$HOME/.config/niri/binds.kdl"
+
+awk '
+/hotkey-overlay-title="/ {
+    key = $1
+
+    if (key ~ /Mod/) {
+        sub(/Mod/, "", key)
+    }
+
+    gsub(/\+/, " + ", key)
+
+    if (match($0, /hotkey-overlay-title="[^"]+"/)) {
+        title = substr($0, RSTART + 22, RLENGTH - 23)
+        printf "%-30s %s\n", key, title
+    }
+}
+' "$KEYBINDS_FILE" |
+  rofi -dmenu -i -p "Niri Keybinds" \
+    -theme-str "window { width: 55%; height: 80%; }"

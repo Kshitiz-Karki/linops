@@ -3,6 +3,7 @@
 if [[ -z "$1" || -z "$2" || -z "$3" ]]; then
   {
     echo "Usage: $0 <type (region/window/fullscreen)> <directory (save location)> <file-name>"
+    echo "Example: screenshot region ~/Documents/obsidian/images gzk-blp-30"
     exit 1
   }
 fi

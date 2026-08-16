@@ -1,0 +1,27 @@
+#!/usr/bin/env bash
+# Window switcher for Niri + Rofi
+# clone of ../sway/app-switcher
+row=$(
+  niri msg --json windows |
+    jq -r '
+        .[]
+        | (if .is_focused then "*" else " " end) as $asterisk
+        | (
+            if .app_id == "spotify-client" then "spotify-client"
+            elif .app_id == "LM Studio" then "lm-studio"
+            else .app_id
+          end
+        ) as $icon_name
+        | "[\(.workspace_id)] \($asterisk) <span weight=\"bold\">\(.app_id)</span>  - \(.title) <!-- \(.id) -->\u0000icon\u001f\($icon_name)"
+    ' |
+    sed 's/&/&amp;/g' |
+    rofi -dmenu -show-icons -markup-rows -p "window"
+)
+
+if [[ -n "$row" ]]; then
+  winid=$(sed -n 's/.*<!-- \([0-9]*\) -->.*/\1/p' <<<"$row")
+
+  if [[ -n "$winid" ]]; then
+    niri msg action focus-window --id "$winid"
+  fi
+fi

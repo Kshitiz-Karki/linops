@@ -31,21 +31,8 @@ dirname="$(basename $dir)"
 # echo "dirname=$dirname"
 
 # Nuke any existing terminal (since you only use one terminal)
-if pgrep -x sway >/dev/null; then
-  swaymsg '[workspace="6" app_id="foot"]' kill || true
-else
-  niri msg --json windows |
-    jq -r '.[] | select(.app_id == "tmux-sessions") | .id' |
-    while read -r id; do
-      niri msg action close-window --id "$id"
-    done
-fi
-
+swaymsg '[workspace="6" app_id="foot"]' kill || true
 sleep 0.1
 
 # Launch a clean terminal: attach if exists, else create
-if pgrep -x sway >/dev/null; then
-  exec $TERMINAL -e tmux new-session -As "$dirname" -c "$dir" &
-else
-  exec $TERMINAL --app-id=tmux-sessions -e tmux new-session -As "$dirname" -c "$dir" &
-fi
+exec $TERMINAL -e tmux new-session -As "$dirname" -c "$dir" &

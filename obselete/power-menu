@@ -41,14 +41,19 @@ icons[shutdown]="\Uf0425"
 icons[cancel]="\Uf0156"
 
 declare -A actions
-# actions[lockscreen]="loginctl lock-session ${XDG_SESSION_ID-}"
-actions[lockscreen]="gtklock"
 #actions[switchuser]="???"
+actions[lockscreen]="loginctl lock-session ${XDG_SESSION_ID-}"
+# actions[lockscreen]="gtklock"
 actions[logout]="loginctl terminate-session ${XDG_SESSION_ID-}"
 actions[suspend]="systemctl suspend"
 actions[hibernate]="systemctl hibernate"
 actions[reboot]="systemctl reboot"
 actions[shutdown]="systemctl poweroff"
+# actions[lockscreen]="noctalia msg session lock"
+# actions[logout]="noctalia msg session logout"
+# actions[suspend]="noctalia msg session lock-and-suspend"
+# actions[reboot]="noctalia msg session reboot"
+# actions[shutdown]="noctalia msg session shutdown"
 
 # By default, ask for confirmation for actions that are irreversible
 confirmations=(reboot shutdown logout)
