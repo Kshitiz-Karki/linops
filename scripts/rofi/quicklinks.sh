@@ -2,9 +2,9 @@
 
 URLS=(
   "[translate]  https://translate.google.com/?sl=de&tl=en&op=translate"
-  "[vocab]  https://der-artikel.de/"
-  "[vocab]  https://www.linguee.de/"
-  "[vocab]  https://lingvist.com/course/learn-german-online/resources/german-alphabet/"
+  "[deutsch]  https://der-artikel.de/"
+  "[deutsch]  https://www.linguee.de/"
+  "[deutsch]  https://lingvist.com/course/learn-german-online/resources/german-alphabet/"
 )
 
 # Use rofi to select a URL

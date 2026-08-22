@@ -10,7 +10,7 @@ SCRIPTS_PATH_LAUNCHER=~/Projects/linops/scripts/rofi
 labels=(
   "  ls ~/.local/bin"
   "  Niri keybinds             [ $SUPER    +     / ]"
-  "󰖟  Quick links               [ $SUPER + Ctrl + W ]"
+  "󰖟  Quick links               [ $SUPER + Ctrl + Q ]"
   "  Web search / bangs        [ $SUPER + Ctrl + S ]"
   # "  Sway keybinds             [$SUPER + Alt + k]"
   # "  Vimium keybinds           [$SUPER + Alt + v]"
@@ -33,7 +33,8 @@ echo "choice: ${choice}"
 
 case "${choice,,}" in
 *local*) $SCRIPTS_PATH_LAUNCHER/local-bin-apps.sh ;;
-*quick*) noctalia msg panel-toggle launcher /web ;;
+# *quick*) noctalia msg panel-toggle launcher /web ;;
+*quick*) $SCRIPTS_PATH_LAUNCHER/quicklinks.sh ;;
 *search*) $SCRIPTS_PATH_LAUNCHER/web-search.sh ;;
 *apps*) $SCRIPTS_PATH_LAUNCHER/local-bin-apps.sh ;;
 *sway*) $SCRIPTS_PATH/sway/keybinds ;;
