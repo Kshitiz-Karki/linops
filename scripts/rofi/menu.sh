@@ -32,6 +32,7 @@ choice=$(
 echo "choice: ${choice}"
 
 case "${choice,,}" in
+*local*) $SCRIPTS_PATH_LAUNCHER/local-bin-apps.sh ;;
 *quick*) noctalia msg panel-toggle launcher /web ;;
 *search*) $SCRIPTS_PATH_LAUNCHER/web-search.sh ;;
 *apps*) $SCRIPTS_PATH_LAUNCHER/local-bin-apps.sh ;;
