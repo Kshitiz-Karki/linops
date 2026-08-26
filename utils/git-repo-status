@@ -8,18 +8,19 @@ RED='\033[0;31m'
 repolist=(
   "${HOME}/dotfiles"
   "${HOME}/Pictures"
+  "${HOME}/Projects/linops"
   "${HOME}/Documents/obsidian"
   "${HOME}/Documents/books-and-pdfs"
   "${HOME}/Documents/projects/check-and-remove"
   "${HOME}/Documents/projects/DSA"
   "${HOME}/Documents/projects/exercism"
   "${HOME}/Documents/projects/intro-cs"
-  "${HOME}/Projects/linops"
 )
 
 clear
 for repo in "${repolist[@]}"; do
-  printf "%-60s" "$repo"
+  display_repo="${repo/#$HOME/\~}"
+  printf "%-40s ----------------->     " "$display_repo"
 
   if [ ! -d "$repo" ]; then
     printf "%b\n" "${RED}Directory does not exist.${RC}"
@@ -32,4 +33,5 @@ for repo in "${repolist[@]}"; do
       printf "%b\n" "${GREEN}Repository is clean.${RC}"
     fi
   fi
+  # echo
 done
